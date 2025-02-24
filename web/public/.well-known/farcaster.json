@@ -1,0 +1,18 @@
+{
+    "accountAssociation": {
+      "header": "eyJmaWQiOjg3MDU5NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEM4MDEzQThDMDk3NzRlYjJhMDA4RmRDYmVEQjVmNjQwZDFkYmVjMDAifQ",
+      "payload": "eyJkb21haW4iOiJ3YXJwbGV0LnBhcnR5In0",
+      "signature": "MHg5ODkzMDdiZGI0MzY3ZmU0NTc5YjQ5MmFlNTE5M2FmOWMyODgxNmJmYTcxNTMxNDE1YTc2MzA2ZGVlYmVlMDIyNzVlZmU3MDJhNWMyZTA1NzEwY2NlMzI2YTRmMzgwMmFlZjZmMDliNGVmMjBiZDk1ODQ4ZDc1NWZkNTM2ZDMwNDFj"
+    },
+    "frame": {
+      "version": "1",
+      "name": "Warplet 🎊 Party",
+      "iconUrl": "https://warplet.party/splash.gif",
+      "homeUrl": "https://warplet.party",
+      "imageUrl": "https://warplet.party/poster.webp",
+      "buttonTitle": "Join the Warplet 🎊 Party",
+      "splashImageUrl": "https://warplet.party/splash.png",
+      "splashBackgroundColor": "#de711f",
+      "webhookUrl": "https://webhook.castr.guru/warplet.party"
+    }
+  }
