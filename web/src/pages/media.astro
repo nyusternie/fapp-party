@@ -1,0 +1,24 @@
+---
+import '../styles/global.css'
+
+import Layout from '../layouts/Layout.astro'
+
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout>
+	<Header />
+
+	<main class="px-3 max-w-5xl mx-auto py-16 flex flex-col gap-6">
+		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+			Media Center
+		</h1>
+
+		<p>
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti repudiandae voluptas recusandae, doloremque dignissimos dicta qui quod beatae perferendis, a maxime explicabo tempore optio? Atque reprehenderit voluptas excepturi quia iure?
+		</p>
+	</main>
+
+	<Footer />
+</Layout>
