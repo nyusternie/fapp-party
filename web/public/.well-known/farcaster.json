@@ -7,11 +7,11 @@
     "frame": {
       "version": "1",
       "name": "Warplet 🎊 Party",
-      "iconUrl": "https://warplet.party/splash.gif",
+      "iconUrl": "https://warplet.party/icon.png",
       "homeUrl": "https://warplet.party",
       "imageUrl": "https://warplet.party/poster.webp",
       "buttonTitle": "Join the Warplet 🎊 Party",
-      "splashImageUrl": "https://warplet.party/splash.png",
+      "splashImageUrl": "https://warplet.party/splash.gif",
       "splashBackgroundColor": "#de711f",
       "webhookUrl": "https://webhook.castr.guru/warplet.party"
     }
