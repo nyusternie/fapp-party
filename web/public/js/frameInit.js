@@ -3,7 +3,7 @@
  *
  * Will hide the Farcaster frame splash screen.
  */
-export default () => {
+function frameInit() {
     /* Generate a message id. */
     const generateMessageId = () => {
         return Array(4)
@@ -27,3 +27,4 @@ export default () => {
         window.parent.postMessage(message, '*')
     }
 }
+frameInit()
