@@ -1,10 +1,30 @@
+---
+const frameEmbed = {
+    version: 'next',
+    imageUrl: 'https://warplet.party/icon.png',
+    button: {
+        title: 'Enter Warplet Party',
+        action: {
+            type: 'launch_frame',
+            name: 'Enter',
+            url: 'https://warplet.party',
+            splashImageUrl: 'https://warplet.party/splash.gif',
+            splashBackgroundColor: '#efefef'
+        }
+    }
+}
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="fc:frame" content={JSON.stringify(frameEmbed)} />
+
 		<title>Warplet 🎊 Party</title>
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<script async src="/js/frameInit.js" defer></script>
 	</head>
