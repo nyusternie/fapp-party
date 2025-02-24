@@ -1,6 +1,8 @@
 ---
 import astroLogo from '../assets/astro.svg'
 import icon from '../assets/icon.svg'
+
+const isShowingMobileMenu = false
 ---
 
 <!-- Header -->
@@ -12,25 +14,43 @@ import icon from '../assets/icon.svg'
                 <img class="size-20" src={icon.src} alt="" />
             </a>
         </div>
+
         <div class="flex lg:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700">
                 <span class="sr-only">Open main menu</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <svg class="size-12" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
+
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm/6 font-semibold text-slate-900">Product</a>
-            <a href="#" class="text-sm/6 font-semibold text-slate-900">Features</a>
-            <a href="#" class="text-sm/6 font-semibold text-slate-900">Marketplace</a>
-            <a href="#" class="text-sm/6 font-semibold text-slate-900">Company</a>
+            <a href="#" class="text-xl/6 font-semibold text-slate-900">
+                Product
+            </a>
+
+            <a href="#" class="text-xl/6 font-semibold text-slate-900">
+                Features
+            </a>
+
+            <a href="#" class="text-xl/6 font-semibold text-slate-900">
+                Marketplace
+            </a>
+
+            <a href="#" class="text-xl/6 font-semibold text-slate-900">
+                Company
+            </a>
         </div>
+
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm/6 font-semibold text-slate-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            <a href="#" class="px-5 py-2 text-2xl/6 font-semibold text-sky-800 bg-sky-300 rounded-xl border border-sky-500 shadow hover:bg-sky-200">
+                Sign-In
+            </a>
         </div>
     </nav>
+
     <!-- Mobile menu, show/hide based on menu open state. -->
+    {isShowingMobileMenu &&
     <div class="lg:hidden" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-50"></div>
@@ -40,6 +60,7 @@ import icon from '../assets/icon.svg'
                     <span class="sr-only">Your Company</span>
                     <img class="h-8 w-auto" src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                 </a>
+
                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-slate-700">
                     <span class="sr-only">Close menu</span>
                     <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -47,6 +68,7 @@ import icon from '../assets/icon.svg'
                     </svg>
                 </button>
             </div>
+
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
@@ -55,11 +77,12 @@ import icon from '../assets/icon.svg'
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Marketplace</a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Company</a>
                     </div>
+
                     <div class="py-6">
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Log in</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>}
 </header>
