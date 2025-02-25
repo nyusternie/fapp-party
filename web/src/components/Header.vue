@@ -28,7 +28,7 @@ const isShowingMobileMenu = ref(false)
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5">
                     <span class="sr-only">Warplet Party</span>
-                    <img class="size-20" src={icon.src} alt="Warplet Party logo" />
+                    <img class="size-20" src="/icon.svg" alt="Warplet Party logo" />
                 </a>
             </div>
 
@@ -73,7 +73,7 @@ const isShowingMobileMenu = ref(false)
                 <div class="flex items-center justify-between">
                     <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">Warplet Party</span>
-                        <img class="size-14" src={icon.src} alt="Warplet Party icon" />
+                        <img class="size-20" src="/icon.svg" alt="Warplet Party icon" />
                     </a>
 
                     <button @click="isShowingMobileMenu = false" type="button" class="-m-2.5 rounded-md p-2.5 text-slate-700">
@@ -86,15 +86,28 @@ const isShowingMobileMenu = ref(false)
 
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
-                        <div class="space-y-2 py-6">
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Product</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Features</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Marketplace</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Company</a>
+                        <div class="space-y-4 py-6">
+                            <a href="/leaderboard" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Leaderboard
+                            </a>
+
+                            <a href="/builders" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                For Builders
+                            </a>
+
+                            <a href="/guests" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                For Guests
+                            </a>
+
+                            <a href="/sponsors" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                For Sponsors
+                            </a>
                         </div>
 
                         <div class="py-6">
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-slate-900 hover:bg-gray-50">Log in</a>
+                            <a href="/profile" class="-mx-3 block rounded-lg px-3 py-2.5 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Sign-In
+                            </a>
                         </div>
                     </div>
                 </div>
