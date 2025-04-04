@@ -1,5 +1,5 @@
-# Warplet Party
+# MiniApps Party
 
-### https://warplet.party
+### https://miniapps.party
 
 Farcaster Hackathon for Frames v2 Builders

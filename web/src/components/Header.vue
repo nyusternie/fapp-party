@@ -27,8 +27,8 @@ const isShowingMobileMenu = ref(false)
         <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Warplet Party</span>
-                    <img class="size-20" src="/icon.svg" alt="Warplet Party logo" />
+                    <span class="sr-only">MiniApps Party</span>
+                    <img class="size-20" src="/icon.svg" alt="MiniApps Party logo" />
                 </a>
             </div>
 
@@ -72,8 +72,8 @@ const isShowingMobileMenu = ref(false)
             <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
                     <a href="/" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Warplet Party</span>
-                        <img class="size-20" src="/icon.svg" alt="Warplet Party icon" />
+                        <span class="sr-only">MiniApps Party</span>
+                        <img class="size-20" src="/icon.svg" alt="MiniApps Party icon" />
                     </a>
 
                     <button @click="isShowingMobileMenu = false" type="button" class="-m-2.5 rounded-md p-2.5 text-slate-700">

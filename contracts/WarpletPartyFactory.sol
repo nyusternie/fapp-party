@@ -7,11 +7,11 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /// @custom:security-contact security@layer1.guru
-contract WarpletPartyFactory is ERC721, ERC721URIStorage, Ownable {
+contract MiniAppsPartyFactory is ERC721, ERC721URIStorage, Ownable {
     uint256 private _nextTokenId;
 
     constructor(address initialOwner)
-        ERC721(unicode"Warplet 🎊 Party", "WARPLETPARTY")
+        ERC721(unicode"MiniApps 🎊 Party", "MINIAPPSPARTY")
         Ownable(initialOwner)
     {}
 
