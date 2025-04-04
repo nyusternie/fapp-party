@@ -2,4 +2,4 @@
 
 ### https://miniapps.party
 
-Farcaster Hackathon for Frames v2 Builders
+A Farcaster hackathon for MiniApp builders to showcase their work for sponsored cash & prizes.
