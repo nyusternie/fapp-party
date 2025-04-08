@@ -3,7 +3,7 @@
  * Copyright (c) 2025 Build On Farcaster DAO.
  * SPDX-License-Identifier: MIT
  *
- * MiniAppsPartyPurse - TBD.
+ * Mini Apps Party Purse - TBD.
  *
  * Version 1 (alpha)
  * Released 25.2.22

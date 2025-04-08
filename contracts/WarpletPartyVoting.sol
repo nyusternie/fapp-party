@@ -3,7 +3,7 @@
  * Copyright (c) 2025 Build On Farcaster DAO.
  * SPDX-License-Identifier: MIT
  *
- * MiniAppsPartyVoting - TBD.
+ * Mini Apps Party Voting - TBD.
  *
  * Version 1 (alpha)
  * Released 25.2.22

@@ -1,4 +1,4 @@
-# MiniApps Party
+# Mini Apps Party
 
 ### https://miniapps.party
 

@@ -6,11 +6,11 @@
     },
     "frame": {
       "version": "1",
-      "name": "MiniApps 🎊 Party",
+      "name": "Mini Apps 🎊 Party",
       "iconUrl": "https://miniapps.party/icon.png",
       "homeUrl": "https://miniapps.party",
       "imageUrl": "https://miniapps.party/poster.webp",
-      "buttonTitle": "Join MiniApps 🎊 Party",
+      "buttonTitle": "Join Mini Apps 🎊 Party",
       "splashImageUrl": "https://miniapps.party/splash.gif",
       "splashBackgroundColor": "#de711f",
       "webhookUrl": "https://webhook.castr.guru/miniapps.party"
