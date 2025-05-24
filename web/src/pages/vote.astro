@@ -1,0 +1,24 @@
+---
+import '../styles/global.css'
+
+import Layout from '../layouts/Layout.astro'
+
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout>
+	<Header client:load />
+
+	<main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
+		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+			Vote For Your TOP3
+		</h1>
+
+		<p>
+			Here you can VOTE for your TOP3 Favorite Mini Apps from this past week.
+		</p>
+	</main>
+
+	<Footer />
+</Layout>

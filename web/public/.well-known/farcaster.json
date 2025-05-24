@@ -7,12 +7,12 @@
   "frame": {
     "version": "1",
     "name": "Mini Apps 🎊 Party",
-    "iconUrl": "https://miniapps.party/icon.png",
+    "iconUrl": "https://miniapps.party/logo.png",
     "homeUrl": "https://miniapps.party",
     "imageUrl": "https://miniapps.party/poster.webp",
-    "buttonTitle": "Join Mini Apps 🎊 Party",
+    "buttonTitle": "Join the Mini Apps 🎊 Party!",
     "splashImageUrl": "https://miniapps.party/splash.gif",
     "splashBackgroundColor": "#de711f",
-    "webhookUrl": "https://webhook.castr.guru/miniapps.party"
+    "webhookUrl": "https://webhook.castr.guru/8164837c-e461-4636-8649-79440364856d"
   }
 }
