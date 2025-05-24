@@ -1,10 +1,10 @@
 ---
-import '../styles/global.css'
+import '../../styles/global.css'
 
-import Layout from '../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.astro'
+import Header from '../../components/Header.vue'
+import Footer from '../../components/Footer.astro'
 
 const projects = []
 
@@ -121,6 +121,20 @@ projects.push({
 		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
 			Leaderboard
 		</h1>
+
+		<section>
+			<a href="/leaderboard/guests">
+				Guests
+			</a>
+			|
+			<a href="/leaderboard/builders">
+				Builders
+			</a>
+			|
+			<a href="/leaderboard/sponsors">
+				Sponsors
+			</a>
+		</section>
 
 		<div class="bg-white py-6 sm:py-12">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
