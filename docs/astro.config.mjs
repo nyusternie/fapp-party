@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Fapp Party Docs 🎉',
+			title: 'Fapp Party 🎉 Docs',
 			social: {
 				github: 'https://github.com/nyusternie/miniapps-party',
 			},
