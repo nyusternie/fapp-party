@@ -86,17 +86,24 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 import { sdk } from '@farcaster/frame-sdk'
 import confetti from 'canvas-confetti'
 
-/* Initialize globals. */
-let isWebApp
-let isMiniApp
-
 /* Request Mini App flag. */
-isMiniApp = await sdk.isInMiniApp()
+const isMiniApp = await sdk.isInMiniApp()
 console.log('IS MINIAPP FLAG (browser)', isMiniApp)
 
+/* Check for Mini App container. */
 if (isMiniApp) {
-	miniapp[0].style.display = 'flex'
-	webapp[0].style.display = 'none'
+	/* Initialize headers + footers. */
+	const miniapp = document.querySelectorAll('[data-miniapp]')
+	const webapp = document.querySelectorAll('[data-webapp]')
+
+	/* Wait for document loading to complete. */
+	document.addEventListener('DOMContentLoaded', function () {
+		/* Load Mini App UI. */
+		miniapp[0].style.display = 'flex'
+
+		/* Hide Web App UI. */
+		webapp[0].style.display = 'none'
+	})
 }
 
 // const buttons = document.querySelectorAll('[data-confetti-button]')
@@ -111,10 +118,6 @@ if (isMiniApp) {
 // 			webapp[0].style.display = 'none'
 // 		})
 // 	})
-
-/* Initialize headers + footers. */
-const miniapp = document.querySelectorAll('[data-miniapp]')
-const webapp = document.querySelectorAll('[data-webapp]')
 </script>
 
 <style>
