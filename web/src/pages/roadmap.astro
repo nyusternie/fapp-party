@@ -94,18 +94,23 @@ let isMiniApp
 isMiniApp = await sdk.isInMiniApp()
 console.log('IS MINIAPP FLAG (browser)', isMiniApp)
 
-const buttons = document.querySelectorAll('[data-confetti-button]')
-buttons.forEach((button) => {
-    button.addEventListener('click', () => confetti());
-})
+if (isMiniApp) {
+	miniapp[0].style.display = 'flex'
+	webapp[0].style.display = 'none'
+}
 
-document.querySelectorAll('[data-miniapp-button]')
-	.forEach((button) => {
-		button.addEventListener('click', () => {
-			miniapp[0].style.display = 'flex'
-			webapp[0].style.display = 'none'
-		})
-	})
+// const buttons = document.querySelectorAll('[data-confetti-button]')
+// buttons.forEach((button) => {
+//     button.addEventListener('click', () => confetti());
+// })
+
+// document.querySelectorAll('[data-miniapp-button]')
+// 	.forEach((button) => {
+// 		button.addEventListener('click', () => {
+// 			miniapp[0].style.display = 'flex'
+// 			webapp[0].style.display = 'none'
+// 		})
+// 	})
 
 /* Initialize headers + footers. */
 const miniapp = document.querySelectorAll('[data-miniapp]')
