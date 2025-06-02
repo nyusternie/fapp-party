@@ -92,12 +92,12 @@ console.log('IS MINIAPP FLAG (browser)', isMiniApp)
 
 /* Check for Mini App container. */
 if (isMiniApp) {
-	/* Initialize headers + footers. */
-	const miniapp = document.querySelectorAll('[data-miniapp]')
-	const webapp = document.querySelectorAll('[data-webapp]')
-
 	/* Wait for document loading to complete. */
 	document.addEventListener('DOMContentLoaded', function () {
+		/* Initialize headers + footers. */
+		const miniapp = document.querySelectorAll('[data-miniapp]')
+		const webapp = document.querySelectorAll('[data-webapp]')
+
 		/* Load Mini App UI. */
 		miniapp[0].style.display = 'flex'
 
