@@ -7,6 +7,11 @@ import MiniAppHeader from '../components/miniapp/Header.vue'
 import MiniAppFooter from '../components/miniapp/Footer.vue'
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
+
+const isMiniApp = await Astro.session?.get('isMiniApp')
+console.log('IS MINI APP (roadmap)', isMiniApp)
+
+await Astro.session?.set('isMiniApp', true)
 ---
 
 <Layout>
@@ -89,6 +94,9 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
 import confetti from 'canvas-confetti'
+
+const isMiniAppNative = await Astro.session?.get('isMiniApp')
+console.log('IS MINI APP (native)', isMiniAppNative)
 
 /* Set constants. */
 const PAGE_UPDATE_DELAY = 10
