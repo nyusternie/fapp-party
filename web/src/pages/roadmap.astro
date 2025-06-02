@@ -107,8 +107,18 @@ console.log('INSIDE')
 			webapp[0].style.display = 'none'
 console.log('WAITED!!')
 		}, 3000)
+console.log('LOADED')
 	})
 console.log('COMPLETED')
+
+setTimeout(() => {
+	/* Load Mini App UI. */
+	miniapp[0].style.display = 'flex'
+
+	/* Hide Web App UI. */
+	webapp[0].style.display = 'none'
+console.log('LOOONG WAIT!!')
+}, 10000)
 }
 
 const buttons = document.querySelectorAll('[data-confetti-button]')
