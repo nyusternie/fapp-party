@@ -15,16 +15,17 @@
     "subtitle": "New and Noteworthy Mini Apps",
     "description": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
     "screenshotUrls": [
-      "https://rewards.warpcast.com/screenshot1.png",
-      "https://rewards.warpcast.com/screenshot2.png",
-      "https://rewards.warpcast.com/screenshot3.png"
+      "https://miniapps.party/screenshot1.webp",
+      "https://miniapps.party/screenshot2.webp",
+      "https://miniapps.party/screenshot3.webp"
     ],
     "primaryCategory": "social",
     "tags": [
-      "rewards",
-      "leaderboard",
-      "warpcast",
-      "earn"
+      "new",
+      "trending",
+      "hackathon",
+      "builder",
+      "party"
     ],
     "heroImageUrl": "https://miniapps.party/poster.webp",
     "tagline": "New and Noteworthy Mini Apps",
