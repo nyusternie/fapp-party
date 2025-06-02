@@ -2,7 +2,9 @@
 
 ### https://miniapps.party
 
-A Farcaster hackathon for Mini App builders to showcase their work for sponsored cash & prizes.
+Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.
+
+Plus, a Farcaster hackathon for Mini App builders to showcase their work for sponsored cash & prizes.
 
 __Mini apps are web apps built with HTML, CSS, and Javascript that can be discovered and used within Farcaster clients.__
 
