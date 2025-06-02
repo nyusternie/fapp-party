@@ -86,6 +86,9 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 import { sdk } from '@farcaster/frame-sdk'
 import confetti from 'canvas-confetti'
 
+/* Set constants. */
+const PAGE_UPDATE_DELAY = 100
+
 /* Request Mini App flag. */
 const isMiniApp = await sdk.isInMiniApp()
 console.log('IS MINIAPP FLAG (browser)', isMiniApp)
@@ -96,43 +99,19 @@ const webapp = document.querySelectorAll('[data-webapp]')
 
 /* Check for Mini App container. */
 if (isMiniApp) {
-console.log('INSIDE')
-	/* Wait for document loading to complete. */
-	document.addEventListener('DOMContentLoaded', function () {
-		setTimeout(() => {
-			/* Load Mini App UI. */
-			miniapp[0].style.display = 'flex'
+	setTimeout(() => {
+		/* Load Mini App UI. */
+		miniapp[0].style.display = 'flex'
 
-			/* Hide Web App UI. */
-			webapp[0].style.display = 'none'
-console.log('WAITED!!')
-		}, 3000)
-console.log('LOADED')
-	})
-console.log('COMPLETED')
-
-setTimeout(() => {
-	/* Load Mini App UI. */
-	miniapp[0].style.display = 'flex'
-
-	/* Hide Web App UI. */
-	webapp[0].style.display = 'none'
-console.log('LOOONG WAIT!!')
-}, 10000)
+		/* Hide Web App UI. */
+		webapp[0].style.display = 'none'
+	}, PAGE_UPDATE_DELAY)
 }
 
 const buttons = document.querySelectorAll('[data-confetti-button]')
 buttons.forEach((button) => {
     button.addEventListener('click', () => confetti());
 })
-
-document.querySelectorAll('[data-miniapp-button]')
-	.forEach((button) => {
-		button.addEventListener('click', () => {
-			miniapp[0].style.display = 'flex'
-			webapp[0].style.display = 'none'
-		})
-	})
 </script>
 
 <style>
