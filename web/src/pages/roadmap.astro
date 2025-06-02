@@ -99,16 +99,16 @@ if (isMiniApp) {
 console.log('INSIDE')
 	/* Wait for document loading to complete. */
 	document.addEventListener('DOMContentLoaded', function () {
-		/* Load Mini App UI. */
-		miniapp[0].style.display = 'flex'
+		setTimeout(() => {
+			/* Load Mini App UI. */
+			miniapp[0].style.display = 'flex'
 
-		/* Hide Web App UI. */
-		webapp[0].style.display = 'none'
-console.log('LOADED')
-alert('DOM UPDATED!')
+			/* Hide Web App UI. */
+			webapp[0].style.display = 'none'
+console.log('WAITED!!')
+		}, 3000)
 	})
 console.log('COMPLETED')
-alert('MINI APP DETECTED!')
 }
 
 const buttons = document.querySelectorAll('[data-confetti-button]')
