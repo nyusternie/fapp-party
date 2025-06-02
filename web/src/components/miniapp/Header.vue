@@ -23,9 +23,13 @@ const isShowingMobileMenu = ref(false)
 </script>
 
 <template>
-    <header class="absolute inset-x-0 top-0 z-50">
-        <div class="text-rose-500 font-bold text-6xl">
-            MINI APP HEADER
+    <header class="h-[100px] bg-slate-800 overflow-hidden">
+        <div class="w-full h-full flex justify-center items-center border-4 border-rose-500">
+            <h1 class="text-sky-700 font-bold text-3xl">
+                MINI APP HEADER
+            </h1>
+
+            <!--  -->
         </div>
     </header>
 </template>
