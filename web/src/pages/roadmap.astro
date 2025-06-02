@@ -3,23 +3,33 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
-import MiniAppHeader from '../components/MiniAppHeader.vue'
-import MiniAppFooter from '../components/MiniAppFooter.vue'
-import WebAppHeader from '../components/WebAppHeader.vue'
-import WebAppFooter from '../components/WebAppFooter.vue'
+import MiniAppHeader from '../components/miniapp/Header.vue'
+import MiniAppFooter from '../components/miniapp/Footer.vue'
+import WebAppHeader from '../components/webapp/Header.vue'
+import WebAppFooter from '../components/webapp/Footer.vue'
 ---
 
 <Layout>
 	<MiniAppHeader data-miniapp-header client:load style="display:none" />
 	<WebAppHeader data-webapp-header client:load />
 
-	<section class="mt-40">
-		<h1>loading, please wait...</h1>
-		<button data-confetti-button>Celebrate!</button>
-		<button data-miniapp-button>Go MiniApp!</button>
-	</section>
+	<main data-miniapp class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6 h-vh overflow-y-scroll" style="display:none">
+		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+			Roadmap (MINI APP)
+		</h1>
 
-	<main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
+		<p>
+			Let's #BUIDL as a community.
+			Submit your ideas here to help improve the NEXT PARTY!
+		</p>
+
+		<ul class="pl-10 list-disc text-lg font-medium text-slate-600 leading-9">
+			<li>Enable automatic Mini App discovery</li>
+			<li>Complete treasury (Solidity) contract</li>
+		</ul>
+	</main>
+
+	<main data-webapp class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
 		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
 			Roadmap
 		</h1>
@@ -28,6 +38,12 @@ import WebAppFooter from '../components/WebAppFooter.vue'
 			Let's #BUIDL as a community.
 			Submit your ideas here to help improve the NEXT PARTY!
 		</p>
+
+		<section class="mt-40">
+			<h1>loading, please wait...</h1>
+			<button data-confetti-button>Celebrate!</button>
+			<button data-miniapp-button>Go MiniApp!</button>
+		</section>
 
 		<ul class="pl-10 list-disc text-lg font-medium text-slate-600 leading-9">
 			<li>Enable automatic Mini App discovery</li>
@@ -60,6 +76,8 @@ buttons.forEach((button) => {
 document.querySelectorAll('[data-miniapp-button]')
 	.forEach((button) => {
 		button.addEventListener('click', () => {
+			miniapp[0].style.display = 'flex'
+			webapp[0].style.display = 'none'
 			miniappHeader[0].style.display = 'flex'
 			webappHeader[0].style.display = 'none'
 			miniappFooter[0].style.display = 'flex'
@@ -68,8 +86,10 @@ document.querySelectorAll('[data-miniapp-button]')
 	})
 
 /* Initialize headers + footers. */
+const miniapp = document.querySelectorAll('[data-miniapp]')
 const miniappHeader = document.querySelectorAll('[data-miniapp-header]')
 const miniappFooter = document.querySelectorAll('[data-miniapp-footer]')
+const webapp = document.querySelectorAll('[data-webapp]')
 const webappHeader = document.querySelectorAll('[data-webapp-header]')
 const webappFooter = document.querySelectorAll('[data-webapp-footer]')
 </script>
