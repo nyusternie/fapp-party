@@ -3,12 +3,12 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.astro'
+import WebAppHeader from '../components/WebAppHeader.vue'
+import WebAppFooter from '../components/WebAppFooter.astro'
 ---
 
 <Layout>
-	<Header client:load />
+	<WebAppHeader client:load />
 
 	<main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
 		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
@@ -24,5 +24,5 @@ import Footer from '../components/Footer.astro'
 		</a>
 	</main>
 
-	<Footer />
+	<WebAppFooter />
 </Layout>

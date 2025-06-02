@@ -3,8 +3,8 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.astro'
+import WebAppHeader from '../components/WebAppHeader.vue'
+import WebAppFooter from '../components/WebAppFooter.astro'
 
 const projects = []
 
@@ -114,7 +114,7 @@ projects.push({
 ---
 
 <Layout>
-	<Header client:load />
+	<WebAppHeader client:load />
 
 	<main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
 
@@ -186,5 +186,5 @@ projects.push({
 
 	</main>
 
-	<Footer />
+	<WebAppFooter />
 </Layout>
