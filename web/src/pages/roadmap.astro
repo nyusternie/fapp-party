@@ -3,12 +3,21 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.astro'
+import MiniAppHeader from '../components/MiniAppHeader.vue'
+import MiniAppFooter from '../components/MiniAppFooter.vue'
+import WebAppHeader from '../components/WebAppHeader.vue'
+import WebAppFooter from '../components/WebAppFooter.vue'
 ---
 
 <Layout>
-	<Header client:load />
+	<MiniAppHeader data-miniapp-header client:load style="display:none" />
+	<WebAppHeader data-webapp-header client:load />
+
+	<section class="mt-40">
+		<h1>loading, please wait...</h1>
+		<button data-confetti-button>Celebrate!</button>
+		<button data-miniapp-button>Go MiniApp!</button>
+	</section>
 
 	<main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
 		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
@@ -26,5 +35,41 @@ import Footer from '../components/Footer.astro'
 		</ul>
 	</main>
 
-	<Footer />
+	<MiniAppFooter data-miniapp-footer client:load style="display:none" />
+	<WebAppFooter data-webapp-footer client:load />
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+import confetti from 'canvas-confetti'
+
+/* Initialize globals. */
+let isWebApp
+let isMiniApp
+
+/* Request Mini App flag. */
+isMiniApp = await sdk.isInMiniApp()
+console.log('IS MINIAPP FLAG (browser)', isMiniApp)
+
+const buttons = document.querySelectorAll('[data-confetti-button]')
+buttons.forEach((button) => {
+    button.addEventListener('click', () => confetti());
+})
+
+document.querySelectorAll('[data-miniapp-button]')
+	.forEach((button) => {
+		button.addEventListener('click', () => {
+			miniappHeader[0].style.display = 'flex'
+			webappHeader[0].style.display = 'none'
+			miniappFooter[0].style.display = 'flex'
+			webappFooter[0].style.display = 'none'
+		})
+	})
+
+/* Initialize headers + footers. */
+const miniappHeader = document.querySelectorAll('[data-miniapp-header]')
+const miniappFooter = document.querySelectorAll('[data-miniapp-footer]')
+const webappHeader = document.querySelectorAll('[data-webapp-header]')
+const webappFooter = document.querySelectorAll('[data-webapp-footer]')
+</script>
