@@ -6,13 +6,13 @@
   },
   "frame": {
     "version": "1",
-    "name": "Mini Apps 🎊 Party",
+    "name": "Mini Apps Party",
     "iconUrl": "https://miniapps.party/logo.png",
     "splashImageUrl": "https://miniapps.party/splash.gif",
     "splashBackgroundColor": "#de711f",
     "homeUrl": "https://miniapps.party",
     "webhookUrl": "https://webhook.castr.guru/8164837c-e461-4636-8649-79440364856d",
-    "subtitle": "New & Noteworthy Mini Apps",
+    "subtitle": "New and Noteworthy Mini Apps",
     "description": "Daily alerts for the newest and hottest Mini Apps to hit the timeline.",
     "screenshotUrls": [
       "https://rewards.warpcast.com/screenshot1.png",
@@ -27,8 +27,8 @@
       "earn"
     ],
     "heroImageUrl": "https://miniapps.party/poster.webp",
-    "tagline": "New & Noteworthy Mini Apps",
-    "ogTitle": "Mini Apps 🎊 Party",
+    "tagline": "New and Noteworthy Mini Apps",
+    "ogTitle": "Mini Apps Party",
     "ogDescription": "Daily alerts and weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
     "ogImageUrl": "https://miniapps.party/poster.webp"
   }

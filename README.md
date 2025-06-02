@@ -1,4 +1,4 @@
-# Farcaster Mini Apps 🎊 Party
+# Farcaster Mini Apps Party
 
 ### https://miniapps.party
 
