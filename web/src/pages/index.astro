@@ -29,3 +29,21 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 	<DreamBig />
 	<WebAppFooter />
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Initialize globals. */
+let isWebApp
+let isMiniApp
+
+/* Request Mini App flag. */
+isMiniApp = await sdk.isInMiniApp()
+console.log('IS MINIAPP FLAG (browser)', isMiniApp)
+
+// TODO Maybe we set a cookie to be used for the session.
+
+/* Load app. */
+sdk.actions.ready()
+</script>
