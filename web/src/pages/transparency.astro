@@ -47,6 +47,10 @@ console.log('IS MINI APP-EXISTING (transparency)', isMiniApp)
 			</p>
 
 			<p>
+				URL: {JSON.stringify(Astro.url, null, 2)}
+			</p>
+
+			<p>
 				Learn about everything going on behind the scenes before, during and after the Mini Apps Party.
 			</p>
 		</main>
@@ -72,6 +76,7 @@ console.log('IS MINIAPP FLAG (transparency)', isMiniApp)
 
 /* Load app. */
 // sdk.actions.ready()
+console.log('ASTRO URL (transparency)', Astro.url)
 </script>
 
 <style>

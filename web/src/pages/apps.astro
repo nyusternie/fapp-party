@@ -116,6 +116,8 @@ export const prerender = false
 
 const isMiniApp = Astro.cookies.get('isMiniApp')
 console.log('IS MINI APP-EXISTING (apps)', isMiniApp)
+
+console.log('ASTRO URL', Astro.url)
 ---
 
 <Layout>
@@ -210,4 +212,6 @@ console.log('IS MINIAPP FLAG (apps)', isMiniApp)
 
 /* Load app. */
 sdk.actions.ready()
+
+console.log('ASTRO URL (apps)', Astro.url)
 </script>
