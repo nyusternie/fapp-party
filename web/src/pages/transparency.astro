@@ -8,10 +8,6 @@ import MiniAppFooter from '../components/miniapp/Footer.vue'
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
 
-export const prerender = false
-
-const isMiniApp = Astro.cookies.get('isMiniApp')
-console.log('IS MINI APP-EXISTING (transparency)', isMiniApp)
 ---
 
 <Layout>
@@ -43,15 +39,11 @@ console.log('IS MINI APP-EXISTING (transparency)', isMiniApp)
 			</h1>
 
 			<p>
-				Cookie: {isMiniApp}
-			</p>
-
-			<p>
-				URL: {JSON.stringify(Astro.url, null, 2)}
-			</p>
-
-			<p>
 				HOSTNAME: {Astro.url?.hostname}
+			</p>
+
+			<p>
+				PATHNAME: {Astro.url?.pathname}
 			</p>
 
 			<p>

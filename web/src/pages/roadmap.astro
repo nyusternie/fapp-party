@@ -9,10 +9,6 @@ import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
 
 
-export const prerender = false
-
-const isMiniApp = Astro.cookies.get('isMiniApp')
-console.log('IS MINI APP-EXISTING (roadmap)', isMiniApp)
 ---
 
 <Layout>
@@ -74,9 +70,9 @@ console.log('IS MINI APP-EXISTING (roadmap)', isMiniApp)
 				Submit your ideas here to help improve the NEXT PARTY!
 			</p>
 
-			<p>
+			<!-- <p>
 				Cookie: {isMiniApp}
-			</p>
+			</p> -->
 
 			<section class="mt-40">
 				<h1>loading, please wait...</h1>

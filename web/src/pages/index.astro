@@ -41,6 +41,7 @@ console.log('IS MINIAPP FLAG (index)', isMiniApp)
 /* Validate Mini App. */
 if (isMiniApp) {
 	/* Send user to authentication. */
-	document.location = '/auth'
+	// document.location = `https://app.miniapps.party${Astro.url?.pathname}`
+	document.location = `https://app.miniapps.party/apps`
 }
 </script>
