@@ -9,17 +9,10 @@ import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
 
 
-if (Astro.cookies.has('isMiniApp')) {
-	const isMiniApp = Astro.cookies.get('isMiniApp')
+export const prerender = false
+
+const isMiniApp = Astro.cookies.get('isMiniApp')
 console.log('IS MINI APP-EXISTING (roadmap)', isMiniApp)
-
-} else {
-	Astro.cookies.set('isMiniApp', 'roadmap')
-
-	const isMiniApp2 = Astro.cookies.get('isMiniApp')
-console.log('IS MINI APP-NEW (roadmap)', isMiniApp2)
-}
-
 ---
 
 <Layout>

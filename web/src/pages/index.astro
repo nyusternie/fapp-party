@@ -34,17 +34,13 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
 
-/* Initialize globals. */
-let isWebApp
-let isMiniApp
-
-/* Request Mini App flag. */
-isMiniApp = await sdk.isInMiniApp()
+/* Request Mini App flag (from framework/context). */
+const isMiniApp = await sdk.isInMiniApp()
 console.log('IS MINIAPP FLAG (index)', isMiniApp)
 
-// TODO Maybe we set a cookie to be used for the session.
-
-/* Load app. */
-// sdk.actions.ready()
-document.location = '/transparency'
+/* Validate Mini App. */
+if (isMiniApp) {
+	/* Send user to authentication. */
+	document.location = '/auth'
+}
 </script>

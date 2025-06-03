@@ -111,6 +111,11 @@ projects.push({
 	ownerImgUrl: 'https://i.imgur.com/Gtrkty9.jpg',
 	imgUrl: 'https://i.ibb.co/PGSCHS1Y/dbee-builder.png',
 })
+
+export const prerender = false
+
+const isMiniApp = Astro.cookies.get('isMiniApp')
+console.log('IS MINI APP-EXISTING (apps)', isMiniApp)
 ---
 
 <Layout>
@@ -188,3 +193,21 @@ projects.push({
 
 	<WebAppFooter />
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Initialize globals. */
+let isWebApp
+let isMiniApp
+
+/* Request Mini App flag. */
+isMiniApp = await sdk.isInMiniApp()
+console.log('IS MINIAPP FLAG (transparency)', isMiniApp)
+
+// TODO Maybe we set a cookie to be used for the session.
+
+/* Load app. */
+sdk.actions.ready()
+</script>

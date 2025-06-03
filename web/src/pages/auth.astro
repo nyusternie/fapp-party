@@ -1,0 +1,15 @@
+---
+export const prerender = false
+
+/* Set constants. */
+const AUTH_SET_DELAY = 100
+
+/* Set Mini App flag to true. */
+Astro.cookies.set('isMiniApp', 'TRUE')
+
+// TODO Add additional authentication handling.
+setTimeout(() => {
+	/* Redirect to (default starting page) Apps. */
+	document.location = '/apps'
+}, AUTH_SET_DELAY)
+---
