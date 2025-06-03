@@ -40,10 +40,11 @@ let isMiniApp
 
 /* Request Mini App flag. */
 isMiniApp = await sdk.isInMiniApp()
-console.log('IS MINIAPP FLAG (browser)', isMiniApp)
+console.log('IS MINIAPP FLAG (index)', isMiniApp)
 
 // TODO Maybe we set a cookie to be used for the session.
 
 /* Load app. */
-sdk.actions.ready()
+// sdk.actions.ready()
+document.location = '/transparency'
 </script>

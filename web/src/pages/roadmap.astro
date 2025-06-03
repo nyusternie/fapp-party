@@ -8,10 +8,18 @@ import MiniAppFooter from '../components/miniapp/Footer.vue'
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
 
-const isMiniApp = await Astro.session?.get('isMiniApp')
-console.log('IS MINI APP (roadmap)', isMiniApp)
 
-await Astro.session?.set('isMiniApp', true)
+if (Astro.cookies.has('isMiniApp')) {
+	const isMiniApp = Astro.cookies.get('isMiniApp')
+console.log('IS MINI APP-EXISTING (roadmap)', isMiniApp)
+
+} else {
+	Astro.cookies.set('isMiniApp', 'roadmap')
+
+	const isMiniApp2 = Astro.cookies.get('isMiniApp')
+console.log('IS MINI APP-NEW (roadmap)', isMiniApp2)
+}
+
 ---
 
 <Layout>
@@ -93,37 +101,10 @@ await Astro.session?.set('isMiniApp', true)
 <script>
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
-import confetti from 'canvas-confetti'
-
-const isMiniAppNative = await Astro.session?.get('isMiniApp')
-console.log('IS MINI APP (native)', isMiniAppNative)
-
-/* Set constants. */
-const PAGE_UPDATE_DELAY = 10
 
 /* Request Mini App flag. */
 const isMiniApp = await sdk.isInMiniApp()
-console.log('IS MINIAPP FLAG (browser)', isMiniApp)
-
-/* Initialize headers + footers. */
-const miniapp = document.querySelectorAll('[data-miniapp]')
-const webapp = document.querySelectorAll('[data-webapp]')
-
-/* Check for Mini App container. */
-if (isMiniApp) {
-	setTimeout(() => {
-		/* Load Mini App UI. */
-		miniapp[0].style.display = 'flex'
-
-		/* Hide Web App UI. */
-		webapp[0].style.display = 'none'
-	}, PAGE_UPDATE_DELAY)
-}
-
-const buttons = document.querySelectorAll('[data-confetti-button]')
-buttons.forEach((button) => {
-    button.addEventListener('click', () => confetti());
-})
+console.log('IS MINIAPP FLAG (roadmap)', isMiniApp)
 </script>
 
 <style>

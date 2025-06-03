@@ -8,8 +8,10 @@ import MiniAppFooter from '../components/miniapp/Footer.vue'
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
 
-const isMiniApp = await Astro.session?.get('isMiniApp')
-console.log('IS MINI APP (transparency)', isMiniApp)
+export const prerender = false
+
+const isMiniApp = Astro.cookies.get('isMiniApp')
+console.log('IS MINI APP-EXISTING (transparency)', isMiniApp)
 ---
 
 <Layout>
@@ -40,7 +42,7 @@ console.log('IS MINI APP (transparency)', isMiniApp)
 				Transparency
 			</h1>
 
-			isMiniApp: {isMiniApp}
+			<!-- isMiniApp: {isMiniApp} -->
 
 			<p>
 				Learn about everything going on behind the scenes before, during and after the Mini Apps Party.
@@ -51,6 +53,24 @@ console.log('IS MINI APP (transparency)', isMiniApp)
 	</main>
 	<!-- End WebApp Main -->
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Initialize globals. */
+let isWebApp
+let isMiniApp
+
+/* Request Mini App flag. */
+isMiniApp = await sdk.isInMiniApp()
+console.log('IS MINIAPP FLAG (transparency)', isMiniApp)
+
+// TODO Maybe we set a cookie to be used for the session.
+
+/* Load app. */
+sdk.actions.ready()
+</script>
 
 <style>
 main::-webkit-scrollbar {
