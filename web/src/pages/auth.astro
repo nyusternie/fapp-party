@@ -9,6 +9,7 @@ Astro.cookies.set('isMiniApp', 'TRUE')
 
 // TODO Add additional authentication handling.
 setTimeout(() => {
+	console.info('Now redirecting to Apps...')
 	/* Redirect to (default starting page) Apps. */
 	document.location = '/apps'
 }, AUTH_SET_DELAY)
