@@ -39,6 +39,18 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 			</h1>
 
 			<p>
+				URL: {JSON.stringify(Astro.url, null, 2)}
+			</p>
+
+			<p>
+				HREF: {Astro.url?.href}
+			</p>
+
+			<p>
+				ORIGIN: {Astro.url?.origin}
+			</p>
+
+			<p>
 				HOSTNAME: {Astro.url?.hostname}
 			</p>
 
