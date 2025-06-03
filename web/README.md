@@ -2,4 +2,4 @@
 
 ### https://miniapps.party
 
-Farcaster Hackathon for Frames v2 Builders
+Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.

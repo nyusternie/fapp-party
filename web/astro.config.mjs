@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config'
 
 import tailwindcss from '@tailwindcss/vite'
+import cloudflare from '@astrojs/cloudflare'
 
 import vue from '@astrojs/vue'
 
@@ -10,6 +11,6 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
-
-    integrations: [vue()]
+    integrations: [vue()],
+    adapter: cloudflare(),
 })
