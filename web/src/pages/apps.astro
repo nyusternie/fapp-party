@@ -118,6 +118,7 @@ const isMiniApp = Astro.cookies.get('isMiniApp')
 console.log('IS MINI APP-EXISTING (apps)', isMiniApp)
 
 console.log('ASTRO URL', Astro.url)
+console.log('ASTRO URL (hostname)', Astro.url?.hostname)
 ---
 
 <Layout>
