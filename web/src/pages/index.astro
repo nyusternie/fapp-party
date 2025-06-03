@@ -34,6 +34,8 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
 
+import loadMiniApp from '../utils/loadMiniApp'
+
 /* Request Mini App flag (from framework/context). */
 const isMiniApp = await sdk.isInMiniApp()
 console.log('IS MINIAPP FLAG (index)', isMiniApp)
@@ -42,7 +44,7 @@ console.log('IS MINIAPP FLAG (index)', isMiniApp)
 if (isMiniApp) {
 	/* Send user to authentication. */
 	// document.location = `https://app.miniapps.party${Astro.url?.pathname}`
-	// document.location = `https://app.miniapps.party/apps`
-	document.location = `/apps`
+	document.location = `https://app.miniapps.party/apps`
+	// document.location = `/apps`
 }
 </script>
