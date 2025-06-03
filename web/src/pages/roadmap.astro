@@ -12,7 +12,7 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 ---
 
 <Layout>
-	<!-- Begin MiniApp Main -->
+	<!-- Begin Mini App Main -->
 	<div data-miniapp class="flex flex-col h-screen justify-between bg-green-500" style="display:none">
 		<MiniAppHeader client:load />
 
@@ -54,9 +54,9 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 
 		<MiniAppFooter client:load />
 	</div>
-	<!-- End MiniApp Main -->
+	<!-- End Mini App Main -->
 
-	<!-- Begin WebApp Main -->
+	<!-- Begin Web App Main -->
 	<main data-webapp class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
 		<WebAppHeader client:load />
 
@@ -88,7 +88,7 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 
 		<WebAppFooter client:load />
 	</main>
-	<!-- End WebApp Main -->
+	<!-- End Web App Main -->
 </Layout>
 
 <script>
