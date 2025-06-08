@@ -42,8 +42,8 @@ const isShowingMobileMenu = ref(false)
             </div>
 
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="/leaderboard" class="text-xl/6 font-semibold text-slate-900">
-                    Leaderboard
+                <a href="/rewards" class="text-xl/6 font-semibold text-slate-900">
+                    Rewards
                 </a>
 
                 <a href="/builders" class="text-xl/6 font-semibold text-slate-900">
@@ -87,8 +87,8 @@ const isShowingMobileMenu = ref(false)
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-4 py-6">
-                            <a href="/leaderboard" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
-                                Leaderboard
+                            <a href="/rewards" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Reward Pools
                             </a>
 
                             <a href="/builders" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
