@@ -42,20 +42,20 @@ const isShowingMobileMenu = ref(false)
             </div>
 
             <div class="hidden lg:flex lg:gap-x-12">
+                <a href="/apps" class="text-xl/6 font-semibold text-slate-900">
+                    Mini Apps
+                </a>
+
                 <a href="/rewards" class="text-xl/6 font-semibold text-slate-900">
-                    Rewards
+                    Reward Pools
                 </a>
 
-                <a href="/builders" class="text-xl/6 font-semibold text-slate-900">
-                    For Builders
+                <a href="/spotlight" class="text-xl/6 font-semibold text-slate-900">
+                    Spotlight
                 </a>
 
-                <a href="/guests" class="text-xl/6 font-semibold text-slate-900">
-                    For Guests
-                </a>
-
-                <a href="/sponsors" class="text-xl/6 font-semibold text-slate-900">
-                    For Sponsors
+                <a href="/help" class="text-xl/6 font-semibold text-slate-900">
+                    Need help?
                 </a>
             </div>
 
@@ -87,20 +87,20 @@ const isShowingMobileMenu = ref(false)
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-4 py-6">
+                            <a href="/apps" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Mini Apps
+                            </a>
+
                             <a href="/rewards" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Reward Pools
                             </a>
 
-                            <a href="/builders" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
-                                For Builders
+                            <a href="/spotlight" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Spotlight
                             </a>
 
-                            <a href="/guests" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
-                                For Guests
-                            </a>
-
-                            <a href="/sponsors" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
-                                For Sponsors
+                            <a href="/help" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                                Need help?
                             </a>
                         </div>
 
