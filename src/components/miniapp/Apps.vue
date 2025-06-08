@@ -9,9 +9,10 @@
             10 PER PAGE
         </p>
 
-        <pre class="text-slate-200">
-            Hostname: {{App.hostname}}
-        </pre>
+        <div v-if="App">
+<pre v-for="app of App" :key="app.hostname" class="text-slate-200">Hostname: {{app.hostname}}</pre>
+        </div>
+
     </main>
 </template>
 
