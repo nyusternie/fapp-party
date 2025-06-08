@@ -20,7 +20,7 @@
                 </h3>
 
                 <h3 class="text-rose-300 font-bold text-sm tracking-tighter italic">
-                    {{moment(app.createdAt).format('llll')}}
+                    {{moment.unix(app.createdAt).fromNow()}}
                 </h3>
             </section>
         </div>
