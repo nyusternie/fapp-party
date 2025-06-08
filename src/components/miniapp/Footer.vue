@@ -1,10 +1,22 @@
 <template>
-    <footer class="h-[100px] bg-slate-800 overflow-hidden">
-        <div class="w-full h-full flex justify-center items-center border-4 border-rose-500">
-            <h1 class="text-sky-700 font-bold text-3xl">
-                MINI APP FOOTER
-            </h1>
-        </div>
+    <footer class="w-full h-[60px] flex flex-row gap-0.5 justify-between bg-slate-900 overflow-hidden">
+        <a href="/profile" class="group w-full flex justify-center items-center bg-amber-200 hover:bg-amber-700">
+            <span class="text-amber-700 font-bold text-2xl tracking-wider group-hover:text-amber-200">
+                PROFILE
+            </span>
+        </a>
+
+        <a href="/sponsors" class="group w-full flex justify-center items-center bg-amber-200 hover:bg-amber-700">
+            <span class="text-amber-700 font-bold text-2xl tracking-wider group-hover:text-amber-200">
+                SPONSORS
+            </span>
+        </a>
+
+        <a href="/spotlight" class="group w-full flex justify-center items-center bg-amber-200 hover:bg-amber-700">
+            <span class="text-amber-700 font-bold text-2xl tracking-wider group-hover:text-amber-200">
+                SPOTLIGHT
+            </span>
+        </a>
     </footer>
 </template>
 
