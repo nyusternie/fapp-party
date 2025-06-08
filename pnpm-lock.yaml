@@ -17,6 +17,9 @@ importers:
       '@farcaster/frame-sdk':
         specifier: 0.0.53
         version: 0.0.53(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.25.48)
+      '@nanostores/vue':
+        specifier: 1.0.0
+        version: 1.0.0(nanostores@1.0.1)(vue@3.5.13(typescript@5.7.3))
       '@tailwindcss/vite':
         specifier: 4.0.8
         version: 4.0.8(vite@6.3.5(@types/node@22.15.29)(jiti@2.4.2)(lightningcss@1.29.1))
@@ -26,6 +29,9 @@ importers:
       canvas-confetti:
         specifier: 1.9.3
         version: 1.9.3
+      nanostores:
+        specifier: 1.0.1
+        version: 1.0.1
       tailwindcss:
         specifier: 4.0.8
         version: 4.0.8
@@ -863,6 +869,20 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@nanostores/vue@1.0.0':
+    resolution: {integrity: sha512-+WtqBD0YXZoMmk7rjRrm0yd2F8e2O3yOk6jR3vpUREBj7UaKEEKpMrPpkpcltboL5ShlYYP0QkSwkpaMwmigOQ==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      '@nanostores/logger': ^0.4.0 || ^1.0.0
+      '@vue/devtools-api': '>=7.6.2'
+      nanostores: ^0.11.3 || ^1.0.0
+      vue: '>=3.3.1'
+    peerDependenciesMeta:
+      '@nanostores/logger':
+        optional: true
+      '@vue/devtools-api':
+        optional: true
 
   '@noble/curves@1.9.1':
     resolution: {integrity: sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA==}
@@ -2198,6 +2218,10 @@ packages:
     resolution: {integrity: sha512-b+CiXQCNMUGe0Ri64S9SXFcP9hogjAJ2Rd6GdVxhPLRm7mhGaM7VgOvCAJ1ZshfHbqVDI3uqTI5C8/GaKuLI7g==}
     engines: {node: ^18 || >=20}
     hasBin: true
+
+  nanostores@1.0.1:
+    resolution: {integrity: sha512-kNZ9xnoJYKg/AfxjrVL4SS0fKX++4awQReGqWnwTRHxeHGZ1FJFVgTqr/eMrNQdp0Tz7M7tG/TDaX8QfHDwVCw==}
+    engines: {node: ^20.0.0 || >=22.0.0}
 
   neotraverse@0.6.18:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
@@ -3677,6 +3701,11 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@nanostores/vue@1.0.0(nanostores@1.0.1)(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      nanostores: 1.0.1
+      vue: 3.5.13(typescript@5.7.3)
 
   '@noble/curves@1.9.1':
     dependencies:
@@ -5307,6 +5336,8 @@ snapshots:
   nanoid@3.3.8: {}
 
   nanoid@5.1.2: {}
+
+  nanostores@1.0.1: {}
 
   neotraverse@0.6.18: {}
 
