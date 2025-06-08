@@ -1,11 +1,15 @@
 import { deepMap } from 'nanostores'
 
-export const $App = deepMap([{
-    hostname: 'homemadecrypto.com',
-}])
+/* Initialize state. */
+export const $App = deepMap([])
 
-export function addProfile(app) {
-    $apps.set([...$apps.get(), app])
+/**
+ * Add App
+ *
+ * Add a NEW application to the existing state of the store.
+ */
+export function addApp(_app) {
+    $App.set([...$App.get(), _app])
 }
 
 /**
@@ -72,25 +76,25 @@ export function addProfile(app) {
     const response = await fetch('https://miniapps.party/graphql',
         { method, headers, body }
     ).catch(err => console.error(err))
-console.log('RAW RESPONSE', response)
+// console.log('RAW RESPONSE', response)
 
     /* Validate response. */
     if (typeof response !== 'undefined' && response !== null) {
         /* Decode JSON. */
         json = await response.json()
-console.log('JSON', json)
+// console.log('JSON', json)
     }
 
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         app = json.data.app
-console.log('APP', app)
+// console.log('APP', app)
 
         const numApps = app.totalCount
-console.log('NUM APPS', numApps)
+// console.log('NUM APPS', numApps)
 
         apps = app.edges.map(_edge => _edge.node)
-console.log('APPS', apps)
+// console.log('APPS', apps)
 
         /* Update apps. */
         $App.set(apps.slice(0, 10))
