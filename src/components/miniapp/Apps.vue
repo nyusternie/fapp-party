@@ -1,11 +1,14 @@
 <template>
-    <footer class="h-[100px] bg-slate-800 overflow-hidden">
-        <div class="w-full h-full flex justify-center items-center border-4 border-rose-500">
-            <h1 class="text-sky-700 font-bold text-3xl">
-                MINI APP FOOTER
-            </h1>
-        </div>
-    </footer>
+    <main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
+        <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+            Apps
+        </h1>
+
+        <p>
+            Listing of ALL the newest Mini Apps.
+            10 PER PAGE
+        </p>
+    </main>
 </template>
 
 <script setup lang="ts">

@@ -1,3 +1,15 @@
+<template>
+    <header class="h-[100px] bg-slate-800 overflow-hidden">
+        <div class="w-full h-full flex justify-center items-center border-4 border-rose-500">
+            <h1 class="text-sky-700 font-bold text-3xl">
+                MINI APP HEADER
+            </h1>
+
+            <!--  -->
+        </div>
+    </header>
+</template>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -21,15 +33,3 @@ const isShowingMobileMenu = ref(false)
 //     // Now is the time to perform all cleanup operations.
 // })
 </script>
-
-<template>
-    <header class="h-[100px] bg-slate-800 overflow-hidden">
-        <div class="w-full h-full flex justify-center items-center border-4 border-rose-500">
-            <h1 class="text-sky-700 font-bold text-3xl">
-                MINI APP HEADER
-            </h1>
-
-            <!--  -->
-        </div>
-    </header>
-</template>
