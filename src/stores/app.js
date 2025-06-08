@@ -1,9 +1,9 @@
 import { deepMap } from 'nanostores'
 
-export const $profiles = deepMap({
-    fid: 1337,
+export const $App = deepMap({
+    hostname: 'homemadecrypto.com',
 })
 
-export function addProfile(profile) {
-    $profiles.set([...$profiles.get(), profile])
+export function addProfile(app) {
+    $apps.set([...$apps.get(), app])
 }

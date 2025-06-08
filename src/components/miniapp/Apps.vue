@@ -1,18 +1,25 @@
 <template>
     <main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-        <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+        <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-slate-200 sm:text-7xl">
             Apps
         </h1>
 
-        <p>
+        <p class="text-slate-200">
             Listing of ALL the newest Mini Apps.
             10 PER PAGE
         </p>
+
+        <pre class="text-slate-200">
+            Hostname: {{App.hostname}}
+        </pre>
     </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useStore } from '@nanostores/vue'
+
+import { $App } from '../../stores/app'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -22,12 +29,17 @@ const props = defineProps({
     },
 })
 
+const App = useStore($App)
+
 const isShowingMobileMenu = ref(false)
 
-// onMounted(() => {
-//     console.log('Mounted!')
-//     // Now it's safe to perform setup operations.
-// })
+const init = async () => {
+    console.log('APPS', $App.get())
+}
+
+onMounted(() => {
+    init()
+})
 
 // onBeforeUnmount(() => {
 //     console.log('Before Unmount!')

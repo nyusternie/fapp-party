@@ -1,6 +1,6 @@
 import { deepMap } from 'nanostores'
 
-export const $profiles = deepMap({
+export const $Spotlight = deepMap({
     fid: 1337,
 })
 
