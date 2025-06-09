@@ -1,6 +1,9 @@
 /* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
 
+/* Initialize constants. */
+const MAX_APPS_PER_PAGE = 15
+
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
 const $App = persistentAtom('app', [], {
@@ -192,6 +195,6 @@ console.log('JSON', json)
     /* Validate apps. */
     if (typeof apps !== 'undefined' && apps !== null) {
         /* Update apps. */
-        $App.set(apps.slice(0, 10))
+        $App.set(apps.slice(0, MAX_APPS_PER_PAGE))
     }
 })()
