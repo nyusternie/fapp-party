@@ -1,3 +1,4 @@
+/* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
 
 /* Initialize (store) state. */
@@ -30,7 +31,6 @@ export const $App = persistentAtom('app', [], {
  */
 ;(async () => {
     /* Initialize locals. */
-    let app
     let apps
     let json
 
@@ -87,26 +87,28 @@ export const $App = persistentAtom('app', [], {
     const response = await fetch('https://miniapps.party/graphql',
         { method, headers, body }
     ).catch(err => console.error(err))
-// console.log('RAW RESPONSE', response)
 
     /* Validate response. */
     if (typeof response !== 'undefined' && response !== null) {
         /* Decode JSON. */
         json = await response.json()
-// console.log('JSON', json)
     }
 
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
-        app = json.data.app
-// console.log('APP', app)
+        /* Parse app. */
+        const app = json.data.app
 
+        /* Set app count. */
+// TODO Use this to manage payload size.
         const numApps = app.totalCount
-// console.log('NUM APPS', numApps)
 
+        /* Parse apps. */
         apps = app.edges.map(_edge => _edge.node)
-// console.log('APPS', apps)
+    }
 
+    /* Validate apps. */
+    if (typeof json !== 'undefined' && json !== null) {
         /* Update apps. */
         $App.set(apps.slice(0, 10))
     }

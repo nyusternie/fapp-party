@@ -50,18 +50,13 @@ if (hostname === 'app.miniapps.party') {
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
 
-/* Initialize globals. */
-let isWebApp
-let isMiniApp
-
 /* Request Mini App flag. */
-isMiniApp = await sdk.isInMiniApp()
-console.log('IS MINIAPP FLAG (apps)', isMiniApp)
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
 
-// TODO Maybe we set a cookie to be used for the session.
-
-/* Load app. */
-sdk.actions.ready()
-
-console.log('ASTRO URL (apps)', Astro.url)
+/* Validate mini app. */
+if (isMiniApp) {
+	/* Load app. */
+	sdk.actions.ready()
+}
 </script>

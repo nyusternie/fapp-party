@@ -1,9 +1,13 @@
 <template>
-    <main class="">
-        <h1 class="">
-            Blank
-        </h1>
-    </main>
+    <main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
+		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+			My Profile
+		</h1>
+
+		<p>
+			TBD
+		</p>
+	</main>
 </template>
 
 <script setup lang="ts">

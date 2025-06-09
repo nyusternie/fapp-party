@@ -10,19 +10,25 @@
                 <span class="block font-bold">10 PER PAGE↴</span>
             </p>
 
-            <section v-for="app of App" :key="app.hostname" class="mt-5 flex flex-col">
-                <h2 class="text-rose-200 font-bold text-xl tracking-tighter">
-                    {{app.appName}}
-                </h2>
+            <a v-for="app of App" :key="app.hostname" :href="app.homeUrl" class="mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
 
-                <h3 class="text-rose-300 font-bold text-sm tracking-tighter italic">
-                    {{app.hostname}}
-                </h3>
+                <div class="flex flex-col flex-1">
+                    <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
+                        {{app.appName}}
+                    </h2>
 
-                <h3 class="text-rose-300 font-bold text-sm tracking-tighter italic">
-                    {{moment.unix(app.createdAt).fromNow()}}
-                </h3>
-            </section>
+                    <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
+                        {{app.hostname}}
+                    </h3>
+
+                    <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
+                        added {{moment.unix(app.createdAt).fromNow()}}
+                    </h3>
+                </div>
+
+                <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
+            </a>
         </div>
         <div v-else>
             <h2 class="text-slate-200 font-bold text-2xl tracking-widest">

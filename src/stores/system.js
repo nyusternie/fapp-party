@@ -1,3 +1,4 @@
+/* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
 
 /* Initialize (store) state. */
