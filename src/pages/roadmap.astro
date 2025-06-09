@@ -3,92 +3,47 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
+/* Initialize Mini Apps */
 import MiniAppHeader from '../components/miniapp/Header.vue'
 import MiniAppFooter from '../components/miniapp/Footer.vue'
+import MiniAppRoadmap from '../components/miniapp/Roadmap.vue'
+
+/* Initialize Web Apps */
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
+import WebAppRoadmap from '../components/webapp/Roadmap.vue'
 
+export const prerender = false
 
+/* Initialize constants. */
+const hostname = Astro.url?.hostname
+
+/* Initialize globals. */
+let isMiniApp = true//false
+
+/* Validate Mini App. */
+if (hostname === 'app.miniapps.party') {
+	isMiniApp = true
+}
 ---
 
 <Layout>
 	<!-- Begin Mini App Main -->
-	<div data-miniapp class="flex flex-col h-screen justify-between bg-green-500" style="display:none">
+	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
 
-		<main class="w-full h-full flex-1 px-2 mx-auto py-3 flex flex-col gap-6 overflow-y-scroll">
-			<h1 class="text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
-				Roadmap (MINI APP)
-			</h1>
+		<MiniAppRoadmap client:load class="flex-1" />
 
-			<a href="/transparency">
-				Transparency
-			</a>
-
-			<p>
-				Let's #BUIDL as a community.
-				Submit your ideas here to help improve the NEXT PARTY!
-			</p>
-
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt recusandae sunt accusamus dolorum, vero veniam omnis, incidunt sint ea, rerum itaque corporis dolores exercitationem sapiente. Minus ut voluptatibus nulla iste.
-			</p>
-
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt recusandae sunt accusamus dolorum, vero veniam omnis, incidunt sint ea, rerum itaque corporis dolores exercitationem sapiente. Minus ut voluptatibus nulla iste.
-			</p>
-
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt recusandae sunt accusamus dolorum, vero veniam omnis, incidunt sint ea, rerum itaque corporis dolores exercitationem sapiente. Minus ut voluptatibus nulla iste.
-			</p>
-
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt recusandae sunt accusamus dolorum, vero veniam omnis, incidunt sint ea, rerum itaque corporis dolores exercitationem sapiente. Minus ut voluptatibus nulla iste.
-			</p>
-
-			<ul class="pl-10 list-disc text-lg font-medium text-slate-600 leading-9">
-				<li>Enable automatic Mini App discovery</li>
-				<li>Complete treasury (Solidity) contract</li>
-			</ul>
-		</main>
-
-		<MiniAppFooter client:load />
-	</div>
+		<MiniAppFooter />
+	</div>}
 	<!-- End Mini App Main -->
 
 	<!-- Begin Web App Main -->
-	<main data-webapp class="px-2 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-		<WebAppHeader client:load />
+	{!isMiniApp && <WebAppHeader client:load />
 
-		<section class="px-2 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-			<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
-				Roadmap
-			</h1>
+	<WebAppRoadmap client:load />
 
-			<p>
-				Let's #BUIDL as a community.
-				Submit your ideas here to help improve the NEXT PARTY!
-			</p>
-
-			<!-- <p>
-				Cookie: {isMiniApp}
-			</p> -->
-
-			<section class="mt-40">
-				<h1>loading, please wait...</h1>
-				<button data-confetti-button>Celebrate!</button>
-				<button data-miniapp-button>Go MiniApp!</button>
-			</section>
-
-			<ul class="pl-10 list-disc text-lg font-medium text-slate-600 leading-9">
-				<li>Enable automatic Mini App discovery</li>
-				<li>Complete treasury (Solidity) contract</li>
-			</ul>
-		</section>
-
-		<WebAppFooter client:load />
-	</main>
-	<!-- End Web App Main -->
+	<WebAppFooter />}
 </Layout>
 
 <script>
@@ -96,17 +51,12 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 import { sdk } from '@farcaster/frame-sdk'
 
 /* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
 const isMiniApp = await sdk.isInMiniApp()
-console.log('IS MINIAPP FLAG (roadmap)', isMiniApp)
-</script>
 
-<style>
-main::-webkit-scrollbar {
-	width: 4px;
-	height: 8px;
-	background-color: #763a6d;
+/* Validate mini app. */
+if (isMiniApp) {
+	/* Load app. */
+	sdk.actions.ready()
 }
-main::-webkit-scrollbar-thumb {
-	background: #d922be;
-}
-</style>
+</script>
