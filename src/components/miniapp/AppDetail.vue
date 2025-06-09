@@ -3,12 +3,12 @@
         <header v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
             <div class="flex flex-row gap-2">
                 <img
-                    class="size-28 border-4 border-amber-500 rounded-2xl shadow-md"
+                    class="size-28 border-2 border-amber-400 rounded-2xl shadow-md"
                     :src="appDetails.iconUrl"
                 />
 
                 <div class="flex flex-col gap-3">
-                    <h1 class="text-pretty text-5xl font-semibold tracking-wider text-amber-200 uppercase">
+                    <h1 class="text-pretty text-4xl font-semibold tracking-tight text-amber-200 uppercase">
                         {{appDetails.appName}}
                     </h1>
 
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <button class="group cursor-pointer w-full px-5 py-3 flex justify-center items-center bg-blue-800 border-2 hover:bg-blue-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
+            <button class="group cursor-pointer w-full mt-2 px-5 py-3 flex justify-center items-center bg-blue-800 border-2 hover:bg-blue-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
                 <span class="inline-flex items-center gap-3 font-bold text-2xl uppercase text-amber-300 group-hover:text-amber-200">
                     Launch Mini App
 
@@ -29,7 +29,7 @@
             </button>
         </header>
 
-        <p v-if="appDetails.description" class="px-5 py-3 text-stone-200 font-light text-xl/9 tracking-wider">
+        <p v-if="appDetails.description" class="px-3 py-2 text-stone-200 font-light text-xl/9 tracking-wider">
             {{appDetails.description}}
         </p>
 
@@ -38,7 +38,7 @@
                 Category
             </span>
 
-            <span class="col-span-2 text-amber-200 font-bold text-ellipsis">
+            <span class="col-span-2 text-amber-200 font-bold">
                 {{appDetails.primaryCategory}}
             </span>
         </div>
@@ -60,9 +60,16 @@
                 Listing Date
             </h3>
 
-            <span class="col-span-2 text-amber-200 font-bold text-ellipsis">
-                {{moment.unix(appDetails.createdAt).format('llll')}}
-            </span>
+            <div>
+                <span class="col-span-2 text-amber-200 font-bold">
+                    {{moment.unix(appDetails.createdAt).format('llll')}}
+                </span>
+
+                <span class="block -mt-1 col-span-2 text-amber-400 font-medium text-xs">
+                    ( approx {{moment.unix(appDetails.createdAt).fromNow()}} )
+                </span>
+            </div>
+
         </section>
 
         <!-- DIVIDER -->
