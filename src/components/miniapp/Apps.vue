@@ -1,16 +1,12 @@
 <template>
     <main class="w-full h-full px-2 pb-10 flex flex-col gap-6 overflow-y-scroll">
-        <!-- <h1 class="text-7xl font-semibold tracking-tight text-slate-200">
-            Apps
-        </h1> -->
-
         <div v-if="App && App.length > 0">
             <ClientOnly>
-                <button v-if="spotlight" @click="openUrl(spotlight.homeUrl)" class="cursor-pointer w-full mt-2 mb-5 px-2 py-10 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="spotlight.iconUrl" class="size-24 border border-slate-700 rounded-md" />
+                <button v-if="spotlight" @click="openUrl(spotlight.homeUrl)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
+                    <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-wider">
+                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
                             {{spotlight.appName}}
                         </h2>
 
@@ -18,9 +14,9 @@
                             {{spotlight.hostname}}
                         </h3>
 
-                        <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
+                        <!-- <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
                             added {{moment.unix(spotlight.createdAt).fromNow()}}
-                        </h3>
+                        </h3> -->
                     </div>
                 </button>
             </ClientOnly>
@@ -32,7 +28,7 @@
 
             <ClientOnly>
                 <button v-for="app of aboveTheFold" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
+                    <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
@@ -53,8 +49,8 @@
             </ClientOnly>
 
             <ClientOnly>
-                <button v-if="sponsored" @click="openUrl(sponsored.homeUrl)" class="cursor-pointer w-full my-5 px-2 py-10 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="sponsored.iconUrl" class="size-24 border border-slate-700 rounded-md" />
+                <button v-if="sponsored" @click="openUrl(sponsored.homeUrl)" class="cursor-pointer w-full my-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-500 rounded-md hover:from-amber-100 hover:to-amber-50">
+                    <img :src="sponsored.iconUrl" class="size-32 border-2 border-fuchsia-500 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
@@ -65,9 +61,9 @@
                             {{sponsored.hostname}}
                         </h3>
 
-                        <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
+                        <!-- <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
                             added {{moment.unix(sponsored.createdAt).fromNow()}}
-                        </h3>
+                        </h3> -->
                     </div>
 
                     <img v-if="sponsored.heroImageUrl" :src="sponsored.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
@@ -78,7 +74,7 @@
 
             <ClientOnly>
                 <button v-for="app of belowTheFold" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
+                    <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
