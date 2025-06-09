@@ -21,8 +21,8 @@
                 </button>
             </ClientOnly>
 
-            <h3 class="pl-5 my-5 text-rose-200 font-bold tracking-wider">
-                <span class="text-rose-300 font-extrabold text-lg">Featured Bangers</span> Of The Last 24 Hours↴
+            <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
+                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers</span> In The Last 24hrs<span class="text-2xl">↴</span>
             </h3>
 
 <!-- BEGIN FEATURED -->
@@ -49,8 +49,8 @@
             </ClientOnly>
 <!-- END FEATURED -->
 
-            <h3 class="pl-5 my-5 text-rose-200 font-bold tracking-wider">
-                New &amp; Noteworthy <span class="text-rose-300 font-extrabold text-lg">LIVE! Feed↴</span>
+            <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
+                New &amp; Noteworthy <span class="text-rose-300 font-extrabold text-xl">LIVE! Feed<span class="text-2xl">↴</span></span>
             </h3>
 
 <!-- BEGIN ABOVE THE FOLD -->
