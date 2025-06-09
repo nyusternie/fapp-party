@@ -34,7 +34,7 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 /* Import modules. */
 import { sdk } from '@farcaster/frame-sdk'
 
-import initMiniApp from '../utils/initMiniApp'
+// import initMiniApp from '../utils/initMiniApp'
 
 /* Request Mini App flag (from framework/context). */
 const isMiniApp = await sdk.isInMiniApp()
@@ -47,4 +47,7 @@ if (isMiniApp) {
 	document.location = `https://app.miniapps.party/apps`
 	// document.location = `/apps`
 }
+
+/* Attempt to open. */
+await sdk.actions.ready()
 </script>
