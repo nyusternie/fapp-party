@@ -38,12 +38,19 @@ const props = defineProps({
 const pfpUrl = ref()
 
 const init = async () => {
-    /* Request user. */
-    const { user } = await sdk.context
+    /* Request Mini App flag. */
+    // TODO Maybe we set a SESSION flag??
+    const isMiniApp = await sdk.isInMiniApp()
 
-    /* Validate user. */
-    if (typeof user !== 'undefined' && user !== null) {
-        pfpUrl.value = user.pfpUrl
+    /* Validate mini app. */
+    if (isMiniApp) {
+        /* Request user. */
+        const { user } = await sdk.context
+
+        /* Validate user. */
+        if (typeof user !== 'undefined' && user !== null) {
+            pfpUrl.value = user.pfpUrl
+        }
     }
 }
 

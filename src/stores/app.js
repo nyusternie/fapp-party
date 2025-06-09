@@ -111,6 +111,6 @@ export const addApp = (_app) => {
     /* Validate apps. */
     if (typeof json !== 'undefined' && json !== null) {
         /* Update apps. */
-        $App.set(apps.slice(0, 12))
+        $App.set(apps.slice(0, 10))
     }
 })()
