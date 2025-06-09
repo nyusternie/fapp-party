@@ -54,9 +54,12 @@ import { sdk } from '@farcaster/frame-sdk'
 // TODO Maybe we set a SESSION flag??
 const isMiniApp = await sdk.isInMiniApp()
 
+/* Set constants. */
+const INIT_DELAY = 1000 // 1 second
+
 /* Validate mini app. */
 if (isMiniApp) {
 	/* Load app. */
-	sdk.actions.ready()
+	setTimeout(sdk.actions.ready, INIT_DELAY)
 }
 </script>
