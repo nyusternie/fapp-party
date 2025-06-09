@@ -62,8 +62,6 @@ const props = defineProps({
 
 const App = useStore($App)
 
-const isShowingMobileMenu = ref(false)
-
 const init = async () => {
     console.log('APPS', $App.get())
 }
