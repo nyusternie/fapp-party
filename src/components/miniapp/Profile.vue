@@ -54,11 +54,15 @@ consectetur commodi.`
     if (isMiniApp) {
         debug.value = `please wait a moment...`
 
+        /* Request user. */
+        const user = await sdk.context
+
         /* Initialize profile. */
-        const token = await initProfile()
+        // const token = await initProfile()
 
         /* Request quick auth. */
-        debug.value = 'auth token is ' + token.length + ' char long'
+        // debug.value = 'auth token is ' + token.length + ' char long'
+        debug.value = JSON.stringify(user)
     }
 }
 
