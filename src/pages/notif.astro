@@ -3,58 +3,60 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
+/* Initialize Mini Apps */
+import MiniAppHeader from '../components/miniapp/Header.vue'
+import MiniAppFooter from '../components/miniapp/Footer.vue'
+import MiniAppNotif from '../components/miniapp/Notif.vue'
+
+/* Initialize Web Apps */
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
+import WebAppNotif from '../components/webapp/Notif.vue'
+
+export const prerender = false
+
+/* Initialize constants. */
+const hostname = Astro.url?.hostname
+
+/* Initialize globals. */
+let isMiniApp = true//false
+
+/* Validate Mini App. */
+if (hostname === 'app.miniapps.party') {
+	isMiniApp = true
+}
 ---
 
 <Layout>
-	<WebAppHeader client:load />
+	<!-- Begin Mini App Main -->
+	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
+		<MiniAppHeader client:load />
 
-	<main class="px-2 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
-			Notifications
-		</h1>
+		<MiniAppNotif client:load class="flex-1" />
 
-		<div>
-			<h2>
-				FOMO (Real-time) Updates
-			</h2>
+		<MiniAppFooter />
+	</div>}
+	<!-- End Mini App Main -->
 
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
-			</p>
-		</div>
+	<!-- Begin Web App Main -->
+	{!isMiniApp && <WebAppHeader client:load />
 
-		<div>
-			<h2>
-				Daily (New Arrival) Updates
-			</h2>
+	<WebAppNotif client:load />
 
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
-			</p>
-		</div>
-
-		<div>
-			<h2>
-				Weekly (Reward Pool) Updates
-			</h2>
-
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
-			</p>
-		</div>
-
-		<div>
-			<h2>
-				Seasonal (Event &amp; Competition) Updates
-			</h2>
-
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
-			</p>
-		</div>
-	</main>
-
-	<WebAppFooter />
+	<WebAppFooter />}
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
+
+/* Validate mini app. */
+if (isMiniApp) {
+	/* Load app. */
+	sdk.actions.ready()
+}
+</script>
