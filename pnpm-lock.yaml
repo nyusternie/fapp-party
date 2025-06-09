@@ -17,6 +17,9 @@ importers:
       '@farcaster/frame-sdk':
         specifier: 0.0.60
         version: 0.0.60(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.48)
+      '@nanostores/persistent':
+        specifier: 1.0.0
+        version: 1.0.0(nanostores@1.0.1)
       '@nanostores/vue':
         specifier: 1.0.0
         version: 1.0.0(nanostores@1.0.1)(vue@3.5.13(typescript@5.8.3))
@@ -881,6 +884,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@nanostores/persistent@1.0.0':
+    resolution: {integrity: sha512-iuucWTxcxSLwHvcxBTIAwofDc+KO7cw5EiQklAltJX6Ynx/CKTecOCUG76kF42yNnCZZQcMeuIcl99DkxekIig==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
 
   '@nanostores/vue@1.0.0':
     resolution: {integrity: sha512-+WtqBD0YXZoMmk7rjRrm0yd2F8e2O3yOk6jR3vpUREBj7UaKEEKpMrPpkpcltboL5ShlYYP0QkSwkpaMwmigOQ==}
@@ -3720,6 +3729,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@nanostores/persistent@1.0.0(nanostores@1.0.1)':
+    dependencies:
+      nanostores: 1.0.1
 
   '@nanostores/vue@1.0.0(nanostores@1.0.1)(vue@3.5.13(typescript@5.8.3))':
     dependencies:

@@ -13,6 +13,7 @@
     "@astrojs/cloudflare": "12.5.3",
     "@astrojs/vue": "5.0.7",
     "@farcaster/frame-sdk": "0.0.60",
+    "@nanostores/persistent": "1.0.0",
     "@nanostores/vue": "1.0.0",
     "@tailwindcss/vite": "4.0.8",
     "astro": "5.8.0",

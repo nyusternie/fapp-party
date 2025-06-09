@@ -1,9 +1,15 @@
-import { deepMap } from 'nanostores'
+import { persistentAtom } from '@nanostores/persistent'
 
-export const $System = deepMap({
-    fid: 1337,
+/* Initialize (store) state. */
+// NOTE: Added support for BigInt data types.
+export const $System = persistentAtom('system', [], {
+    encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
+        typeof value === 'bigint' ? value.toString() + 'n' : value
+    ),
+    decode: (_jsonObj) => JSON.parse(_jsonObj, (key, value) => {
+        if (typeof value === 'string' && /^\d+n$/.test(value)) {
+            return BigInt(value.slice(0, value.length - 1))
+        }
+        return value
+    }),
 })
-
-export function addProfile(profile) {
-    $profiles.set([...$profiles.get(), profile])
-}
