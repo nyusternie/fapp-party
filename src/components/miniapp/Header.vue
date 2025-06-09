@@ -39,7 +39,7 @@ const pfpUrl = ref()
 
 const init = async () => {
     /* Request user. */
-    const user = await sdk.context
+    const { user } = await sdk.context
 
     /* Validate user. */
     if (typeof user !== 'undefined' && user !== null) {
