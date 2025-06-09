@@ -6,15 +6,15 @@
                     <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
                             {{spotlight.appName}}
                         </h2>
 
-                        <h3 class="-mt-1 text-sky-400 font-bold text-sm tracking-tighter italic">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider italic">
                             {{spotlight.hostname}}
                         </h3>
 
-                        <!-- <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
+                        <!-- <h3 class="text-sky-600 font-bold text-base tracking-wider italic">
                             added {{moment.unix(spotlight.createdAt).fromNow()}}
                         </h3> -->
                     </div>
@@ -53,11 +53,11 @@
                     <img :src="sponsored.iconUrl" class="size-32 border-2 border-fuchsia-500 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
                             {{sponsored.appName}}
                         </h2>
 
-                        <h3 class="-mt-1 text-sky-400 font-bold text-sm tracking-tighter italic">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider italic">
                             {{sponsored.hostname}}
                         </h3>
 
