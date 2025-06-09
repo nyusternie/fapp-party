@@ -4,7 +4,7 @@
 			Help Center
 		</h1>
 
-		<p class="text-slate-300 font-medium text-lg">
+		<p class="text-slate-300 font-medium text-lg/9">
 			Need immediate help?
 			<br />Reach out directly to
 			<button @click="viewShomari" class="group cursor-pointer px-2 py-0 inline-flex flex-col items-center text-sky-800 bg-sky-300 border border-sky-500 rounded-xl hover:bg-sky-900 hover:text-sky-100">
@@ -14,21 +14,21 @@
 			for priority assistance.
 		</p>
 
-		<ul class="mt-5 pl-10 list-disc">
+		<ul class="mt-10 pl-10 list-disc leading-[50px]">
 			<li>
-				<a href="/roadmap" class="text-xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
+				<a href="/roadmap" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
 					View Our Official Roadmap
 				</a>
 			</li>
 
 			<li>
-				<a href="https://docs.miniapps.party" target="_blank" class="text-xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
+				<a href="https://docs.miniapps.party" target="_blank" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
 					ReadTheDocs
 				</a>
 			</li>
 
 			<li>
-				<a href="/transparency" class="text-xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
+				<a href="/transparency" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
 					Transparency
 				</a>
 			</li>
