@@ -60,12 +60,12 @@
                 Listing Date
             </h3>
 
-            <div>
-                <span class="col-span-2 text-amber-200 font-bold">
+            <div class="col-span-2">
+                <span class="text-amber-200 font-bold">
                     {{moment.unix(appDetails.createdAt).format('llll')}}
                 </span>
 
-                <span class="block -mt-1 col-span-2 text-amber-400 font-medium text-xs">
+                <span class="block -mt-1 text-amber-400 font-medium text-xs">
                     ( approx {{moment.unix(appDetails.createdAt).fromNow()}} )
                 </span>
             </div>
