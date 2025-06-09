@@ -54,12 +54,15 @@ nesciunt neque enim laborum ad
 consectetur commodi.`
 
     /* Validate mini app. */
-    // if (isMiniApp) {
-    //     /* Initialize profile. */
-    //     const token = await initProfile()
-    //     /* Request quick auth. */
-    //     debug.value = token
-    // }
+    if (isMiniApp) {
+        debug.value = `please wait a moment...`
+
+        /* Initialize profile. */
+        const token = await initProfile()
+
+        /* Request quick auth. */
+        debug.value = token
+    }
 }
 
 onMounted(() => {
