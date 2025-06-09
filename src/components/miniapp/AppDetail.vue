@@ -8,7 +8,7 @@
                 />
 
                 <div class="flex flex-col gap-3">
-                    <h1 class="text-pretty text-6xl font-semibold tracking-tight text-amber-200 uppercase">
+                    <h1 class="text-pretty text-5xl font-semibold tracking-wider text-amber-200 uppercase">
                         {{appDetails.appName}}
                     </h1>
 
@@ -75,7 +75,7 @@
                     {{appDetails.appName}} Creator
                 </span>
 
-                <span class="text-center text-amber-200 font-bold text-ellipsis">
+                <span class="text-center text-amber-200 font-bold text-2xl tracking-wider text-ellipsis">
                     {{appDetails.fid}}
                 </span>
             </div>
@@ -85,9 +85,9 @@
                     Sponsorship Account
                 </span>
 
-                <span class="text-center text-amber-200 font-bold text-ellipsis">
+                <a :href="'https://address.vision/' + appDetails.account" target="_blank" class="text-center text-blue-200 font-bold tracking-tighter text-ellipsis hover:text-blue-100 hover:underline">
                     {{appDetails.account}}
-                </span>
+                </a>
             </div>
         </section>
 
