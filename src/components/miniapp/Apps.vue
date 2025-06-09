@@ -10,25 +10,27 @@
                 <span class="block font-bold">10 PER PAGE↴</span>
             </p>
 
-            <button v-for="app of App" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
+            <ClientOnly>
+                <button v-for="app of App" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                    <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
 
-                <div class="w-full flex flex-col items-start flex-1">
-                    <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
-                        {{app.appName}}
-                    </h2>
+                    <div class="w-full flex flex-col items-start flex-1">
+                        <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
+                            {{app.appName}}
+                        </h2>
 
-                    <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
-                        {{app.hostname}}
-                    </h3>
+                        <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
+                            {{app.hostname}}
+                        </h3>
 
-                    <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
-                        added {{moment.unix(app.createdAt).fromNow()}}
-                    </h3>
-                </div>
+                        <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
+                            added {{moment.unix(app.createdAt).fromNow()}}
+                        </h3>
+                    </div>
 
-                <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
-            </button>
+                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
+                </button>
+            </ClientOnly>
         </div>
         <div v-else>
             <h2 class="text-slate-200 font-bold text-2xl tracking-widest">

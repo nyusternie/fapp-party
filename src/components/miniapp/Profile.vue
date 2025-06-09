@@ -54,8 +54,10 @@ consectetur commodi.`
 
     /* Validate mini app. */
     if (isMiniApp) {
+        const response = await quickAuth()
+console.log('QUICK AUTH', response)
         /* Request quick auth. */
-        debug.value = JSON.stringify(await quickAuth())
+        debug.value = JSON.stringify(response)
     }
 
 
