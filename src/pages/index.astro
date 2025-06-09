@@ -17,7 +17,8 @@ import WebAppFooter from '../components/webapp/Footer.vue'
 ---
 
 <Layout>
-	<div id="party-container" style="display:none" class="bg-white">
+	<!-- NOTE: Hide this UI until we determine our context (MiniApp|WebApp) -->
+	<div class="bg-white" id="party-container" style="display:none">
 		<WebAppHeader client:load />
 		<Hero />
 		<Logos />
