@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-5 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
         <div v-if="App && App.length > 0">
             <ClientOnly>
                 <button v-if="spotlight" @click="openUrl(spotlight.homeUrl)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
