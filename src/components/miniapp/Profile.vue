@@ -8,7 +8,7 @@
             Manage Your Notifications
         </a>
 
-        <pre class="text-slate-200 font-bold tracking-widest">{{debug}}</pre>
+        <pre class="text-slate-200 font-bold text-xs tracking-widest">{{debug}}</pre>
 	</main>
 </template>
 
@@ -62,7 +62,7 @@ consectetur commodi.`
 
         /* Request quick auth. */
         // debug.value = 'auth token is ' + token.length + ' char long'
-        debug.value = JSON.stringify(user)
+        debug.value = JSON.stringify(user, 2, null)
     }
 }
 
