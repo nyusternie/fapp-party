@@ -10,10 +10,10 @@
                 <span class="block font-bold">10 PER PAGE↴</span>
             </p>
 
-            <a v-for="app of App" :key="app.hostname" :href="app.homeUrl" class="mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+            <button v-for="app of App" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                 <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
 
-                <div class="flex flex-col flex-1">
+                <div class="w-full flex flex-col items-start flex-1">
                     <h2 class="text-sky-800 font-bold text-xl tracking-tighter">
                         {{app.appName}}
                     </h2>
@@ -28,7 +28,7 @@
                 </div>
 
                 <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
-            </a>
+            </button>
         </div>
         <div v-else>
             <h2 class="text-slate-200 font-bold text-2xl tracking-widest">
@@ -43,9 +43,14 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
 import moment from 'moment'
 
 import { $App } from '../../stores/app'
+
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -64,7 +69,12 @@ const init = async () => {
 }
 
 const openUrl = async (_url) => {
-    await sdk.actions.openUrl(_url)
+    /* Validate mini app. */
+    if (isMiniApp) {
+        await sdk.actions.openUrl(_url)
+    } else {
+        window.open(_url)
+    }
 }
 
 onMounted(() => {

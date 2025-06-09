@@ -11,10 +11,11 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
-import { $System } from '../../stores/system'
+import { $Profile } from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -24,10 +25,10 @@ const props = defineProps({
     },
 })
 
-const System = useStore($System)
+const Profile = useStore($Profile)
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    console.log('PROFILE', $Profile.get())
 }
 
 onMounted(() => {
