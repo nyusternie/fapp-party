@@ -48,6 +48,7 @@ if (isMiniApp) {
 	// document.location = `/apps`
 }
 
-/* Attempt to open. */
+/* Attempt to (force) open. */
+// NOTE: This is the ONLY way to redirect in *mobile* client.
 await sdk.actions.ready()
 </script>
