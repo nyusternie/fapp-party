@@ -142,7 +142,7 @@ const App = useStore($App)
 const appDetails = ref({})
 
 const init = async () => {
-    appDetails.value = await getDetailsFor('framedl.xyz')
+    appDetails.value = await getDetailsFor(props.appid)
     console.log('APP DETAILS', appDetails.value)
 }
 
