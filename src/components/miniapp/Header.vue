@@ -14,7 +14,8 @@
         </a>
 
         <a href="/profile" class="group w-[75px] flex justify-center items-center bg-amber-200 hover:bg-amber-700">
-            <svg class="p-3 text-amber-700 font-bold text-lg tracking-wider uppercase group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <img v-if="pfpUrl" :src="pfpUrl" class="size-10" />
+            <svg v-else class="p-3 text-amber-700 font-bold text-lg tracking-wider uppercase group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
             </svg>
         </a>
@@ -23,7 +24,8 @@
 
 <script setup lang="ts">
 /* Import modules. */
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { sdk } from '@farcaster/frame-sdk'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -33,12 +35,21 @@ const props = defineProps({
     },
 })
 
-const isShowingMobileMenu = ref(false)
+const pfpUrl = ref()
 
-// onMounted(() => {
-//     console.log('Mounted!')
-//     // Now it's safe to perform setup operations.
-// })
+const init = async () => {
+    /* Request user. */
+    const user = await sdk.context
+
+    /* Validate user. */
+    if (typeof user !== 'undefined' && user !== null) {
+        pfpUrl.value = user.pfpUrl
+    }
+}
+
+onMounted(() => {
+    init()
+})
 
 // onBeforeUnmount(() => {
 //     console.log('Before Unmount!')
