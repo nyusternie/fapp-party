@@ -8,7 +8,7 @@
             Manage Your Notifications
         </a>
 
-        <pre class="text-slate-200 font-bold text-xs tracking-widest">{{debug}}</pre>
+        <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre>
 	</main>
 </template>
 
