@@ -1,5 +1,6 @@
 /* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
+import { sdk } from '@farcaster/frame-sdk'
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
