@@ -1,7 +1,7 @@
 {
   "accountAssociation": {
     "header": "eyJmaWQiOjg3MDU5NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEM4MDEzQThDMDk3NzRlYjJhMDA4RmRDYmVEQjVmNjQwZDFkYmVjMDAifQ",
-    "payload": "eyJkb21haW4iOiJtaW5pYXBwcy5wYXJ0eSJ9",
+    "payload": "eyJkb21haW4iOiJhcHAubWluaWFwcHMucGFydHkifQ==",
     "signature": "MHg5OGRhODQ5YTc1YTUwZDVhYTczYTMyYmZhZmQ3YzAyMjU1YjFiYmVhNzM4ZjM3NTE4MGY5NDJkZGEyNGI1NGQ3NTY2Y2M5YTVmMDUzZmFiODc4YmU2YWM4OGQ3ZjA5NmM5ZWYxYmQxYTkyYmZkZmZjN2M0MjVmMGFhOTZkYmYyMzFi"
   },
   "frame": {
@@ -10,8 +10,8 @@
     "iconUrl": "https://miniapps.party/logo.png",
     "splashImageUrl": "https://miniapps.party/splash.gif",
     "splashBackgroundColor": "#21223e",
-    "homeUrl": "https://miniapps.party",
-    "webhookUrl": "https://webhook.castr.guru/8164837c-e461-4636-8649-79440364856d",
+    "homeUrl": "https://app.miniapps.party",
+    "webhookUrl": "https://webhook.miniapps.party",
     "subtitle": "New and Noteworthy Mini Apps",
     "description": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
     "screenshotUrls": [
