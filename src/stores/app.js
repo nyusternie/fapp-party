@@ -30,6 +30,87 @@ export const addApp = (_app) => {
  *
  * Request ALL mini apps from the Party database.
  */
+export const getDetailsFor = async (_appid) => {
+    /* Initialize locals. */
+    let details
+    let json
+
+    /* Set method. */
+    const method = 'POST'
+
+    /* Set headers. */
+    const headers = { 'content-type': 'application/json' }
+
+    /* Set body. */
+    const body = JSON.stringify({
+        query: `query GetAppDetails {
+            app(appid: "${_appid}") {
+                edges {
+                node {
+                    hostname
+                    fid
+                    account
+                    version
+                    appName
+                    iconUrl
+                    splashImageUrl
+                    splashBackgroundColor
+                    homeUrl
+                    webhookUrl
+                    subtitle
+                    description
+                    screenshotUrl1
+                    screenshotUrl2
+                    screenshotUrl3
+                    primaryCategory
+                    tags
+                    heroImageUrl
+                    tagline
+                    ogTitle
+                    ogDescription
+                    ogImageUrl
+                    noindex
+                    requiredChains
+                    requiredCapabilities
+                    isPublic
+                    numMentions
+                    createdAt
+                    updatedAt
+                }
+                }
+            }
+        }`
+    })
+
+    /* Request remote data. */
+    const response = await fetch('https://miniapps.party/graphql',
+        { method, headers, body }
+    ).catch(err => console.error(err))
+console.log('RESPONSE', response)
+    /* Validate response. */
+    if (typeof response !== 'undefined' && response !== null) {
+        /* Decode JSON. */
+        json = await response.json()
+    }
+console.log('JSON', json)
+    /* Validate JSON. */
+    if (typeof json !== 'undefined' && json !== null) {
+        /* Parse app. */
+        const app = json.data.app
+
+        /* Parse (app) details. */
+        details = app.edges[0].node
+    }
+
+    /* Return (app) details. */
+    return details
+}
+
+/**
+ * Initialize App Store
+ *
+ * Request ALL mini apps from the Party database.
+ */
 ;(async () => {
     /* Initialize locals. */
     let apps
@@ -109,7 +190,7 @@ export const addApp = (_app) => {
     }
 
     /* Validate apps. */
-    if (typeof json !== 'undefined' && json !== null) {
+    if (typeof apps !== 'undefined' && apps !== null) {
         /* Update apps. */
         $App.set(apps.slice(0, 10))
     }

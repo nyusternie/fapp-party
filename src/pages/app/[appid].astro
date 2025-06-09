@@ -69,22 +69,3 @@ import { sdk } from '@farcaster/frame-sdk'
 /* For ready. */
 await sdk.actions.ready()
 </script>
-
-
----
-import '../../styles/global.css'
-
-import Layout from '../../layouts/Layout.astro'
-
-import WebAppHeader from '../../components/webapp/Header.vue'
-import WebAppFooter from '../../components/webapp/Footer.vue'
-
----
-
-<Layout>
-	<WebAppHeader client:load />
-
-
-
-	<WebAppFooter />
-</Layout>

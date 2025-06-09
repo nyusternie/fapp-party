@@ -4,13 +4,11 @@
 			App: {{props.appid}}
 		</h1>
 
-        <button class="cursor-pointer text-white" @click="openUrl(props.appid)">
+        <button class="cursor-pointer text-white font-bold text-2xl" @click="openUrl(props.appid)">
             LAUNCH MINI APP
         </button>
 
-		<p>
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti repudiandae voluptas recusandae, doloremque dignissimos dicta qui quod beatae perferendis, a maxime explicabo tempore optio? Atque reprehenderit voluptas excepturi quia iure?
-		</p>
+		<pre class="text-slate-300 font-medium text-xs">{{appDetails}}</pre>
 	</main>
 </template>
 
@@ -19,7 +17,7 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
-import $System from '../../stores/system'
+import $App, { getDetailsFor } from '../../stores/app'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -27,14 +25,20 @@ const props = defineProps({
     appid: String,
 })
 
-const System = useStore($System)
+const App = useStore($App)
+
+const appDetails = ref()
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    appDetails.value = await getDetailsFor('framedl.xyz')
+    console.log('APP DETAILS', appDetails.value)
 }
 
 const openUrl = async (_appid) => {
+    /* Build URL. */
     const url = 'https://' + _appid
+
+    /* Open external app. */
     window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + url)
     // /* Validate mini app. */
     // if (isMiniApp) {
