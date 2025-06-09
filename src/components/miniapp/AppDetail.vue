@@ -1,9 +1,9 @@
 <template>
     <main class="w-full h-full px-2 pb-3 flex flex-col gap-4 overflow-y-scroll">
-        <section v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
+        <header v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
             <div class="flex flex-row gap-2">
                 <img
-                    class="size-32 border-4 border-amber-500 rounded-2xl shadow-md"
+                    class="size-28 border-4 border-amber-500 rounded-2xl shadow-md"
                     :src="appDetails.iconUrl"
                 />
 
@@ -12,7 +12,7 @@
                         {{appDetails.appName}}
                     </h1>
 
-                    <h3 class="-mt-4 pl-2 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
+                    <h3 class="-mt-4 pl-1 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
                         {{appDetails.subtitle}}
                     </h3>
                 </div>
@@ -27,7 +27,7 @@
                     </svg>
                 </span>
             </button>
-        </section>
+        </header>
 
         <p v-if="appDetails.description" class="px-5 py-3 text-stone-200 font-light text-xl/9 tracking-wider">
             {{appDetails.description}}
@@ -43,27 +43,27 @@
             </span>
         </div>
 
-        <div v-if="appDetails.tags" class="grid grid-cols-3 gap-5">
-            <span class="text-slate-200 font-medium uppercase text-right">
+        <section v-if="appDetails.tags" class="grid grid-cols-3 gap-5">
+            <h3 class="text-slate-200 font-medium uppercase text-right">
                 Tags
-            </span>
+            </h3>
 
             <div class="flex flex-col gap-1 col-span-2">
                 <span v-for="tag of appDetails.tags.split(',')" :key="tag" class="text-amber-200 font-bold">
                     {{tag}}
                 </span>
             </div>
-        </div>
+        </section>
 
-        <div v-if="appDetails.createdAt" class="grid grid-cols-3 gap-5">
-            <span class="text-slate-200 font-medium uppercase text-right">
+        <section v-if="appDetails.createdAt" class="grid grid-cols-3 gap-5">
+            <h3 class="text-slate-200 font-medium uppercase text-right">
                 Listing Date
-            </span>
+            </h3>
 
             <span class="col-span-2 text-amber-200 font-bold text-ellipsis">
                 {{moment.unix(appDetails.createdAt).format('llll')}}
             </span>
-        </div>
+        </section>
 
         <!-- DIVIDER -->
         <div class="my-5 w-full border-t border-rose-300" />
