@@ -22,7 +22,7 @@
             </ClientOnly>
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
-                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers</span> In The Last 24hrs<span class="text-2xl">↴</span>
+                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers</span> From The Last 24hrs<span class="text-3xl">↴</span>
             </h3>
 
 <!-- BEGIN FEATURED -->
@@ -50,7 +50,7 @@
 <!-- END FEATURED -->
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
-                New &amp; Noteworthy <span class="text-rose-300 font-extrabold text-xl">LIVE! Feed<span class="text-2xl">↴</span></span>
+                New &amp; Noteworthy <span class="text-rose-300 font-extrabold text-xl">LIVE! Feed<span class="text-3xl">↴</span></span>
             </h3>
 
 <!-- BEGIN ABOVE THE FOLD -->
@@ -78,8 +78,8 @@
 <!-- END ABOVE THE FOLD -->
 
             <ClientOnly>
-                <button v-if="sponsored" @click="viewDetail(sponsored.hostname)" class="cursor-pointer w-full my-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-500 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="sponsored.iconUrl" class="size-32 border-2 border-fuchsia-500 rounded-md" />
+                <button v-if="sponsored" @click="viewDetail(sponsored.hostname)" class="cursor-pointer w-full my-8 px-3 py-3 flex gap-3 bg-gradient-to-r from-stone-200 to-stone-50 border-4 border-stone-300 rounded-md hover:from-stone-800 hover:to-stone-600">
+                    <img :src="sponsored.iconUrl" class="size-32 border-2 border-stone-500 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
                         <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
