@@ -48,6 +48,8 @@ if (isMiniApp) {
 	// document.location = `/apps`
 }
 
-/* Attempt to open. */
-// await sdk.actions.ready()
+setTimeout(async () => {
+	/* Attempt to open. */
+	await sdk.actions.ready()
+}, 2000)
 </script>
