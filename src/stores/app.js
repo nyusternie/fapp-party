@@ -3,7 +3,7 @@ import { persistentAtom } from '@nanostores/persistent'
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-export const $App = persistentAtom('app', [], {
+const $App = persistentAtom('app', [], {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -14,15 +14,16 @@ export const $App = persistentAtom('app', [], {
         return value
     }),
 })
+export default $App
 
 /**
  * Add App
  *
  * Add a NEW application to the existing state of the store.
  */
-// export function addApp(_app) {
-//     $App.set([...$App.get(), _app])
-// }
+export const addApp = (_app) => {
+    $App.set([...$App.get(), _app])
+}
 
 /**
  * Initialize App Store
@@ -110,6 +111,6 @@ export const $App = persistentAtom('app', [], {
     /* Validate apps. */
     if (typeof json !== 'undefined' && json !== null) {
         /* Update apps. */
-        $App.set(apps.slice(0, 10))
+        $App.set(apps.slice(0, 12))
     }
 })()

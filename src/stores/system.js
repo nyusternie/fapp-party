@@ -3,7 +3,7 @@ import { persistentAtom } from '@nanostores/persistent'
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-export const $System = persistentAtom('system', [], {
+const $System = persistentAtom('system', [], {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -14,3 +14,4 @@ export const $System = persistentAtom('system', [], {
         return value
     }),
 })
+export default $System

@@ -4,7 +4,7 @@ import { sdk } from '@farcaster/frame-sdk'
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-export const $Profile = persistentAtom('profile', {}, {
+const $Profile = persistentAtom('profile', {}, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -15,6 +15,7 @@ export const $Profile = persistentAtom('profile', {}, {
         return value
     }),
 })
+export default $Profile
 
 /* Initialize (store). */
 export const init = async () => {
