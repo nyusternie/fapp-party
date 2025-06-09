@@ -15,7 +15,7 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
-import { $Profile } from '../../stores/profile'
+import $Profile from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration

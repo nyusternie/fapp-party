@@ -22,7 +22,7 @@ import { sdk } from '@farcaster/frame-sdk'
 // TODO Maybe we set a SESSION flag??
 const isMiniApp = await sdk.isInMiniApp()
 
-import { $Profile, init as initProfile } from '../../stores/profile'
+import $Profile, { init as initProfile } from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
