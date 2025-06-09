@@ -4,11 +4,6 @@
 			My Profile
 		</h1>
 
-		<p v-if="Profile?.authToken" class="text-slate-200 font-bold text-2xl tracking-widest">
-			Auth Token
-            {{Profile.authToken}}
-		</p>
-
         <a href="/notif" class="text-blue-300 font-bold text-2xl tracking-tighter hover:underline">
             Manage Your Notifications
         </a>
@@ -63,7 +58,7 @@ consectetur commodi.`
         const token = await initProfile()
 
         /* Request quick auth. */
-        debug.value = token
+        debug.value = 'auth token is ' + token.length + ' char long'
     }
 }
 
