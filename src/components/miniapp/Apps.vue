@@ -5,8 +5,8 @@
                 <button v-if="spotlight" @click="openUrl(spotlight.homeUrl)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
 
-                    <div class="w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
+                    <div class="w-full flex flex-col items-center flex-1">
+                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider line-clamp-1">
                             {{spotlight.appName}}
                         </h2>
 
@@ -52,8 +52,8 @@
                 <button v-if="sponsored" @click="openUrl(sponsored.homeUrl)" class="cursor-pointer w-full my-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-500 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="sponsored.iconUrl" class="size-32 border-2 border-fuchsia-500 rounded-md" />
 
-                    <div class="w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
+                    <div class="w-full flex flex-col items-center flex-1">
+                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider line-clamp-1">
                             {{sponsored.appName}}
                         </h2>
 
