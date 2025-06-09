@@ -1,30 +1,32 @@
 <template>
     <main class="w-full h-full px-2 pb-3 flex flex-col gap-4 overflow-y-scroll">
-        <section v-if="appDetails.appName" class="mt-5 flex flex-row items-center justify-between">
-            <div class="flex flex-col gap-3">
-                <h1 class="text-pretty text-6xl font-semibold tracking-tight text-amber-200 uppercase">
-                    {{appDetails.appName}}
-                </h1>
+        <section v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
+            <div class="flex flex-row gap-3">
+                <img
+                    class="size-32 mr-2 border-4 border-amber-500 rounded-2xl shadow-md"
+                    :src="appDetails.iconUrl"
+                />
 
-                <h3 class="-mt-4 pl-2 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
-                    {{appDetails.subtitle}}
-                </h3>
+                <div class="flex flex-col gap-3">
+                    <h1 class="text-pretty text-6xl font-semibold tracking-tight text-amber-200 uppercase">
+                        {{appDetails.appName}}
+                    </h1>
 
-                <button class="group cursor-pointer w-fit px-5 py-3 flex justify-center items-center bg-blue-800 border-2 hover:bg-blue-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
-                    <span class="inline-flex items-center gap-3 font-bold text-2xl text-blue-300 group-hover:text-blue-800">
-                        LAUNCH MINI APP
-
-                        <svg class="size-5 text-amber-600 group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
-                        </svg>
-                    </span>
-                </button>
+                    <h3 class="-mt-4 pl-2 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
+                        {{appDetails.subtitle}}
+                    </h3>
+                </div>
             </div>
 
-            <img
-                class="size-32 mr-2 border-4 border-amber-500 rounded-2xl shadow-md"
-                :src="appDetails.iconUrl"
-            />
+            <button class="group cursor-pointer w-full px-5 py-3 flex justify-center items-center bg-blue-800 border-2 hover:bg-blue-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
+                <span class="inline-flex items-center gap-3 font-bold text-2xl text-blue-300 group-hover:text-blue-800">
+                    LAUNCH MINI APP
+
+                    <svg class="size-5 text-amber-600 group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                    </svg>
+                </span>
+            </button>
         </section>
 
         <div v-if="appDetails.fid" class="grid grid-cols-4 gap-3">
@@ -38,11 +40,11 @@
         </div>
 
         <div v-if="appDetails.account" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
+            <span class="col-span-4 text-slate-200 font-medium uppercase">
                 Account
             </span>
 
-            <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
+            <span class="col-span-4 text-amber-200 font-bold text-ellipsis">
                 {{appDetails.account}}
             </span>
         </div>
@@ -69,7 +71,7 @@
 
         <div v-if="appDetails.primaryCategory" class="grid grid-cols-4 gap-3">
             <span class="text-slate-200 font-medium uppercase">
-                Primary Category
+                Category
             </span>
 
             <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
