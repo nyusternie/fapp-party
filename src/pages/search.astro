@@ -3,35 +3,60 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
+/* Initialize Mini Apps */
+import MiniAppHeader from '../components/miniapp/Header.vue'
+import MiniAppFooter from '../components/miniapp/Footer.vue'
+import MiniAppSearch from '../components/miniapp/Search.vue'
+
+/* Initialize Web Apps */
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
+import WebAppSearch from '../components/webapp/Search.vue'
+
+export const prerender = false
+
+/* Initialize constants. */
+const hostname = Astro.url?.hostname
+
+/* Initialize globals. */
+let isMiniApp = true//false
+
+/* Validate Mini App. */
+if (hostname === 'app.miniapps.party') {
+	isMiniApp = true
+}
 ---
 
 <Layout>
-	<WebAppHeader client:load />
+	<!-- Begin Mini App Main -->
+	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
+		<MiniAppHeader client:load />
 
-	<main class="px-2 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
+		<MiniAppSearch client:load class="flex-1" />
 
-		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
-			Search
-		</h1>
+		<MiniAppFooter />
+	</div>}
+	<!-- End Mini App Main -->
 
-		<p>
-			These are community SPONSORED Mini Apps that fund the Party Treasury—the primary funding source for ALL <a href="/rewards" class="text-lg font-bold text-blue-500 hover:text-blue-400 hover:underline">Reward Pools</a> and community events.
-		</p>
+	<!-- Begin Web App Main -->
+	{!isMiniApp && <WebAppHeader client:load />
 
-		<!-- <section>
-			<h3>
-				IMPORTANT NOTE:
-			</h3>
+	<WebAppSearch client:load />
 
-			<p>
-
-				5% of staked assets are non-refundable.
-				These funds are considered a Tribute to the Party and are utilized to facilitate event activities for the community.
-			</p>
-		</section> -->
-	</main>
-
-	<WebAppFooter />
+	<WebAppFooter />}
 </Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
+
+/* Validate mini app. */
+if (isMiniApp) {
+	/* Load app. */
+	sdk.actions.ready()
+}
+</script>
