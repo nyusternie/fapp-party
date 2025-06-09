@@ -4,8 +4,9 @@
 			My Profile
 		</h1>
 
-		<p class="text-slate-200 font-bold text-2xl tracking-widest">
-			TBD
+		<p v-if="Profile?.authToken" class="text-slate-200 font-bold text-2xl tracking-widest">
+			Auth Token
+            {{Profile.authToken}}
 		</p>
 
         <a href="/notif" class="text-blue-300 font-bold text-2xl tracking-tighter hover:underline">
@@ -26,7 +27,7 @@ import { sdk } from '@farcaster/frame-sdk'
 // TODO Maybe we set a SESSION flag??
 const isMiniApp = await sdk.isInMiniApp()
 
-import { $Profile, quickAuth } from '../../stores/profile'
+import { $Profile, init as initProfile } from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -53,14 +54,12 @@ nesciunt neque enim laborum ad
 consectetur commodi.`
 
     /* Validate mini app. */
-    if (isMiniApp) {
-        const response = await quickAuth()
-console.log('QUICK AUTH', response)
-        /* Request quick auth. */
-        debug.value = JSON.stringify(response)
-    }
-
-
+    // if (isMiniApp) {
+    //     /* Initialize profile. */
+    //     const token = await initProfile()
+    //     /* Request quick auth. */
+    //     debug.value = token
+    // }
 }
 
 onMounted(() => {

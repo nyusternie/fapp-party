@@ -16,10 +16,27 @@ export const $Profile = persistentAtom('profile', {}, {
     }),
 })
 
-export const quickAuth = async () => {
-    // const { token } = await sdk.actions.quickAuth()
-    const response = await sdk.actions.quickAuth()
-console.log('QUICK AUTH RESPONSE', response)
+/* Initialize (store). */
+export const init = async () => {
+    /* Request Mini App flag. */
+    // TODO Maybe we set a SESSION flag??
+    const isMiniApp = await sdk.isInMiniApp()
 
-    return response
+    /* Validate mini app. */
+    if (isMiniApp) {
+        /* Request (quick) authorization. */
+        const { token } = await sdk.actions.quickAuth()
+
+        const profile = $Profile.get()
+
+        /* Set auth token. */
+        profile.authToken = token
+
+        $Profile.set(profile)
+
+        /* Return (auth) token. */
+        return token
+    } else {
+        return null
+    }
 }
