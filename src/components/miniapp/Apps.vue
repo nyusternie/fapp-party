@@ -40,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import moment from 'moment'
@@ -60,6 +61,10 @@ const isShowingMobileMenu = ref(false)
 
 const init = async () => {
     console.log('APPS', $App.get())
+}
+
+const openUrl = async (_url) => {
+    await sdk.actions.openUrl(_url)
 }
 
 onMounted(() => {

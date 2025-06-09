@@ -28,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
 import { ref } from 'vue'
 
 /* Define properties. */

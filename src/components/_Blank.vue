@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
