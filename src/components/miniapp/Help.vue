@@ -8,7 +8,7 @@
 			Need immediate help?
 			<br />Reach out directly to
 			<button @click="viewShomari" class="group cursor-pointer px-2 py-0 inline-flex flex-col items-center text-sky-800 bg-sky-300 border border-sky-500 rounded-xl hover:bg-sky-900 hover:text-sky-100">
-				@shomari.eth
+				shomari.eth
 				<span class="-mt-2 block text-xs text-sky-700 tracking-widest group-hover:text-sky-200">BDFL</span>
 			</button>
 			for priority assistance.

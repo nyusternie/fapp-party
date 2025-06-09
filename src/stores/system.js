@@ -3,7 +3,7 @@ import { persistentAtom } from '@nanostores/persistent'
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-const $System = persistentAtom('system', [], {
+const $System = persistentAtom('system', {}, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -15,3 +15,20 @@ const $System = persistentAtom('system', [], {
     }),
 })
 export default $System
+
+export const lastPageNum = async () => $System.get().lastPageNum
+
+/**
+ * Set Last Page Number
+ *
+ * Saves the last visited page number.
+ * Used to manage the resume option upon re-visit.
+ */
+export const setLastPageNum = (_pageNum) => {
+    $System.set({
+        ...$System.get(),
+        lastPageNum: _pageNum,
+    })
+
+    return true
+}
