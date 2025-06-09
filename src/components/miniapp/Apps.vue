@@ -69,8 +69,8 @@ const init = async () => {
 const openUrl = async (_url) => {
     /* Validate mini app. */
     if (isMiniApp) {
-        await sdk.actions.openUrl('https://farcaster.xyz/?launchFrameUrl=' + encodeURIComponent(_url))
-        // window.open('https://farcaster.xyz/?launchFrameUrl=' + _url)
+        await sdk.actions.openUrl('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_url))
+        // window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + _url)
     } else {
 
         window.open(_url)
