@@ -2,7 +2,7 @@
     <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
         <div v-if="App && App.length > 0">
             <ClientOnly>
-                <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
@@ -21,8 +21,8 @@
                 </button>
             </ClientOnly>
 
-            <h3 class="pl-5 mb-5 text-rose-200 font-bold tracking-wider">
-                New &amp; Noteworthy Mini Apps <span class="text-rose-300 font-extrabold text-lg">LIVE! Feed↴</span>
+            <h3 class="pl-5 my-5 text-rose-200 font-bold tracking-wider">
+                <span class="text-rose-300 font-extrabold text-lg">Featured Mini Apps</span> From The Last 24 Hours↴
             </h3>
 
 <!-- BEGIN FEATURED -->
@@ -49,9 +49,9 @@
             </ClientOnly>
 <!-- END FEATURED -->
 
-            <!-- DIVIDER -->
-            <div class="my-5 w-full border-t border-rose-300" />
-            <!-- DIVIDER -->
+            <h3 class="pl-5 my-5 text-rose-200 font-bold tracking-wider">
+                New &amp; Noteworthy Mini Apps <span class="text-rose-300 font-extrabold text-lg">LIVE! Feed↴</span>
+            </h3>
 
 <!-- BEGIN ABOVE THE FOLD -->
             <ClientOnly>
@@ -123,8 +123,8 @@
             </ClientOnly>
 <!-- END BELOW THE FOLD -->
 
-            <section class="mt-5 w-full px-10 grid grid-cols-2 gap-0.5">
-                <a href="#" class="opacity-50 cursor-not-allowed group py-2 flex justify-center items-center bg-amber-100 rounded-lg rounded-r-none">
+            <section class="my-5 w-full px-10 grid grid-cols-2 gap-0.5">
+                <a href="#" class="opacity-40 cursor-not-allowed group py-2 flex justify-center items-center bg-amber-100 rounded-lg rounded-r-none">
                     <span span class="flex flex-row items-center gap-2 text-amber-500 font-bold text-3xl uppercase">
                         <svg class="size-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
