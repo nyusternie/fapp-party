@@ -1,9 +1,9 @@
 <template>
     <main class="w-full h-full px-2 pb-3 flex flex-col gap-4 overflow-y-scroll">
         <section v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
-            <div class="flex flex-row gap-3">
+            <div class="flex flex-row gap-2">
                 <img
-                    class="size-32 mr-2 border-4 border-amber-500 rounded-2xl shadow-md"
+                    class="size-32 border-4 border-amber-500 rounded-2xl shadow-md"
                     :src="appDetails.iconUrl"
                 />
 
@@ -19,8 +19,8 @@
             </div>
 
             <button class="group cursor-pointer w-full px-5 py-3 flex justify-center items-center bg-blue-800 border-2 hover:bg-blue-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
-                <span class="inline-flex items-center gap-3 font-bold text-2xl text-blue-300 group-hover:text-blue-800">
-                    LAUNCH MINI APP
+                <span class="inline-flex items-center gap-3 font-bold text-2xl uppercase text-blue-300 group-hover:text-blue-800">
+                    Launch Mini App
 
                     <svg class="size-5 text-amber-600 group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
@@ -29,79 +29,75 @@
             </button>
         </section>
 
-        <div v-if="appDetails.fid" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
-                FID
-            </span>
+        <p v-if="appDetails.description" class="px-5 py-3 text-stone-200 font-light text-xl/9 tracking-wider">
+            {{appDetails.description}}
+        </p>
 
-            <span class="col-span-3 text-amber-200 font-bold">
-                {{appDetails.fid}}
-            </span>
-        </div>
-
-        <div v-if="appDetails.account" class="grid grid-cols-4 gap-3">
-            <span class="col-span-4 text-slate-200 font-medium uppercase">
-                Account
-            </span>
-
-            <span class="col-span-4 text-amber-200 font-bold text-ellipsis">
-                {{appDetails.account}}
-            </span>
-        </div>
-
-        <div v-if="appDetails.version" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
-                Version
-            </span>
-
-            <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
-                {{appDetails.version}}
-            </span>
-        </div>
-
-        <div v-if="appDetails.description" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
-                Description
-            </span>
-
-            <p class="col-span-3 text-amber-200 font-bold text-ellipsis">
-                {{appDetails.description}}
-            </p>
-        </div>
-
-        <div v-if="appDetails.primaryCategory" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
+        <div v-if="appDetails.primaryCategory" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
                 Category
             </span>
 
-            <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
+            <span class="col-span-2 text-amber-200 font-bold text-ellipsis">
                 {{appDetails.primaryCategory}}
             </span>
         </div>
 
-        <div v-if="appDetails.tags" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
+        <div v-if="appDetails.tags" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
                 Tags
             </span>
 
-            <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
-                {{appDetails.tags}}
-            </span>
+            <div class="flex flex-col gap-1 col-span-2">
+                <span v-for="tag of appDetails.tags.split(',')" :key="tag" class="text-amber-200 font-bold">
+                    {{tag}}
+                </span>
+            </div>
         </div>
 
-        <div v-if="appDetails.createdAt" class="grid grid-cols-4 gap-3">
-            <span class="text-slate-200 font-medium uppercase">
+        <div v-if="appDetails.createdAt" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
                 Listing Date
             </span>
 
-            <span class="col-span-3 text-amber-200 font-bold text-ellipsis">
+            <span class="col-span-2 text-amber-200 font-bold text-ellipsis">
                 {{moment.unix(appDetails.createdAt).format('llll')}}
             </span>
         </div>
 
+        <!-- DIVIDER -->
+        <div class="my-5 w-full border-t border-rose-300" />
+        <!-- DIVIDER -->
+
+        <section class="flex flex-col gap-5">
+            <div v-if="appDetails.fid" class="grid grid-cols-1 gap-1">
+                <span class="text-center text-slate-200 font-medium uppercase">
+                    {{appDetails.appName}} Creator
+                </span>
+
+                <span class="text-center text-amber-200 font-bold text-ellipsis">
+                    {{appDetails.fid}}
+                </span>
+            </div>
+
+            <div v-if="appDetails.account" class="grid grid-cols-1 gap-1">
+                <span class="text-center text-slate-200 font-medium uppercase">
+                    Sponsorship Account
+                </span>
+
+                <span class="text-center text-amber-200 font-bold text-ellipsis">
+                    {{appDetails.account}}
+                </span>
+            </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="my-5 w-full border-t border-rose-300" />
+        <!-- DIVIDER -->
+
         <img
             v-if="appDetails.heroImageUrl"
-            class="w-1/2 border-4 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
+            class="w-2/3 border-4 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
             :src="appDetails.heroImageUrl"
         />
 
