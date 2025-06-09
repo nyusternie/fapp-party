@@ -1,6 +1,6 @@
 <template>
-    <main class="px-3 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-        <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-slate-200 sm:text-7xl">
+    <main class="w-full h-full px-3 py-3 flex flex-col gap-6 overflow-y-scroll">
+        <h1 class="text-7xl font-semibold tracking-tight text-slate-200">
             Apps
         </h1>
 

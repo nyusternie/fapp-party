@@ -3,12 +3,14 @@ import '../styles/global.css'
 
 import Layout from '../layouts/Layout.astro'
 
+/* Initialize Mini Apps */
 import MiniAppHeader from '../components/miniapp/Header.vue'
 import MiniAppFooter from '../components/miniapp/Footer.vue'
+import MiniAppApps from '../components/miniapp/Apps.vue'
+
+/* Initialize Web Apps */
 import WebAppHeader from '../components/webapp/Header.vue'
 import WebAppFooter from '../components/webapp/Footer.vue'
-
-import MiniAppApps from '../components/miniapp/Apps.vue'
 import WebAppApps from '../components/webapp/Apps.vue'
 
 export const prerender = false
@@ -30,7 +32,7 @@ if (hostname === 'app.miniapps.party') {
 	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-slate-900">
 		<MiniAppHeader client:load />
 
-		<MiniAppApps client:load />
+		<MiniAppApps client:load class="flex-1" />
 
 		<MiniAppFooter />
 	</div>}
