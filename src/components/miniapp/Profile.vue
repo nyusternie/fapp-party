@@ -46,11 +46,13 @@ const init = async () => {
 
     debug.value = `Lorem ipsum dolor sit amet
 consectetur adipisicing elit.
-Cum sapiente esse nisi eum voluptas.
+Cum sapiente esse nisi
+eum voluptas.
 Laboriosam, quam, repellendus
 unde nulla quos
 necessitatibus atque eum
-nesciunt neque enim laborum ad
+nesciunt neque enim
+laborum ad
 consectetur commodi.`
 
     /* Validate mini app. */
