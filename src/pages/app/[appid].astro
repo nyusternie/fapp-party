@@ -1,0 +1,90 @@
+---
+import '../../styles/global.css'
+
+import Layout from '../../layouts/Layout.astro'
+
+/* Initialize Mini Apps */
+import MiniAppHeader from '../../components/miniapp/Header.vue'
+import MiniAppFooter from '../../components/miniapp/Footer.vue'
+import MiniAppDetail from '../../components/miniapp/AppDetail.vue'
+
+/* Initialize Web Apps */
+import WebAppHeader from '../../components/webapp/Header.vue'
+import WebAppFooter from '../../components/webapp/Footer.vue'
+import WebAppDetail from '../../components/webapp/AppDetail.vue'
+
+export const prerender = false
+
+/* Initialize constants. */
+const hostname = Astro.url?.hostname
+
+/* Initialize globals. */
+let isMiniApp = true//false
+
+/* Validate Mini App. */
+if (hostname === 'app.miniapps.party') {
+	isMiniApp = true
+}
+
+/* Parse hostname (from params). */
+const { appid } = Astro.params
+---
+
+<Layout>
+	<!-- Begin Mini App Main -->
+	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
+		<MiniAppHeader client:load />
+
+		<MiniAppDetail client:load class="flex-1" appid={appid} />
+
+		<MiniAppFooter />
+	</div>}
+	<!-- End Mini App Main -->
+
+	<!-- Begin Web App Main -->
+	{!isMiniApp && <WebAppHeader client:load />
+
+	<MiniAppDetail client:load appid={appid} />
+
+	<WebAppFooter />}
+</Layout>
+
+<script>
+/* Import modules. */
+import { sdk } from '@farcaster/frame-sdk'
+
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+// const isMiniApp = await sdk.isInMiniApp()
+
+/* Set constants. */
+// const INIT_DELAY = 1000 // 1 second
+
+/* Validate mini app. */
+// if (isMiniApp) {
+// 	/* Load app. */
+// 	setTimeout(sdk.actions.ready, INIT_DELAY)
+// }
+
+/* For ready. */
+await sdk.actions.ready()
+</script>
+
+
+---
+import '../../styles/global.css'
+
+import Layout from '../../layouts/Layout.astro'
+
+import WebAppHeader from '../../components/webapp/Header.vue'
+import WebAppFooter from '../../components/webapp/Footer.vue'
+
+---
+
+<Layout>
+	<WebAppHeader client:load />
+
+
+
+	<WebAppFooter />
+</Layout>

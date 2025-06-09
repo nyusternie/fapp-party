@@ -2,7 +2,7 @@
     <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
         <div v-if="App && App.length > 0">
             <ClientOnly>
-                <button v-if="spotlight" @click="openUrl(spotlight.homeUrl)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 mb-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
@@ -27,7 +27,7 @@
             </p>
 
             <ClientOnly>
-                <button v-for="app of aboveTheFold" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
@@ -49,7 +49,7 @@
             </ClientOnly>
 
             <ClientOnly>
-                <button v-if="sponsored" @click="openUrl(sponsored.homeUrl)" class="cursor-pointer w-full my-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-500 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-if="sponsored" @click="viewDetail(sponsored.hostname)" class="cursor-pointer w-full my-5 px-3 py-3 flex gap-3 bg-gradient-to-r from-fuchsia-300 to-fuchsia-100 border-2 border-fuchsia-500 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="sponsored.iconUrl" class="size-32 border-2 border-fuchsia-500 rounded-md" />
 
                     <div class="w-full flex flex-col items-center flex-1">
@@ -71,7 +71,7 @@
             </ClientOnly>
 
             <ClientOnly>
-                <button v-for="app of belowTheFold" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
@@ -172,14 +172,14 @@ const init = async () => {
     }
 }
 
-const openUrl = async (_url) => {
+const viewDetail = async (_hostname) => {
     /* Validate mini app. */
-    if (isMiniApp) {
-        await sdk.actions.openUrl('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_url))
-        // window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + _url)
-    } else {
-        window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_url))
-    }
+    // if (isMiniApp) {
+    //     await sdk.actions.openUrl('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_hostname))
+    // } else {
+    //     window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_hostname))
+    // }
+    document.location = '/app/' + encodeURIComponent(_hostname)
 }
 
 onMounted(() => {
