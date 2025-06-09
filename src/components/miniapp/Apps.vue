@@ -10,8 +10,8 @@
                             {{spotlight.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider italic">
-                            {{spotlight.hostname}}
+                        <h3 class="text-sky-400 font-bold text-lg tracking-wider">
+                            {{spotlight.tagline || spotlight.hostname}}
                         </h3>
 
                         <!-- <h3 class="text-sky-600 font-bold text-base tracking-wider italic">
@@ -21,14 +21,13 @@
                 </button>
             </ClientOnly>
 
-            <p class="mb-5 text-amber-200">
-                Listing of ALL the New &amp; Noteworthy Mini Apps
-                <span class="block font-bold">10 PER PAGE↴</span>
-            </p>
+            <h3 class="pl-5 mb-5 text-rose-200 font-bold tracking-wider">
+                New &amp; Noteworthy Mini Apps <span class="text-rose-300 font-extrabold text-lg">LIVE! Feed↴</span>
+            </h3>
 
 <!-- BEGIN FEATURED -->
             <ClientOnly>
-                <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
@@ -36,11 +35,11 @@
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
-                            {{app.hostname}}
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
+                            {{app.tagline || app.hostname}}
                         </h3>
 
-                        <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
+                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
                             added {{moment.unix(app.createdAt).fromNow()}}
                         </h3>
                     </div>
@@ -56,7 +55,7 @@
 
 <!-- BEGIN ABOVE THE FOLD -->
             <ClientOnly>
-                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
@@ -64,11 +63,11 @@
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
-                            {{app.hostname}}
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                            {{app.tagline || app.hostname}}
                         </h3>
 
-                        <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
+                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
                             added {{moment.unix(app.createdAt).fromNow()}}
                         </h3>
                     </div>
@@ -87,8 +86,8 @@
                             {{sponsored.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider italic">
-                            {{sponsored.hostname}}
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                            {{sponsored.tagline || sponsored.hostname}}
                         </h3>
 
                         <!-- <h3 class="text-sky-600 font-bold text-base tracking-tighter italic">
@@ -102,7 +101,7 @@
 
 <!-- BEGIN BELOW THE FOLD -->
             <ClientOnly>
-                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
@@ -110,11 +109,11 @@
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="-mt-1 text-sky-400 font-bold text-xs tracking-tighter italic">
-                            {{app.hostname}}
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                            {{app.tagline || app.hostname}}
                         </h3>
 
-                        <h3 class="text-sky-600 font-bold text-sm tracking-tighter italic">
+                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
                             added {{moment.unix(app.createdAt).fromNow()}}
                         </h3>
                     </div>
@@ -124,9 +123,9 @@
             </ClientOnly>
 <!-- END BELOW THE FOLD -->
 
-            <section class="mt-5 w-full grid grid-cols-2 gap-0.5">
-                <a href="#" class="group py-2 flex justify-center items-center bg-amber-100 rounded-lg rounded-r-none hover:bg-amber-600">
-                    <span span class="flex flex-row items-center gap-2 text-amber-500 font-bold text-3xl uppercase group-hover:text-amber-50">
+            <section class="mt-5 w-full px-10 grid grid-cols-2 gap-0.5">
+                <a href="#" class="opacity-50 cursor-not-allowed group py-2 flex justify-center items-center bg-amber-100 rounded-lg rounded-r-none">
+                    <span span class="flex flex-row items-center gap-2 text-amber-500 font-bold text-3xl uppercase">
                         <svg class="size-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
                         </svg>
