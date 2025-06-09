@@ -31,7 +31,7 @@
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">
-                        <h2 class="w-full text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
