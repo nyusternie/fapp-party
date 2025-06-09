@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-3 py-3 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 py-3 flex flex-col gap-6 overflow-y-scroll">
         <h1 class="text-7xl font-semibold tracking-tight text-slate-200">
             Apps
         </h1>
@@ -11,7 +11,7 @@
             </p>
 
             <ClientOnly>
-                <button v-for="app of App" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-3 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of App" :key="app.hostname" @click=openUrl(app.homeUrl) class="cursor-pointer w-full mt-5 px-2 py-2 flex gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 border border-slate-700 rounded-md" />
 
                     <div class="w-full flex flex-col items-start flex-1">

@@ -63,25 +63,25 @@
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-4 py-6">
-                            <a href="/apps" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                            <a href="/apps" class="-mx-3 block rounded-lg px-2 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Mini Apps
                             </a>
 
-                            <a href="/rewards" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                            <a href="/rewards" class="-mx-3 block rounded-lg px-2 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Reward Pools
                             </a>
 
-                            <a href="/spotlight" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                            <a href="/spotlight" class="-mx-3 block rounded-lg px-2 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Spotlight
                             </a>
 
-                            <a href="/help" class="-mx-3 block rounded-lg px-3 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                            <a href="/help" class="-mx-3 block rounded-lg px-2 py-2 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Need help?
                             </a>
                         </div>
 
                         <div class="py-6">
-                            <a href="/profile" class="-mx-3 block rounded-lg px-3 py-2.5 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
+                            <a href="/profile" class="-mx-3 block rounded-lg px-2 py-2.5 text-3xl font-semibold text-slate-900 hover:bg-gray-50">
                                 Sign-In
                             </a>
                         </div>
