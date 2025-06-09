@@ -17,10 +17,16 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
 
-import { $System } from '../../stores/system'
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
+
+import { $Profile, quickAuth } from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -30,12 +36,12 @@ const props = defineProps({
     },
 })
 
-const System = useStore($System)
+const Profile = useStore($Profile)
 
 const debug = ref()
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    console.log('PROFILE', $Profile.get())
 
     debug.value = `Lorem ipsum dolor sit amet
 consectetur adipisicing elit.
@@ -45,6 +51,14 @@ unde nulla quos
 necessitatibus atque eum
 nesciunt neque enim laborum ad
 consectetur commodi.`
+
+    /* Validate mini app. */
+    if (isMiniApp) {
+        /* Request quick auth. */
+        debug.value = JSON.stringify(await quickAuth())
+    }
+
+
 }
 
 onMounted(() => {

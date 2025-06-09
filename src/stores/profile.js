@@ -14,3 +14,11 @@ export const $Profile = persistentAtom('profile', [], {
         return value
     }),
 })
+
+export const quickAuth = async () => {
+    // const { token } = await sdk.actions.quickAuth()
+    const response = await sdk.actions.quickAuth()
+console.log('QUICK AUTH RESPONSE', response)
+
+    return response
+}
