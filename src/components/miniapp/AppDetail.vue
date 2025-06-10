@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-3 flex flex-col gap-4 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-4 overflow-y-scroll">
         <header v-if="appDetails.appName" class="mt-5 flex flex-col gap-3">
             <div class="flex flex-row gap-2">
                 <img
@@ -72,6 +72,24 @@
 
         </section>
 
+<!-- BEGIN TITLE SPONSORSHIP -->
+        <section class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
+            <img
+                v-if="appDetails.heroImageUrl"
+                class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
+                :src="appDetails.heroImageUrl"
+            />
+
+            <a href="/sponsors" class="px-5 py-2 inline-flex gap-1 text-stone-200 font-medium text-xs tracking-widest">
+                Title Sponsorship
+
+                <svg class="size-4" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"></path>
+                </svg>
+            </a>
+        </section>
+<!-- END TITLE SPONSORSHIP -->
+
         <!-- DIVIDER -->
         <div class="my-5 w-full border-t border-rose-300" />
         <!-- DIVIDER -->
@@ -102,31 +120,37 @@
         <div class="my-5 w-full border-t border-rose-300" />
         <!-- DIVIDER -->
 
-        <img
-            v-if="appDetails.heroImageUrl"
-            class="w-2/3 border-4 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
-            :src="appDetails.heroImageUrl"
-        />
-
-        <section v-if="appDetails.screenshotUrl1">
-            <h2>
+        <section v-if="appDetails.screenshotUrl1" class="flex flex-col gap-4">
+            <h2 class="text-xl font-bold text-amber-300 tracking-widest uppercase">
                 Screenshots
             </h2>
 
-            <div>
-                screenshotUrl1
-            </div>
+            <div class="w-full grid grid-cols-3 gap-3">
+                <div class="">
+                    <img
+                        v-if="appDetails.screenshotUrl1"
+                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
+                        :src="appDetails.screenshotUrl1"
+                    />
+                </div>
 
-            <div>
-                screenshotUrl2
-            </div>
+                <div class="">
+                    <img
+                        v-if="appDetails.screenshotUrl2"
+                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
+                        :src="appDetails.screenshotUrl2"
+                    />
+                </div>
 
-            <div>
-                screenshotUrl3
+                <div class="">
+                    <img
+                        v-if="appDetails.screenshotUrl3"
+                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
+                        :src="appDetails.screenshotUrl3"
+                    />
+                </div>
             </div>
         </section>
-
-        <!-- <pre class="text-slate-300 font-medium text-xs">{{appDetails}}</pre> -->
 	</main>
 </template>
 
