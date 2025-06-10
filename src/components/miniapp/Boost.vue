@@ -73,9 +73,8 @@
         </section>
 
 <!-- BEGIN TITLE SPONSORSHIP -->
-        <section class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
+        <section v-if="appDetails.heroImageUrl" class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
             <img
-                v-if="appDetails.heroImageUrl"
                 class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
                 :src="appDetails.heroImageUrl"
             />
