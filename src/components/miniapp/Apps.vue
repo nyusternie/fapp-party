@@ -170,9 +170,7 @@ const isMiniApp = await sdk.isInMiniApp()
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
-    data: {
-        type: [Object],
-    },
+    cursor: String,
 })
 
 const App = useStore($App)

@@ -26,6 +26,7 @@ if (hostname === 'app.miniapps.party') {
 	isMiniApp = true
 }
 
+/* Parse app ID (from params). */
 const { cursor } = Astro.params
 ---
 
@@ -43,7 +44,7 @@ const { cursor } = Astro.params
 	<!-- Begin Web App Main -->
 	{!isMiniApp && <WebAppHeader client:load />
 
-	<WebAppApps client:load cursor={cursor} />
+	<WebAppApps client:load />
 
 	<WebAppFooter />}
 </Layout>
