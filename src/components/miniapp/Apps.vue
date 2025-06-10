@@ -63,7 +63,7 @@
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
                             {{app.tagline || app.hostname}}
                         </h3>
 
@@ -109,7 +109,7 @@
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
                             {{app.tagline || app.hostname}}
                         </h3>
 
