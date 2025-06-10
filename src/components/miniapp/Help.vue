@@ -17,7 +17,7 @@
 		<ul class="mt-10 pl-10 list-disc leading-[50px]">
 			<li>
 				<a href="/roadmap" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
-					View Our Official Roadmap
+					Our Roadmap
 				</a>
 			</li>
 
