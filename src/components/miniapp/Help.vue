@@ -14,7 +14,7 @@
 		</p>
 
 		<small class="-mt-6 text-center text-sm font-medium text-rose-200">
-			or simply give a <span @click="viewShomari" class="cursor-pointer text-base font-bold text-rose-300 hover:text-rose-200 hover:underline">follow</span>—i've only got like 55 😭
+			or simply give a <span @click="viewShomari" class="cursor-pointer text-base font-bold text-rose-300 hover:text-rose-200 hover:underline">follow</span>—he's only got like 55 😭
 		</small>
 
 		<h3 class="mt-2 text-xl font-medium text-stone-300 tracking-wider uppercase">
