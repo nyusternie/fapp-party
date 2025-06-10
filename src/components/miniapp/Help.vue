@@ -6,10 +6,9 @@
 
 		<p class="text-slate-300 font-medium text-lg/9">
 			Need immediate help?
-			<br />Reach out directly to
-			<button @click="viewShomari" class="group cursor-pointer px-2 py-0 inline-flex flex-col items-center text-sky-800 bg-sky-300 border border-sky-500 rounded-xl hover:bg-sky-900 hover:text-sky-100">
+			<br />Reach out directly to BDFL
+			<button @click="viewShomari" class="cursor-pointer px-2 py-0 mx-1 inline-flex text-sky-800 bg-sky-300 border border-sky-500 rounded-xl hover:bg-sky-900 hover:text-sky-100">
 				shomari.eth
-				<span class="-mt-2 block text-xs text-sky-700 tracking-widest group-hover:text-sky-200">BDFL</span>
 			</button>
 			for priority assistance.
 		</p>
