@@ -13,7 +13,7 @@
 			for priority assistance.
 		</p>
 
-		<small class="-mt-4 text-center text-sm font-medium text-rose-200">
+		<small class="-mt-6 text-center text-sm font-medium text-rose-200">
 			or simply give a <span @click="viewShomari" class="cursor-pointer text-base font-bold text-rose-300 hover:text-rose-200 hover:underline">follow</span>—i've only got like 55 😭
 		</small>
 
