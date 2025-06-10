@@ -9,7 +9,7 @@
         </h2>
 
         <h3 class="-mt-6 text-amber-300 font-medium text-lg">
-            Submit your ideas below to help improve the NEXT PARTY
+            Submit your ideas below to help improve the NEXT PARTY! 🎉
         </h3>
 
         <p class="text-slate-300 font-medium text-lg">
