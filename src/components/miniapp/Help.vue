@@ -13,7 +13,11 @@
 			for priority assistance.
 		</p>
 
-		<h3 class="mt-5 text-3xl font-medium text-amber-300 tracking-wider">
+		<small class="-mt-3 text-center text-sm font-medium text-rose-200">
+			or simply give a follow—i've only got like 55 😭
+		</small>
+
+		<h3 class="mt-2 text-2xl font-medium text-amber-300 tracking-wider">
 			Recommended Links
 		</h3>
 
