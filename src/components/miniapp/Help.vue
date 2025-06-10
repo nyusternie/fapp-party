@@ -13,15 +13,15 @@
 			for priority assistance.
 		</p>
 
-		<small class="-mt-3 text-center text-sm font-medium text-rose-200">
-			or simply give a follow—i've only got like 55 😭
+		<small class="-mt-2 text-center text-sm font-medium text-rose-200">
+			or simply give a <span @click="viewShomari" class="cursor-pointer text-base font-bold text-rose-300 hover:text-rose-200 hover:underline">follow</span>—i've only got like 55 😭
 		</small>
 
-		<h3 class="mt-2 text-2xl font-medium text-amber-300 tracking-wider">
+		<h3 class="mt-2 text-xl font-medium text-stone-300 tracking-wider uppercase">
 			Recommended Links
 		</h3>
 
-		<ul class="pl-10 leading-[50px]">
+		<ul class="-mt-4 pl-10 leading-[50px]">
 			<li>
 				<a href="/roadmap" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
 					↳ Our Roadmap
