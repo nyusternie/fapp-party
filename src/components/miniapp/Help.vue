@@ -14,22 +14,26 @@
 			for priority assistance.
 		</p>
 
-		<ul class="mt-10 pl-10 list-disc leading-[50px]">
+		<h3 class="mt-5 text-3xl font-medium text-amber-300 tracking-wider">
+			Recommended Links
+		</h3>
+
+		<ul class="pl-10 leading-[50px]">
 			<li>
 				<a href="/roadmap" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
-					Our Roadmap
+					↳ Our Roadmap
 				</a>
 			</li>
 
 			<li>
 				<a href="https://docs.miniapps.party" target="_blank" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
-					ReadTheDocs
+					↳ ReadTheDocs
 				</a>
 			</li>
 
 			<li>
 				<a href="/transparency" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
-					Transparency
+					↳ Transparency
 				</a>
 			</li>
 		</ul>
