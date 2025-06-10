@@ -1,17 +1,17 @@
 ---
-import '../styles/global.css'
+import '../../styles/global.css'
 
-import Layout from '../layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 
 /* Initialize Mini Apps */
-import MiniAppHeader from '../components/miniapp/Header.vue'
-import MiniAppFooter from '../components/miniapp/Footer.vue'
-import MiniAppApps from '../components/miniapp/Apps.vue'
+import MiniAppHeader from '../../components/miniapp/Header.vue'
+import MiniAppFooter from '../../components/miniapp/Footer.vue'
+import MiniAppApps from '../../components/miniapp/Apps.vue'
 
 /* Initialize Web Apps */
-import WebAppHeader from '../components/webapp/Header.vue'
-import WebAppFooter from '../components/webapp/Footer.vue'
-import WebAppApps from '../components/webapp/Apps.vue'
+import WebAppHeader from '../../components/webapp/Header.vue'
+import WebAppFooter from '../../components/webapp/Footer.vue'
+import WebAppApps from '../../components/webapp/Apps.vue'
 
 export const prerender = false
 
@@ -25,6 +25,8 @@ let isMiniApp = true//false
 if (hostname === 'app.miniapps.party') {
 	isMiniApp = true
 }
+
+const { cursor } = Astro.params
 ---
 
 <Layout>
@@ -32,7 +34,7 @@ if (hostname === 'app.miniapps.party') {
 	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
 
-		<MiniAppApps client:load class="flex-1" />
+		<MiniAppApps client:load class="flex-1" cursor={cursor} />
 
 		<MiniAppFooter />
 	</div>}
@@ -41,7 +43,7 @@ if (hostname === 'app.miniapps.party') {
 	<!-- Begin Web App Main -->
 	{!isMiniApp && <WebAppHeader client:load />
 
-	<WebAppApps client:load />
+	<WebAppApps client:load cursor={cursor} />
 
 	<WebAppFooter />}
 </Layout>
