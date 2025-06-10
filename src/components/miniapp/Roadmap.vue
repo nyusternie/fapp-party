@@ -18,10 +18,14 @@
 
         <p class="text-slate-300 font-medium text-lg">
             As this platform was launched on June 10th, it may take some time to get things "properly" up-to-speed.
-            Your patience is MUCH appreciated! 🙏
+
         </p>
 
-        <ul class="pl-10 list-disc text-lg font-medium text-amber-100 leading-9">
+        <h3 class="text-slate-300 font-medium text-lg">
+            Your patience is MUCH appreciated! 🙏
+        </h3>
+
+        <ul class="pl-5 list-decimal text-lg font-medium text-amber-100 leading-9">
             <li v-for="goal of goals" :key="goal.desc">
                 {{goal.desc}} <span v-if="goal.isCompleted">✅</span>
             </li>
