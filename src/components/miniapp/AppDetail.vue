@@ -12,7 +12,7 @@
                         {{appDetails.appName}}
                     </h1>
 
-                    <h3 class="-mt-4 pl-1 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
+                    <h3 class="-mt-4 text-lg font-semibold tracking-tight text-amber-400 line-clamp-1">
                         {{appDetails.subtitle}}
                     </h3>
                 </div>
