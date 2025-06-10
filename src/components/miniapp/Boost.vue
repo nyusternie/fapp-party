@@ -20,7 +20,7 @@
 
             <button class="group cursor-pointer w-full mt-2 px-5 py-3 flex justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-400 border-amber-900 rounded-xl" @click="openUrl(props.appid)">
                 <span class="inline-flex items-center gap-3 font-bold text-2xl uppercase text-amber-300 group-hover:text-amber-200">
-                    Launch Mini App
+                    Boost Mini App
 
                     <svg class="size-5 text-amber-400 group-hover:text-amber-200" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
@@ -73,8 +73,9 @@
         </section>
 
 <!-- BEGIN TITLE SPONSORSHIP -->
-        <section v-if="appDetails.heroImageUrl" class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
+        <section class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
             <img
+                v-if="appDetails.heroImageUrl"
                 class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1200/630]"
                 :src="appDetails.heroImageUrl"
             />
@@ -89,81 +90,6 @@
         </section>
 <!-- END TITLE SPONSORSHIP -->
 
-        <!-- DIVIDER -->
-        <div v-if="appDetails.fid" class="my-5 w-full border-t border-rose-300" />
-        <!-- DIVIDER -->
-
-        <section v-if="appDetails.fid" class="flex flex-col gap-5">
-            <div class="grid grid-cols-1 gap-1">
-                <span class="text-center text-slate-200 font-medium uppercase">
-                    {{appDetails.appName}} App Creator
-                </span>
-
-                <span class="text-center text-amber-200 font-bold text-2xl tracking-wider text-ellipsis">
-                    {{appDetails.fid}}
-                </span>
-            </div>
-
-            <div v-if="appDetails.account" class="grid grid-cols-1 gap-1">
-                <span class="text-center text-slate-200 font-medium uppercase">
-                    {{appDetails.appName}} Sponsorship Account
-                </span>
-
-                <a :href="'https://address.vision/' + appDetails.account" target="_blank" class="text-center text-fuchsia-200 font-bold tracking-tighter text-ellipsis hover:text-fuchsia-100 hover:underline">
-                    {{appDetails.account}}
-                </a>
-            </div>
-
-            <a :href="'/boost/' + appDetails.hostname" class="group cursor-pointer w-full mt-2 px-5 py-3 flex flex-col justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-400 border-amber-900 rounded-xl">
-                <span class="inline-flex items-center gap-3 font-bold text-2xl uppercase text-amber-300 group-hover:text-amber-200">
-                    Boost {{appDetails.appName}}
-                </span>
-
-                <small class="text-xs font-medium tracking-wider text-amber-400 group-hover:text-amber-300">
-                    starting at <span class="font-bold text-sm">JUST $1.00</span>
-                </small>
-
-                <small class="text-xs font-medium tracking-wider text-amber-400 group-hover:text-amber-300">
-                    <span class="font-bold text-sm">50% INSTANTLY</span> paid out to app creator
-                </small>
-            </a>
-        </section>
-
-        <!-- DIVIDER -->
-        <div v-if="appDetails.screenshotUrl1" class="my-5 w-full border-t border-rose-300" />
-        <!-- DIVIDER -->
-
-        <section v-if="appDetails.screenshotUrl1" class="flex flex-col gap-4">
-            <h2 class="text-xl font-bold text-amber-300 tracking-widest uppercase">
-                Screenshots
-            </h2>
-
-            <div class="w-full grid grid-cols-3 gap-3">
-                <div class="">
-                    <img
-                        v-if="appDetails.screenshotUrl1"
-                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
-                        :src="appDetails.screenshotUrl1"
-                    />
-                </div>
-
-                <div class="">
-                    <img
-                        v-if="appDetails.screenshotUrl2"
-                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
-                        :src="appDetails.screenshotUrl2"
-                    />
-                </div>
-
-                <div class="">
-                    <img
-                        v-if="appDetails.screenshotUrl3"
-                        class="border-2 border-amber-500 rounded-2xl shadow-md aspect-[1284/2778]"
-                        :src="appDetails.screenshotUrl3"
-                    />
-                </div>
-            </div>
-        </section>
 	</main>
 </template>
 
