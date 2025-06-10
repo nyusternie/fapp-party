@@ -22,7 +22,7 @@
             </ClientOnly>
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
-                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers</span> Since Yesterday<span class="text-3xl">↴</span>
+                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers!</span> Since Yesterday<span class="text-3xl">↴</span>
             </h3>
 
 <!-- BEGIN FEATURED -->
