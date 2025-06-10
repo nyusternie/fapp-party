@@ -4,13 +4,16 @@
             <div class="mx-auto max-w-2xl px-4">
                 <div class="grid grid-cols-1 items-center gap-x-16 gap-y-10">
                     <div>
-                        <h2 class="text-4xl font-bold tracking-tight text-slate-200">
+                        <h2 class="text-4xl font-bold tracking-tight text-amber-200 uppercase">
 							100% Transparency
 						</h2>
 
-						<p class="mt-4 text-stone-300">
+						<p class="mt-4 text-stone-300 font-medium text-lg/8">
 							At the beggining of this journey, I set out to create an OPEN community for BUILDERS!
-							As much as possible, transparency is though of FIRST when designing the systems that power this community.
+							So as much as possible, transparency is thought of FIRST and FOREMOST when designing the systems that power this nascent community.
+							<span @click="viewShomari" class="mt-1 pr-5 cursor-pointer block text-right text-rose-300 font-medium italic tracking-wider hover:text-rose-200">
+								— 0xShomari
+							</span>
                         </p>
                     </div>
 
@@ -47,6 +50,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
 
 import $System from '../../stores/system'
 
@@ -80,6 +84,14 @@ const incentives = [
 
 const init = async () => {
     console.log('SYSTEM', $System.get())
+}
+
+const viewShomari = async () => {
+	/* Set FID. */
+	const fid = 870594
+
+	/* Open profile. */
+	await sdk.actions.viewProfile({ fid })
 }
 
 onMounted(() => {

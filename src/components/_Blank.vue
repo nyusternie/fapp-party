@@ -10,6 +10,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
 
 import $System from '../../stores/system'
 
