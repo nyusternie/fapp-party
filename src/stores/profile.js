@@ -208,7 +208,7 @@ const setSession = async (_session) => {
     profile.session = _session
 
     /* Set session ID. */
-    profile.sessionid = _session.sessionid
+    // profile.sessionid = _session.sessionid
 
     /* Set profile. */
     $Profile.set(profile)
