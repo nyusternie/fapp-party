@@ -1,9 +1,12 @@
 /* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
 
+/* Set constants. */
+const INITIAL_STATE = []
+
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-const $Spotlight = persistentAtom('spotlight', [], {
+const $Spotlight = persistentAtom('spotlight', INITIAL_STATE, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),

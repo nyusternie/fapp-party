@@ -1,12 +1,13 @@
 /* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
 
-/* Initialize constants. */
+/* Set constants. */
+const INITIAL_STATE = []
 const MAX_APPS_PER_PAGE = 15
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-const $App = persistentAtom('app', [], {
+const $App = persistentAtom('app', INITIAL_STATE, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),

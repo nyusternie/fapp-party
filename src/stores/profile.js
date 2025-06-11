@@ -2,9 +2,12 @@
 import { persistentAtom } from '@nanostores/persistent'
 import { sdk } from '@farcaster/frame-sdk'
 
+/* Set constants. */
+const INITIAL_STATE = {}
+
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-const $Profile = persistentAtom('profile', {}, {
+const $Profile = persistentAtom('profile', INITIAL_STATE, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -36,6 +39,13 @@ export const init = async () => {
 
         /* Request (quick) authorization. */
         const { token } = await sdk.quickAuth.getToken()
+
+        /* Validate auth token. */
+        if (!profile.authToken) {
+            /* Re-initialize the profile handler. */
+            // NOTE: This should NEVER happen, but better to be safe.
+            profile = INITIAL_STATE
+        }
 
         /* Set auth token. */
         profile.authToken = token
