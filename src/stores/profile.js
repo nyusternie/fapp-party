@@ -121,10 +121,14 @@ export const init = async () => {
 
     /* Validate (session) JSON. */
     if (typeof json !== 'undefined' && json !== null) {
+        /* Parse session. */
         session = json.data?.manageSession
 
-        /* Set session. */
-        setSession(session)
+        /* Validate session. */
+        if (typeof session !== 'undefined' && session !== null) {
+            /* Set session. */
+            setSession(session)
+        }
     }
 console.log('SESSION', session)
 
