@@ -124,11 +124,8 @@ export const init = async () => {
         /* Parse session. */
         session = json.data?.manageSession
 
-        /* Validate session. */
-        if (typeof session !== 'undefined' && session !== null) {
-            /* Set session. */
-            setSession(session)
-        }
+        /* Set session. */
+        setSession(session)
     }
 console.log('SESSION', session)
 
@@ -187,7 +184,7 @@ console.log('REGISTER SESSION', $Profile.get().authToken)
 
     /* Request JSON. */
     const json = await response.json()
-
+console.log('JSON (registration)', json)
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         session = json.data?.manageSession
@@ -201,15 +198,19 @@ console.log('REGISTER SESSION', $Profile.get().authToken)
 }
 
 const setSession = async (_session) => {
+    /* Validate session. */
+    if (typeof _session !== 'undefined' && _session !== null) {
+        throw new Error('Oops! Session cannot be null.')
+    }
+
     /* Retrieve profile. */
     const profile = $Profile.get()
 
     /* Set session. */
     profile.session = _session
-console.log('***PROFILE', profile)
-console.log('***SESSION', _session)
+
     /* Set session ID. */
-    // profile.sessionid = _session.sessionid
+    profile.sessionid = _session.sessionid
 
     /* Set profile. */
     $Profile.set(profile)
