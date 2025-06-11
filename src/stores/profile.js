@@ -135,14 +135,14 @@ export const init = async () => {
         /* Set session. */
         setSession(session)
     }
-console.log('SESSION', session)
+console.log('SESSION-2', session)
 
     /* Return (un-authorized) profile. */
     return $Profile.get()
 }
 
-export const register = async (_message, _signature) => {
-// console.log('REGISTER SESSION', this._session)
+export const register = async (_authToken) => {
+// console.log('REGISTER SESSION', _authToken)
     /* Check for existing session. */
     if (!$Profile.session) {
         throw new Error('Oops! You MUST already have an active session.')
@@ -160,9 +160,8 @@ export const register = async (_message, _signature) => {
     const body = JSON.stringify({
         query: `mutation ManageSession {
             manageSession(
-            sessionid: "${this.sessionid}",
-            message: "${message}",
-            signature: "${_signature}"
+            sessionid: "${$Profile.get().sessionid}",
+            authToken: "${_authToken}",
         ) {
             sessionid
             nonce

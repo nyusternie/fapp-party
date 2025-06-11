@@ -48,11 +48,11 @@
             </span>
         </div>
 
+        <pre class="text-slate-200 font-bold text-xs tracking-tighter overflow-x-scroll">DEBUG{{debug}}</pre>
+
         <div v-if="Profile.user?.pfpUrl" class="grid grid-cols-3 gap-5">
             <img :src="Profile.user.pfpUrl" class="size-20" />
         </div>
-
-        <pre class="text-slate-200 font-bold text-xs tracking-tighter overflow-x-scroll">{{debug}}</pre>
 	</main>
 </template>
 
