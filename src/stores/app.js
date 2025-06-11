@@ -89,13 +89,14 @@ export const getDetailsFor = async (_appid) => {
     const response = await fetch('https://miniapps.party/graphql',
         { method, headers, body }
     ).catch(err => console.error(err))
-console.log('RESPONSE', response)
+
     /* Validate response. */
     if (typeof response !== 'undefined' && response !== null) {
         /* Decode JSON. */
         json = await response.json()
     }
-console.log('JSON', json)
+// console.log('JSON', json)
+
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         /* Parse app. */

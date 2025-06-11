@@ -36,8 +36,13 @@ export const init = async () => {
         $Profile.set(profile)
 
         /* Return (auth) token. */
-        return token
+        // return token
     } else {
-        return null
+        // return null
     }
+
+
+
+    /* Return success. */
+    return true
 }

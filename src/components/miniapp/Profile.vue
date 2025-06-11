@@ -8,7 +8,7 @@
             Manage Your Notifications
         </a>
 
-        <!-- <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre> -->
+        <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre>
 	</main>
 </template>
 
@@ -50,19 +50,18 @@ nesciunt neque enim
 laborum ad
 consectetur commodi.`
 
+    /* Initialize profile. */
+    await initProfile()
+
     /* Validate mini app. */
     if (isMiniApp) {
         debug.value = `please wait a moment...`
 
         /* Request user. */
-        const user = await sdk.context
-
-        /* Initialize profile. */
-        // const token = await initProfile()
+        const context = await sdk.context
 
         /* Request quick auth. */
-        // debug.value = 'auth token is ' + token.length + ' char long'
-        debug.value = JSON.stringify(user, 2, null)
+        debug.value = JSON.stringify(context, null, 2)
     }
 }
 
