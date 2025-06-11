@@ -25,24 +25,33 @@ export const init = async () => {
 
     /* Validate mini app. */
     if (isMiniApp) {
+        /* Request user. */
+        const context = await sdk.context
+
         /* Request (quick) authorization. */
         const { token } = await sdk.actions.quickAuth()
 
+        /* Retrieve (existing) profile. */
         const profile = $Profile.get()
 
         /* Set auth token. */
         profile.authToken = token
 
+        /* Set user. */
+        profile.user = context.user
+
+        /* Set client. */
+        profile.client = context.client
+
+        /* Set features. */
+        profile.features = context.features
+
         $Profile.set(profile)
 
-        /* Return (auth) token. */
-        // return token
+        /* Return (authorized) profile. */
+        return profile
     } else {
-        // return null
+        /* Return (existing) profile. */
+        return $Profile.get()
     }
-
-
-
-    /* Return success. */
-    return true
 }

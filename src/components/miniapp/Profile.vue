@@ -39,30 +39,13 @@ const debug = ref()
 const init = async () => {
     console.log('PROFILE', $Profile.get())
 
-    debug.value = `Lorem ipsum dolor sit amet
-consectetur adipisicing elit.
-Cum sapiente esse nisi
-eum voluptas.
-Laboriosam, quam, repellendus
-unde nulla quos
-necessitatibus atque eum
-nesciunt neque enim
-laborum ad
-consectetur commodi.`
+    debug.value = `please wait...`
 
     /* Initialize profile. */
-    // await initProfile()
+    const profile = await initProfile()
 
-    /* Validate mini app. */
-    if (isMiniApp) {
-        debug.value = `please wait a moment...`
-
-        /* Request user. */
-        const context = await sdk.context
-
-        /* Request quick auth. */
-        debug.value = JSON.stringify(context, null, 2)
-    }
+    /* Request quick auth. */
+    debug.value = JSON.stringify(profile, null, 2)
 }
 
 onMounted(() => {
