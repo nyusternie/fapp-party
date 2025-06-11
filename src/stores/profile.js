@@ -118,7 +118,7 @@ export const init = async () => {
 
     /* Request JSON. */
     json = await response.json()
-console.log('JSON (init)', json)
+
     /* Validate (session) JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         /* Parse session. */
@@ -203,8 +203,8 @@ console.log('JSON (registration)', json)
 
 const setSession = async (_session) => {
     /* Validate session. */
-    if (typeof _session !== 'undefined' && _session !== null) {
-        throw new Error('Oops! Session cannot be null.')
+    if (typeof _session === 'undefined' || _session === null) {
+        throw new Error('Oops! You MUST provide a session.')
     }
 
     /* Retrieve (existing) profile. */
