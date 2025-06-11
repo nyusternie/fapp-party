@@ -125,16 +125,17 @@ export const init = async () => {
         session = json.data?.manageSession
 
         /* Set session. */
-        setSession(session)
+        // NOTE: Update profile LOCALLY!
+        profile = await setSession(session)
     }
 console.log('SESSION', session)
 
     /* Validate mini app. */
-    if (isMiniApp) {
-console.log('SESSION HASH AUTH', profile.session?.hasAuth)
+    if (isMiniApp && profile.session) {
+console.log('SESSION HASH AUTH', profile.session.hasAuth)
 
         /* Validate session authentication. */
-        if (!profile.session?.hasAuth) {
+        if (!profile.session.hasAuth) {
             /* Attempt to register the profile. */
             const registration = await register()
 console.log('REGISTRATION', registration)
@@ -193,7 +194,7 @@ console.log('JSON (registration)', json)
         session = json.data?.manageSession
 
         /* Set session. */
-        setSession(session)
+        await setSession(session)
     }
 
     /* Return session. */
@@ -217,6 +218,9 @@ const setSession = async (_session) => {
 
     /* Set profile. */
     $Profile.set(profile)
+
+    /* Return (updated) profile. */
+    return profile
 }
 
 const deleteSession = async () => {
@@ -231,4 +235,7 @@ const deleteSession = async () => {
 
     /* Set profile. */
     $Profile.set(profile)
+
+    /* Return (updated) profile. */
+    return profile
 }
