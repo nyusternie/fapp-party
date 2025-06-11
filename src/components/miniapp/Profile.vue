@@ -8,16 +8,6 @@
             Manage Your Notifications
         </a>
 
-        <div v-if="Profile.authToken" class="grid grid-cols-3 gap-5">
-            <span class="text-slate-200 font-medium uppercase text-right">
-                Auth Token
-            </span>
-
-            <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
-                {{Profile.authToken.slice(0, 15)}}...
-            </span>
-        </div>
-
         <div v-if="Profile.user?.fid" class="grid grid-cols-3 gap-5">
             <span class="text-slate-200 font-medium uppercase text-right">
                 FID
@@ -48,11 +38,31 @@
             </span>
         </div>
 
-        <pre class="text-slate-200 font-bold text-xs tracking-tighter overflow-x-scroll">DEBUG{{debug}}</pre>
-
         <div v-if="Profile.user?.pfpUrl" class="grid grid-cols-3 gap-5">
             <img :src="Profile.user.pfpUrl" class="size-20" />
         </div>
+
+        <div v-if="Profile.authToken" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                Auth Token
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
+                {{Profile.authToken.slice(0, 15)}}...
+            </span>
+        </div>
+
+        <div v-if="Profile.sessionid" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                Session ID
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
+                {{Profile.sessionid.slice(0, 15)}}...
+            </span>
+        </div>
+
+        <!-- <pre class="text-slate-200 font-bold text-xs tracking-tighter overflow-x-scroll">{{debug}}</pre> -->
 	</main>
 </template>
 
