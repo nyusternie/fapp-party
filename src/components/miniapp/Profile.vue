@@ -1,8 +1,8 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			My Profile
-		</h1>
+        <div v-if="Profile.user?.pfpUrl" class="my-5 grid grid-cols-3 gap-5">
+            <img :src="Profile.user.pfpUrl" class="size-32 rounded-full border-2 border-amber-300" />
+        </div>
 
         <a href="/notif" class="text-blue-300 font-bold text-2xl tracking-tighter hover:underline">
             Manage Your Notifications
@@ -38,17 +38,13 @@
             </span>
         </div>
 
-        <div v-if="Profile.user?.pfpUrl" class="grid grid-cols-3 gap-5">
-            <img :src="Profile.user.pfpUrl" class="size-20" />
-        </div>
-
         <div v-if="Profile.authToken" class="grid grid-cols-3 gap-5">
             <span class="text-slate-200 font-medium uppercase text-right">
                 Auth Token
             </span>
 
             <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
-                {{Profile.authToken.slice(0, 15)}}...
+                {{Profile.authToken.slice(0, 20)}}...
             </span>
         </div>
 
@@ -58,7 +54,7 @@
             </span>
 
             <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
-                {{Profile.sessionid.slice(0, 15)}}...
+                {{Profile.sessionid.slice(0, 20)}}...
             </span>
         </div>
 
