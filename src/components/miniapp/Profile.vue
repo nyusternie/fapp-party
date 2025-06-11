@@ -51,7 +51,7 @@ laborum ad
 consectetur commodi.`
 
     /* Initialize profile. */
-    await initProfile()
+    // await initProfile()
 
     /* Validate mini app. */
     if (isMiniApp) {
