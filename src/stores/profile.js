@@ -19,6 +19,12 @@ export default $Profile
 
 /* Initialize (store). */
 export const init = async () => {
+    /* Initialize locals. */
+    let profile
+
+    /* Retrieve (existing) profile. */
+    profile = $Profile.get()
+
     /* Request Mini App flag. */
     // TODO Maybe we set a SESSION flag??
     const isMiniApp = await sdk.isInMiniApp()
@@ -30,9 +36,6 @@ export const init = async () => {
 
         /* Request (quick) authorization. */
         const { token } = await sdk.quickAuth.getToken()
-
-        /* Retrieve (existing) profile. */
-        const profile = $Profile.get()
 
         /* Set auth token. */
         profile.authToken = token
@@ -46,12 +49,66 @@ export const init = async () => {
         /* Set features. */
         profile.features = context.features
 
+        /* Set (new) profile. */
         $Profile.set(profile)
-
-        /* Return (authorized) profile. */
-        return profile
     } else {
-        /* Return (existing) profile. */
-        return $Profile.get()
+        // TBD
     }
+
+    /* Return (authorized) profile. */
+    return profile
+}
+
+export const register = async (_message, _signature) => {
+// console.log('REGISTER SESSION', this._session)
+    /* Check for existing session. */
+    if (!$Profile.session) {
+        throw new Error('Oops! You MUST already have an active session.')
+    }
+
+    /* Initialize locals. */
+    let message
+    let session
+
+    /* Sanitize message. */
+    message = _message.replace(/\n/g, '\\n')
+
+// TODO Validate message.
+
+    const body = JSON.stringify({
+        query: `mutation ManageSession {
+            manageSession(
+            sessionid: "${this.sessionid}",
+            message: "${message}",
+            signature: "${_signature}"
+        ) {
+            sessionid
+            nonce
+            hasAuth
+            createdAt
+            }
+        }`
+    })
+
+    /* Request new session. */
+    const response = await $fetch('https://miniapps.party/graphql', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body,
+    }).catch(err => console.error(err))
+
+    /* Validate response. */
+    if (typeof response !== 'undefined' && response !== null) {
+        session = response.data?.manageSession
+
+        /* Set session. */
+        setSession(session)
+    }
+
+    /* Return session. */
+    return session
+}
+
+const setSession = async () => {
+    // TODO
 }
