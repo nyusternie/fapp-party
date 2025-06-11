@@ -137,8 +137,8 @@ console.log('SESSION HASH AUTH', profile.session.hasAuth)
         /* Validate session authentication. */
         if (!profile.session.hasAuth) {
             /* Attempt to register the profile. */
-            const registration = await register()
-console.log('REGISTRATION', registration)
+//             const registration = await register()
+// console.log('REGISTRATION', registration)
         }
     }
 
