@@ -73,14 +73,14 @@ export const init = async () => {
 
 
     /* Validate an EXISTING session. */
-    if ($Profile.get().sessionid) {
+    if (profile.sessionid) {
         /* Manage EXISTING session. */
         response = await fetch('https://miniapps.party/graphql', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({
                 query: `mutation ManageSession {
-                    manageSession(sessionid: "${$Profile.get().sessionid}") {
+                    manageSession(sessionid: "${profile.sessionid}") {
                     sessionid
                     nonce
                     hasAuth
@@ -96,12 +96,12 @@ export const init = async () => {
 // FIXME REFACTOR VALIDATION
 
         /* Validate EXISTING session (remote) status. */
-        if (json?.data?.manageSession?.sessionid === this._session.sessionid) {
+        if (json?.data?.manageSession?.sessionid === $Profile.get().sessionid) {
             return $Profile.get().session // FIXME We don't return to anyone?
         } else {
             console.error('Oops! This session has expired.')
             deleteSession()
-            alert(`You've been signed out! Please re-signin to continue...`)
+            // alert(`You've been signed out! Please re-signin to continue...`)
 
             /* Re-start initialization. */
             setTimeout(init, 100)

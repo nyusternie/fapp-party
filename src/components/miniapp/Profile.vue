@@ -62,7 +62,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
-import { sdk } from '@farcaster/frame-sdk'
+// import { sdk } from '@farcaster/frame-sdk'
 
 import $Profile, { init as initProfile } from '../../stores/profile'
 
@@ -76,27 +76,22 @@ const props = defineProps({
 
 const Profile = useStore($Profile)
 
-const debug = ref()
-const user = ref()
-const client = ref()
-const features = ref()
-const authToken = ref()
-const session = ref()
+// const debug = ref()
 
 /* Request Mini App flag. */
 // TODO Maybe we set a SESSION flag??
-const isMiniApp = await sdk.isInMiniApp()
+// const isMiniApp = await sdk.isInMiniApp()
 
 const init = async () => {
     console.log('PROFILE', $Profile.get())
 
-    debug.value = `please wait...`
+    // debug.value = `please wait...`
 
     /* Initialize profile. */
-    const profile = await initProfile()
+    // const profile = await initProfile()
 
     /* Request quick auth. */
-    debug.value = JSON.stringify(profile, null, 2)
+    // debug.value = JSON.stringify(profile, null, 2)
 }
 
 onMounted(() => {
