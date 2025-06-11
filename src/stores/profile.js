@@ -88,18 +88,6 @@ export const init = async () => {
 
         /* Validate EXISTING session (remote) status. */
         if (json?.data?.manageSession?.sessionid === $Profile.get().sessionid) {
-            /* Validate mini app. */
-            if (isMiniApp) {
-console.log('SESSION HASH AUTH', $Profile.get().session.hasAuth)
-
-                /* Validate session authentication. */
-                if (!$Profile.get().session.hasAuth) {
-                    /* Attempt to register the profile. */
-                    const registration = await register()
-console.log('REGISTRATION', registration)
-                }
-            }
-
             return $Profile.get().session // FIXME We don't return to anyone?
         } else {
             console.error('Oops! This session has expired.')
@@ -139,6 +127,18 @@ console.log('REGISTRATION', registration)
         setSession(session)
     }
 console.log('SESSION', session)
+
+    /* Validate mini app. */
+    if (isMiniApp) {
+console.log('SESSION HASH AUTH', $Profile.get().session.hasAuth)
+
+        /* Validate session authentication. */
+        if (!$Profile.get().session.hasAuth) {
+            /* Attempt to register the profile. */
+            const registration = await register()
+console.log('REGISTRATION', registration)
+        }
+    }
 
     /* Return (un-authorized) profile. */
     return $Profile.get()
