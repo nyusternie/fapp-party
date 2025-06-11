@@ -24,19 +24,19 @@ export default $Profile
 export const init = async () => {
     /* Initialize locals. */
     let json
-    // let profile
+    let profile
     let response
     let session
 
     /* Retrieve (existing) profile. */
-    // profile = $Profile.get()
+    profile = $Profile.get()
 
     /* Request Mini App flag. */
     // TODO Maybe we set a SESSION flag??
     const isMiniApp = await sdk.isInMiniApp()
 
     /* Validate mini app. */
-    if (isMiniApp && (!$Profile.get().authToken || !$Profile.get().user)) {
+    if (isMiniApp && (!profile.authToken || !profile.user)) {
         /* Re-initialize the profile handler. */
         // NOTE: This should NEVER happen, but better to be safe.
         const profile = INITIAL_STATE
@@ -64,14 +64,14 @@ export const init = async () => {
     }
 
     /* Validate an EXISTING session. */
-    if ($Profile.get().sessionid) {
+    if (profile.sessionid) {
         /* Manage EXISTING session. */
         response = await fetch('https://miniapps.party/graphql', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({
                 query: `mutation ManageSession {
-                    manageSession(sessionid: "${$Profile.get().sessionid}") {
+                    manageSession(sessionid: "${profile.sessionid}") {
                     sessionid
                     nonce
                     hasAuth
@@ -87,8 +87,8 @@ export const init = async () => {
 // FIXME REFACTOR VALIDATION
 
         /* Validate EXISTING session (remote) status. */
-        if (json?.data?.manageSession?.sessionid === $Profile.get().sessionid) {
-            return $Profile.get().session // FIXME We don't return to anyone?
+        if (json?.data?.manageSession?.sessionid === profile.sessionid) {
+            return profile.session // FIXME We don't return to anyone?
         } else {
             console.error('Oops! This session has expired.')
             deleteSession()
@@ -131,10 +131,10 @@ console.log('SESSION', session)
 
     /* Validate mini app. */
     if (isMiniApp) {
-console.log('SESSION HASH AUTH', $Profile.get().session.hasAuth)
+console.log('SESSION HASH AUTH', profile.session?.hasAuth)
 
         /* Validate session authentication. */
-        if (!$Profile.get().session.hasAuth) {
+        if (!profile.session?.hasAuth) {
             /* Attempt to register the profile. */
             const registration = await register()
 console.log('REGISTRATION', registration)
@@ -142,7 +142,7 @@ console.log('REGISTRATION', registration)
     }
 
     /* Return (un-authorized) profile. */
-    return $Profile.get()
+    return profile
 }
 
 /**
@@ -152,9 +152,12 @@ console.log('REGISTRATION', registration)
  * authenticated user profile.
  */
 const register = async () => {
-console.log('REGISTER SESSION', $Profile.get().authToken)
+    /* Retrieve (existing) profile. */
+    const profile = $Profile.get()
+console.log('REGISTER SESSION', profile.authToken)
+
     /* Check for existing session. */
-    if (!$Profile.get().session) {
+    if (!profile.session) {
         throw new Error('Oops! You MUST already have an active session.')
     }
 
@@ -164,8 +167,8 @@ console.log('REGISTER SESSION', $Profile.get().authToken)
     const body = JSON.stringify({
         query: `mutation ManageSession {
             manageSession(
-            sessionid: "${$Profile.get().sessionid}",
-            authToken: "${$Profile.get().authToken}",
+            sessionid: "${profile.sessionid}",
+            authToken: "${profile.authToken}",
         ) {
             sessionid
             nonce
@@ -203,7 +206,7 @@ const setSession = async (_session) => {
         throw new Error('Oops! Session cannot be null.')
     }
 
-    /* Retrieve profile. */
+    /* Retrieve (existing) profile. */
     const profile = $Profile.get()
 
     /* Set session. */
@@ -217,7 +220,7 @@ const setSession = async (_session) => {
 }
 
 const deleteSession = async () => {
-    /* Retrieve profile. */
+    /* Retrieve (existing) profile. */
     const profile = $Profile.get()
 
     /* Delete session. */
