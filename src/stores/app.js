@@ -3,7 +3,7 @@ import { persistentAtom } from '@nanostores/persistent'
 
 /* Set constants. */
 const INITIAL_STATE = []
-const MAX_APPS_PER_PAGE = 15
+const MAX_APPS_PER_PAGE = 20
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.

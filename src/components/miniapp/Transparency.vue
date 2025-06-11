@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
         <div class="py-6">
             <div class="mx-auto max-w-2xl px-4">
                 <div class="grid grid-cols-1 items-center gap-x-16 gap-y-10">

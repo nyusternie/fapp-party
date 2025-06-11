@@ -11,7 +11,7 @@
     "splashImageUrl": "https://miniapps.party/splash.gif",
     "splashBackgroundColor": "#21223e",
     "homeUrl": "https://app.miniapps.party",
-    "webhookUrl": "https://webhook.miniapps.party",
+    "webhookUrl": "https://webhook.miniapps.party/farcaster",
     "subtitle": "New and Noteworthy Mini Apps",
     "description": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
     "screenshotUrls": [
@@ -21,11 +21,11 @@
     ],
     "primaryCategory": "social",
     "tags": [
-      "new",
-      "trending",
-      "hackathon",
-      "builder",
-      "party"
+      "party",
+      "banger",
+      "rewards",
+      "festival",
+      "build"
     ],
     "heroImageUrl": "https://miniapps.party/poster.webp",
     "tagline": "New and Noteworthy Mini Apps",

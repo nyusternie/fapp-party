@@ -6,12 +6,12 @@ import Layout from '../../layouts/Layout.astro'
 /* Initialize Mini Apps */
 import MiniAppHeader from '../../components/miniapp/Header.vue'
 import MiniAppFooter from '../../components/miniapp/Footer.vue'
-import MiniAppSeason from '../../components/miniapp/Season.vue'
+import MiniAppApps from '../../components/miniapp/Apps.vue'
 
 /* Initialize Web Apps */
 import WebAppHeader from '../../components/webapp/Header.vue'
 import WebAppFooter from '../../components/webapp/Footer.vue'
-import WebAppSeason from '../../components/webapp/Season.vue'
+import WebAppApps from '../../components/webapp/Apps.vue'
 
 export const prerender = false
 
@@ -25,6 +25,9 @@ let isMiniApp = true//false
 if (hostname === 'app.miniapps.party') {
 	isMiniApp = true
 }
+
+/* Parse app ID (from params). */
+const { cursor } = Astro.params
 ---
 
 <Layout>
@@ -32,7 +35,7 @@ if (hostname === 'app.miniapps.party') {
 	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
 
-		<MiniAppSeason client:load class="flex-1" />
+		<MiniAppApps client:load class="flex-1" cursor={cursor || undefined} />
 
 		<MiniAppFooter />
 	</div>}
@@ -41,7 +44,7 @@ if (hostname === 'app.miniapps.party') {
 	<!-- Begin Web App Main -->
 	{!isMiniApp && <WebAppHeader client:load />
 
-	<WebAppSeason client:load />
+	<WebAppApps client:load />
 
 	<WebAppFooter />}
 </Layout>
@@ -52,11 +55,17 @@ import { sdk } from '@farcaster/frame-sdk'
 
 /* Request Mini App flag. */
 // TODO Maybe we set a SESSION flag??
-const isMiniApp = await sdk.isInMiniApp()
+// const isMiniApp = await sdk.isInMiniApp()
+
+/* Set constants. */
+// const INIT_DELAY = 1000 // 1 second
 
 /* Validate mini app. */
-if (isMiniApp) {
-	/* Load app. */
-	sdk.actions.ready()
-}
+// if (isMiniApp) {
+// 	/* Load app. */
+// 	setTimeout(sdk.actions.ready, INIT_DELAY)
+// }
+
+/* For ready. */
+await sdk.actions.ready()
 </script>

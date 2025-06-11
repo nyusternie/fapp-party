@@ -72,6 +72,12 @@
 
         </section>
 
+        <a :href="'/banger/' + appDetails.hostname" class="group cursor-pointer w-full mt-2 px-5 py-3 flex flex-col justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-200 border-amber-900 rounded-xl">
+            <span class="inline-flex items-center gap-2 font-bold text-2xl text-center uppercase text-amber-300 group-hover:text-fuchsia-800">
+                Add a BANGER!
+            </span>
+        </a>
+
 <!-- BEGIN TITLE SPONSORSHIP -->
         <section v-if="appDetails.heroImageUrl" class="px-10 py-5 flex flex-col items-end bg-stone-900 border-2 border-stone-500 rounded-md">
             <img
@@ -201,13 +207,6 @@ const openUrl = async (_appid) => {
 
     /* Open external app. */
     window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + url)
-    // /* Validate mini app. */
-    // if (isMiniApp) {
-    //     await sdk.actions.openUrl('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_url))
-    //     // window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + _url)
-    // } else {
-    //     window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_url))
-    // }
 }
 
 onMounted(() => {

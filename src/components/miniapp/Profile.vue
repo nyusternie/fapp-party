@@ -1,6 +1,6 @@
 <template>
-    <main class="px-2 max-w-5xl mx-auto py-24 sm:py-16 flex flex-col gap-6">
-		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
 			My Profile
 		</h1>
 
@@ -8,7 +8,51 @@
             Manage Your Notifications
         </a>
 
-        <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre>
+        <div v-if="Profile.authToken" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                Auth Token
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold truncate text-ellipsis">
+                {{Profile.authToken.slice(0, 15)}}...
+            </span>
+        </div>
+
+        <div v-if="Profile.user?.fid" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                FID
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold">
+                {{Profile.user.fid}}
+            </span>
+        </div>
+
+        <div v-if="Profile.user?.username" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                Username
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold">
+                {{Profile.user.username}}
+            </span>
+        </div>
+
+        <div v-if="Profile.user?.displayName" class="grid grid-cols-3 gap-5">
+            <span class="text-slate-200 font-medium uppercase text-right">
+                Display
+            </span>
+
+            <span class="col-span-2 text-amber-200 font-bold">
+                {{Profile.user.displayName}}
+            </span>
+        </div>
+
+        <div v-if="Profile.user?.pfpUrl" class="grid grid-cols-3 gap-5">
+            <img :src="Profile.user.pfpUrl" class="size-20" />
+        </div>
+
+        <!-- <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre> -->
 	</main>
 </template>
 
@@ -17,10 +61,6 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { sdk } from '@farcaster/frame-sdk'
-
-/* Request Mini App flag. */
-// TODO Maybe we set a SESSION flag??
-const isMiniApp = await sdk.isInMiniApp()
 
 import $Profile, { init as initProfile } from '../../stores/profile'
 
@@ -35,6 +75,15 @@ const props = defineProps({
 const Profile = useStore($Profile)
 
 const debug = ref()
+const user = ref()
+const client = ref()
+const features = ref()
+const authToken = ref()
+const session = ref()
+
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
 
 const init = async () => {
     console.log('PROFILE', $Profile.get())

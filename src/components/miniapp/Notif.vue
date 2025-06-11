@@ -1,46 +1,54 @@
 <template>
-    <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			Notifications
-		</h1>
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-8 overflow-y-scroll">
+		<button @click="enableNotif()" class="group cursor-pointer w-full mt-5 px-5 py-3 flex flex-col justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-200 border-amber-900 rounded-xl">
+            <span class="inline-flex items-center gap-2 font-bold text-2xl text-center uppercase text-amber-300 group-hover:text-fuchsia-800">
+                Enable Notifications
+            </span>
+        </button>
 
 		<section>
 			<h2 class="text-slate-100 font-bold text-2xl tracking-wider">
-				FOMO (Real-time) Updates
+				🚨 FOMO Alerts
 			</h2>
 
 			<p class="text-slate-300 font-medium text-lg">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
+				Receive REAL-TIME updates as NEW mini apps are added to the network.
+				Be the FIRST to know!
 			</p>
 		</section>
 
 		<section>
 			<h2 class="text-slate-100 font-bold text-2xl tracking-wider">
-				Daily (New Arrival) Updates
+				📆 Daily Activity Summaries
 			</h2>
 
 			<p class="text-slate-300 font-medium text-lg">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
+				Receive a daily summary of ALL the newest mini app arrivals—registered to the network in the last 24 hours.
 			</p>
 		</section>
 
 		<section>
 			<h2 class="text-slate-100 font-bold text-2xl tracking-wider">
-				Weekly (Reward Pool) Updates
+				🏆 Weekly BANGER! Results
 			</h2>
 
 			<p class="text-slate-300 font-medium text-lg">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
+				Each and every Sunday @ 11:59 UTC, the <a href="/rewards" class="text-bold hover:underline">Reward Pools</a> are emptied and WINNERS are awarded from the previous week.
 			</p>
 		</section>
 
 		<section>
 			<h2 class="text-slate-100 font-bold text-2xl tracking-wider">
-				Seasonal (Event &amp; Competition) Updates
+				🎉 Seasonal Festival
 			</h2>
 
 			<p class="text-slate-300 font-medium text-lg">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse vel voluptates odit provident consectetur consequatur dolore obcaecati sequi, iure quia!
+				Our team is busy-busy managing events &amp; competitions throughout the year—plus ONE week-long festival EVERY season!
+
+				<a href="/season/1" class="block text-fuchsia-300 font-bold tracking-wider">
+					<span class="text-lg uppercase">Season One:</span>
+					<span class="-mt-1.5 block text-fuchsia-200 font-extrabold text-2xl hover:underline">The Chronicles of Warplet</span>
+				</a>
 			</p>
 		</section>
 	</main>
@@ -50,6 +58,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
 
 import $System from '../../stores/system'
 
@@ -63,8 +72,18 @@ const props = defineProps({
 
 const System = useStore($System)
 
+/* Request Mini App flag. */
+// TODO Maybe we set a SESSION flag??
+const isMiniApp = await sdk.isInMiniApp()
+
 const init = async () => {
     console.log('SYSTEM', $System.get())
+}
+
+const enableNotif = async () => {
+	if (isMiniApp) {
+		await sdk.actions.addMiniApp()
+	}
 }
 
 onMounted(() => {

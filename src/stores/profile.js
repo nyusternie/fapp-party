@@ -23,7 +23,10 @@ export default $Profile
 /* Initialize (store). */
 export const init = async () => {
     /* Initialize locals. */
+    let json
     let profile
+    let response
+    let session
 
     /* Retrieve (existing) profile. */
     profile = $Profile.get()
@@ -65,8 +68,77 @@ export const init = async () => {
         // TBD
     }
 
-    /* Return (authorized) profile. */
-    return profile
+
+
+
+
+    /* Validate an EXISTING session. */
+    if ($Profile.get().sessionid) {
+        /* Manage EXISTING session. */
+        response = await fetch('https://miniapps.party/graphql', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({
+                query: `mutation ManageSession {
+                    manageSession(sessionid: "${$Profile.get().sessionid}") {
+                    sessionid
+                    nonce
+                    hasAuth
+                    createdAt
+                    }
+                }`
+            })
+        }).catch(err => console.error(err))
+
+        /* Request JSON. */
+        json = await response.json()
+
+// FIXME REFACTOR VALIDATION
+
+        /* Validate EXISTING session (remote) status. */
+        if (json?.data?.manageSession?.sessionid === this._session.sessionid) {
+            return $Profile.get().session // FIXME We don't return to anyone?
+        } else {
+            console.error('Oops! This session has expired.')
+            deleteSession()
+            alert(`You've been signed out! Please re-signin to continue...`)
+
+            /* Re-start initialization. */
+            setTimeout(init, 100)
+            return
+        }
+    }
+
+    /* Request NEW session. */
+    response = await fetch('https://miniapps.party/graphql', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({
+            query: `mutation ManageSession {
+                manageSession {
+                sessionid
+                nonce
+                hasAuth
+                createdAt
+                }
+            }`
+        })
+    }).catch(err => console.error(err))
+
+    /* Request JSON. */
+    json = await response.json()
+
+    /* Validate (session) JSON. */
+    if (typeof json !== 'undefined' && json !== null) {
+        session = json.data?.manageSession
+
+        /* Set session. */
+        setSession(session)
+    }
+console.log('SESSION', session)
+
+    /* Return (un-authorized) profile. */
+    return $Profile.get()
 }
 
 export const register = async (_message, _signature) => {
@@ -101,15 +173,18 @@ export const register = async (_message, _signature) => {
     })
 
     /* Request new session. */
-    const response = await $fetch('https://miniapps.party/graphql', {
+    const response = await fetch('https://miniapps.party/graphql', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body,
     }).catch(err => console.error(err))
 
-    /* Validate response. */
-    if (typeof response !== 'undefined' && response !== null) {
-        session = response.data?.manageSession
+    /* Request JSON. */
+    const json = await response.json()
+
+    /* Validate JSON. */
+    if (typeof json !== 'undefined' && json !== null) {
+        session = json.data?.manageSession
 
         /* Set session. */
         setSession(session)
@@ -119,6 +194,30 @@ export const register = async (_message, _signature) => {
     return session
 }
 
-const setSession = async () => {
-    // TODO
+const setSession = async (_session) => {
+    /* Retrieve profile. */
+    const profile = $Profile.get()
+
+    /* Set session. */
+    profile.session = _session
+
+    /* Set session ID. */
+    profile.sessionid = _session.sessionid
+
+    /* Set profile. */
+    $Profile.set(profile)
+}
+
+const deleteSession = async () => {
+    /* Retrieve profile. */
+    const profile = $Profile.get()
+
+    /* Delete session. */
+    delete profile.session
+
+    /* Delete session ID. */
+    delete profile.sessionid
+
+    /* Set profile. */
+    $Profile.set(profile)
 }

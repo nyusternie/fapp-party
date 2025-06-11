@@ -1,5 +1,6 @@
 /* Import modules. */
 import { persistentAtom } from '@nanostores/persistent'
+import { sdk } from '@farcaster/frame-sdk'
 
 /* Set constants. */
 const INITIAL_STATE = {}
@@ -18,6 +19,13 @@ const $System = persistentAtom('system', INITIAL_STATE, {
     }),
 })
 export default $System
+
+export const init = async () => {
+    /* Activate back navigation. */
+    // FIXME Will this affect performance in ANY way??
+    await sdk.back.enableWebNavigation()
+    // console.log('Back navigation is now ACTIVE!')
+}
 
 export const lastPageNum = async () => $System.get().lastPageNum
 

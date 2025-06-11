@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-3 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
         <div v-if="App && App.length > 0">
             <ClientOnly>
                 <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
@@ -22,7 +22,7 @@
             </ClientOnly>
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
-                <span class="text-rose-300 font-extrabold text-xl">TOP3 Bangers!</span> Since Yesterday<span class="text-3xl">↴</span>
+                <span class="text-rose-300 font-extrabold text-xl">TOP3 <a href="/bangers">Bangers!</a></span> Since Yesterday<span class="text-3xl">↴</span>
             </h3>
 
 <!-- BEGIN FEATURED -->
@@ -179,8 +179,8 @@ const spotlight = ref()
 const sponsored = ref()
 
 const featured = computed(() => $App.get().slice(0, 3))
-const aboveTheFold = computed(() => $App.get().slice(3, 13))
-const belowTheFold = computed(() => $App.get().slice(13, 15))
+const aboveTheFold = computed(() => $App.get().slice(3, 16))
+const belowTheFold = computed(() => $App.get().slice(16, 18))
 
 const init = async () => {
     console.log('APPS', $App.get())
@@ -203,12 +203,6 @@ const init = async () => {
 }
 
 const viewDetail = async (_hostname) => {
-    /* Validate mini app. */
-    // if (isMiniApp) {
-    //     await sdk.actions.openUrl('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_hostname))
-    // } else {
-    //     window.open('https://farcaster.xyz/~/mini-apps/launch?url=' + encodeURIComponent(_hostname))
-    // }
     document.location = '/app/' + encodeURIComponent(_hostname)
 }
 

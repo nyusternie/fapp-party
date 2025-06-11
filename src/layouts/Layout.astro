@@ -39,7 +39,11 @@ const frameEmbed = {
 
 <script>
 /* Import modules. */
-// import { init as initProfile } from '../stores/profile'
+import { init as initProfile } from '../stores/profile'
+import { init as initSystem } from '../stores/system'
+
+/* Initialize system (store). */
+await initSystem()
 
 /* Initialize profile (store). */
 // setTimeout(initProfile, 2000)
