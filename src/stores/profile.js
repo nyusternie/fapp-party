@@ -36,22 +36,19 @@ export const init = async () => {
     const isMiniApp = await sdk.isInMiniApp()
 
     /* Validate mini app. */
-    if (isMiniApp) {
+    if (isMiniApp && (!profile.authToken || !profile.user)) {
+        /* Re-initialize the profile handler. */
+        // NOTE: This should NEVER happen, but better to be safe.
+        profile = INITIAL_STATE
+
+        /* Request (quick) authorization. */
+        const { token } = await sdk.quickAuth.getToken()
+
+        /* Set auth token. */
+        profile.authToken = token
+
         /* Request user. */
         const context = await sdk.context
-
-        /* Validate auth token. */
-        if (!profile.authToken) {
-            /* Re-initialize the profile handler. */
-            // NOTE: This should NEVER happen, but better to be safe.
-            profile = INITIAL_STATE
-
-            /* Request (quick) authorization. */
-            const { token } = await sdk.quickAuth.getToken()
-
-            /* Set auth token. */
-            profile.authToken = token
-        }
 
         /* Set user. */
         profile.user = context.user
@@ -64,13 +61,7 @@ export const init = async () => {
 
         /* Set (new) profile. */
         $Profile.set(profile)
-    } else {
-        // TBD
     }
-
-
-
-
 
     /* Validate an EXISTING session. */
     if (profile.sessionid) {
@@ -97,6 +88,18 @@ export const init = async () => {
 
         /* Validate EXISTING session (remote) status. */
         if (json?.data?.manageSession?.sessionid === $Profile.get().sessionid) {
+            /* Validate mini app. */
+            if (isMiniApp) {
+console.log('SESSION HASH AUTH', $Profile.get().session.hashAuth)
+
+                /* Validate session authentication. */
+                if (!$Profile.get().session.hashAuth) {
+                    /* Attempt to register the profile. */
+                    const registration = await register()
+console.log('REGISTRATION', registration)
+                }
+            }
+
             return $Profile.get().session // FIXME We don't return to anyone?
         } else {
             console.error('Oops! This session has expired.')
@@ -135,16 +138,22 @@ export const init = async () => {
         /* Set session. */
         setSession(session)
     }
-console.log('SESSION-2', session)
+console.log('SESSION', session)
 
     /* Return (un-authorized) profile. */
     return $Profile.get()
 }
 
-export const register = async (_authToken) => {
-// console.log('REGISTER SESSION', _authToken)
+/**
+ * Register Session
+ *
+ * Provides an `authToken` to register the active session with an
+ * authenticated user profile.
+ */
+const register = async () => {
+console.log('REGISTER SESSION', $Profile.get().authToken)
     /* Check for existing session. */
-    if (!$Profile.session) {
+    if (!$Profile.get().session) {
         throw new Error('Oops! You MUST already have an active session.')
     }
 
@@ -161,7 +170,7 @@ export const register = async (_authToken) => {
         query: `mutation ManageSession {
             manageSession(
             sessionid: "${$Profile.get().sessionid}",
-            authToken: "${_authToken}",
+            authToken: "${$Profile.get().authToken}",
         ) {
             sessionid
             nonce
