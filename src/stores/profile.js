@@ -118,7 +118,7 @@ export const init = async () => {
 
     /* Request JSON. */
     json = await response.json()
-
+console.log('JSON (init)', json)
     /* Validate (session) JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         /* Parse session. */
