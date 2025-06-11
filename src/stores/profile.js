@@ -40,18 +40,18 @@ export const init = async () => {
         /* Request user. */
         const context = await sdk.context
 
-        /* Request (quick) authorization. */
-        const { token } = await sdk.quickAuth.getToken()
-
         /* Validate auth token. */
         if (!profile.authToken) {
             /* Re-initialize the profile handler. */
             // NOTE: This should NEVER happen, but better to be safe.
             profile = INITIAL_STATE
-        }
 
-        /* Set auth token. */
-        profile.authToken = token
+            /* Request (quick) authorization. */
+            const { token } = await sdk.quickAuth.getToken()
+
+            /* Set auth token. */
+            profile.authToken = token
+        }
 
         /* Set user. */
         profile.user = context.user
