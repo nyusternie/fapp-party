@@ -52,7 +52,7 @@
             <img :src="Profile.user.pfpUrl" class="size-20" />
         </div>
 
-        <!-- <pre class="text-slate-200 font-bold text-xs tracking-tighter">{{debug}}</pre> -->
+        <pre class="text-slate-200 font-bold text-xs tracking-tighter overflow-x-scroll">{{debug}}</pre>
 	</main>
 </template>
 
