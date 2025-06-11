@@ -11,7 +11,7 @@
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
-import { $System } from '../../stores/system'
+import $System from '../../stores/system'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
