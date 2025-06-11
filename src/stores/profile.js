@@ -132,13 +132,13 @@ console.log('SESSION', session)
 
     /* Validate mini app. */
     if (isMiniApp && profile.session) {
-console.log('SESSION HASH AUTH', profile.session.hasAuth)
+// console.log('SESSION HASH AUTH', profile.session.hasAuth)
 
         /* Validate session authentication. */
         if (!profile.session.hasAuth) {
             /* Attempt to register the profile. */
-//             const registration = await register()
-// console.log('REGISTRATION', registration)
+            const registration = await register()
+console.log('REGISTRATION', registration)
         }
     }
 
@@ -155,7 +155,7 @@ console.log('SESSION HASH AUTH', profile.session.hasAuth)
 const register = async () => {
     /* Retrieve (existing) profile. */
     const profile = $Profile.get()
-console.log('REGISTER SESSION', profile.authToken)
+// console.log('REGISTER SESSION', profile.authToken)
 
     /* Check for existing session. */
     if (!profile.session) {
@@ -172,6 +172,7 @@ console.log('REGISTER SESSION', profile.authToken)
             authToken: "${profile.authToken}",
         ) {
             sessionid
+            fid
             nonce
             hasAuth
             createdAt
@@ -188,7 +189,7 @@ console.log('REGISTER SESSION', profile.authToken)
 
     /* Request JSON. */
     const json = await response.json()
-console.log('JSON (registration)', json)
+
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         session = json.data?.manageSession
