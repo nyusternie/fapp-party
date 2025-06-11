@@ -24,22 +24,22 @@ export default $Profile
 export const init = async () => {
     /* Initialize locals. */
     let json
-    let profile
+    // let profile
     let response
     let session
 
     /* Retrieve (existing) profile. */
-    profile = $Profile.get()
+    // profile = $Profile.get()
 
     /* Request Mini App flag. */
     // TODO Maybe we set a SESSION flag??
     const isMiniApp = await sdk.isInMiniApp()
 
     /* Validate mini app. */
-    if (isMiniApp && (!profile.authToken || !profile.user)) {
+    if (isMiniApp && (!$Profile.get().authToken || !$Profile.get().user)) {
         /* Re-initialize the profile handler. */
         // NOTE: This should NEVER happen, but better to be safe.
-        profile = INITIAL_STATE
+        const profile = INITIAL_STATE
 
         /* Request (quick) authorization. */
         const { token } = await sdk.quickAuth.getToken()
@@ -64,14 +64,14 @@ export const init = async () => {
     }
 
     /* Validate an EXISTING session. */
-    if (profile.sessionid) {
+    if ($Profile.get().sessionid) {
         /* Manage EXISTING session. */
         response = await fetch('https://miniapps.party/graphql', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({
                 query: `mutation ManageSession {
-                    manageSession(sessionid: "${profile.sessionid}") {
+                    manageSession(sessionid: "${$Profile.get().sessionid}") {
                     sessionid
                     nonce
                     hasAuth
