@@ -206,7 +206,8 @@ const setSession = async (_session) => {
 
     /* Set session. */
     profile.session = _session
-
+console.log('***PROFILE', profile)
+console.log('***SESSION', _session)
     /* Set session ID. */
     // profile.sessionid = _session.sessionid
 
