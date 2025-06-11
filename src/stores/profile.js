@@ -29,7 +29,7 @@ export const init = async () => {
         const context = await sdk.context
 
         /* Request (quick) authorization. */
-        const { token } = await sdk.actions.quickAuth()
+        const { token } = await sdk.quickAuth.getToken()
 
         /* Retrieve (existing) profile. */
         const profile = $Profile.get()
