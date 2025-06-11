@@ -158,13 +158,7 @@ console.log('REGISTER SESSION', $Profile.get().authToken)
     }
 
     /* Initialize locals. */
-    let message
     let session
-
-    /* Sanitize message. */
-    message = _message.replace(/\n/g, '\\n')
-
-// TODO Validate message.
 
     const body = JSON.stringify({
         query: `mutation ManageSession {
