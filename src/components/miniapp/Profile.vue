@@ -4,10 +4,6 @@
             <img :src="Profile.user.pfpUrl" class="size-32 rounded-full border-2 border-amber-300" />
         </div>
 
-        <a href="/notif" class="text-blue-300 font-bold text-2xl tracking-tighter hover:underline">
-            Manage Your Notifications
-        </a>
-
         <div v-if="Profile.user?.fid" class="grid grid-cols-3 gap-5">
             <span class="text-slate-200 font-medium uppercase text-right">
                 FID
