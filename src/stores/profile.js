@@ -189,7 +189,7 @@ const register = async () => {
 
     /* Request JSON. */
     const json = await response.json()
-
+console.log('RESPONSE (json)', json)
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         session = json.data?.manageSession
