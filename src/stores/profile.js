@@ -90,10 +90,10 @@ export const init = async () => {
         if (json?.data?.manageSession?.sessionid === $Profile.get().sessionid) {
             /* Validate mini app. */
             if (isMiniApp) {
-console.log('SESSION HASH AUTH', $Profile.get().session.hashAuth)
+console.log('SESSION HASH AUTH', $Profile.get().session.hasAuth)
 
                 /* Validate session authentication. */
-                if (!$Profile.get().session.hashAuth) {
+                if (!$Profile.get().session.hasAuth) {
                     /* Attempt to register the profile. */
                     const registration = await register()
 console.log('REGISTRATION', registration)
