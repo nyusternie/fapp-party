@@ -142,6 +142,9 @@ console.log('REGISTRATION', registration)
         }
     }
 
+    /* Sync profile. */
+    await sync()
+
     /* Return (un-authorized) profile. */
     return profile
 }
@@ -240,6 +243,8 @@ console.log('PROFILE (store)', profile)
     /* Request JSON. */
     const json = await response.json()
 console.log('JSON (sync)', json)
+
+    return json?.data?.manageProfile || null
 }
 
 const setSession = async (_session) => {

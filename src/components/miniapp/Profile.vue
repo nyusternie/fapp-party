@@ -87,10 +87,6 @@ const init = async () => {
 
     // debug.value = `please wait...`
 
-    /* Sync profile (with remote). */
-    const response = await syncProfile()
-console.log('INIT (sync response)', response)
-
     /* Request quick auth. */
     // debug.value = JSON.stringify(profile, null, 2)
 }
