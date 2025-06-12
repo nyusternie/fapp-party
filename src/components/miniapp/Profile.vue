@@ -64,7 +64,7 @@ import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 // import { sdk } from '@farcaster/frame-sdk'
 
-import $Profile, { init as initProfile } from '../../stores/profile'
+import $Profile, { sync as syncProfile } from '../../stores/profile'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -87,8 +87,9 @@ const init = async () => {
 
     // debug.value = `please wait...`
 
-    /* Initialize profile. */
-    // const profile = await initProfile()
+    /* Sync profile (with remote). */
+    const response = await syncProfile()
+console.log('INIT (sync response)', response)
 
     /* Request quick auth. */
     // debug.value = JSON.stringify(profile, null, 2)
