@@ -212,7 +212,7 @@ console.log('syncing profile...')
 
     /* Retrieve (existing) profile. */
     const profile = $Profile.get()
-console.log('PROFILE', profile)
+console.log('PROFILE (store)', profile)
 
     const body = JSON.stringify({
         query: `mutation ManageProfile {

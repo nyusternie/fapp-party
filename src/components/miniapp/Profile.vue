@@ -83,7 +83,7 @@ const Profile = useStore($Profile)
 // const isMiniApp = await sdk.isInMiniApp()
 
 const init = async () => {
-    console.log('PROFILE', $Profile.get())
+    console.log('PROFILE (vue)', $Profile.get())
 
     // debug.value = `please wait...`
 
