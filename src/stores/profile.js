@@ -162,12 +162,18 @@ const register = async () => {
 
     /* Check for existing session. */
     if (!profile.session) {
-        throw new Error('Oops! You MUST already have an active session.')
+        throw new Error('Oops! You MUST already have an ACTIVE session.')
+    }
+
+    /* Check for existing auth token. */
+    if (!profile.authToken) {
+        throw new Error('Oops! You MUST already have an AUTH token.')
     }
 
     /* Initialize locals. */
     let session
 
+    /* Build request body. */
     const body = JSON.stringify({
         query: `mutation ManageSession {
             manageSession(
@@ -193,8 +199,10 @@ const register = async () => {
     /* Request JSON. */
     const json = await response.json()
 console.log('JSON (register)', json)
+
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
+        /* Parse session. */
         session = json.data?.manageSession
 
         /* Set session. */
@@ -211,7 +219,7 @@ console.log('JSON (register)', json)
  * Keeps a user profile (remotely) up-to-date with the latest UI/UX settings.
  */
 export const sync = async () => {
-console.log('syncing profile...')
+    console.info('Now syncing profile...')
 
     /* Retrieve (existing) profile. */
     const profile = $Profile.get()
