@@ -205,8 +205,8 @@ console.log('JSON (register)', json)
         /* Parse session. */
         session = json.data?.manageSession
 
-        /* Validate JSON. */
-        if (typeof session !== 'undefined' && session !== null) {
+        /* Validate session. */
+        if (typeof session === 'undefined' || session === null) {
             console.error('Session COULD NOT be authenticated. Please reset!')
 
             /* Delete session. */
