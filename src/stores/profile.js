@@ -214,11 +214,14 @@ console.log('syncing profile...')
     const profile = $Profile.get()
 console.log('PROFILE (store)', profile)
 
+    /* Sanitize profile. */
+    const sanitized = JSON.stringify(profile.replace(/"/g, '\"'))
+
     const body = JSON.stringify({
         query: `mutation ManageProfile {
             manageProfile(
                 sessionid: "${profile.sessionid}",
-                profile: "${JSON.stringify(profile)}",
+                profile: "${sanitized}",
             ) {
                 sessionid
                 fid
