@@ -225,7 +225,7 @@ console.log('PROFILE (store)', profile)
                 profile: "${sanitized}",
             ) {
                 fid
-                createdAt
+                updatedAt
             }
         }`
     })
