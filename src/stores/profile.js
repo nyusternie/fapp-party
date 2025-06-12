@@ -215,7 +215,8 @@ console.log('syncing profile...')
 console.log('PROFILE (store)', profile)
 
     /* Sanitize profile. */
-    const sanitized = JSON.stringify(profile.replace(/"/g, '\"'))
+    // const sanitized = JSON.stringify(profile).replace(/"/g, '\"')
+    const sanitized = btoa(JSON.stringify(profile))
 
     const body = JSON.stringify({
         query: `mutation ManageProfile {
