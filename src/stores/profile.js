@@ -107,10 +107,10 @@ export const init = async () => {
         body: JSON.stringify({
             query: `mutation ManageSession {
                 manageSession {
-                sessionid
-                nonce
-                hasAuth
-                createdAt
+                    sessionid
+                    nonce
+                    hasAuth
+                    createdAt
                 }
             }`
         })
@@ -168,14 +168,14 @@ const register = async () => {
     const body = JSON.stringify({
         query: `mutation ManageSession {
             manageSession(
-            sessionid: "${profile.sessionid}",
-            authToken: "${profile.authToken}",
-        ) {
-            sessionid
-            fid
-            nonce
-            hasAuth
-            createdAt
+                sessionid: "${profile.sessionid}",
+                authToken: "${profile.authToken}",
+            ) {
+                sessionid
+                fid
+                nonce
+                hasAuth
+                createdAt
             }
         }`
     })
@@ -189,7 +189,7 @@ const register = async () => {
 
     /* Request JSON. */
     const json = await response.json()
-
+console.log('JSON (register)', json)
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
         session = json.data?.manageSession
@@ -200,6 +200,44 @@ const register = async () => {
 
     /* Return session. */
     return session
+}
+
+/**
+ * Sync Profile
+ *
+ * Keeps a user profile (remotely) up-to-date with the latest UI/UX settings.
+ */
+export const sync = async () => {
+console.log('syncing profile...')
+
+    /* Retrieve (existing) profile. */
+    const profile = $Profile.get()
+console.log('PROFILE', profile)
+
+    const body = JSON.stringify({
+        query: `mutation ManageProfile {
+            manageProfile(
+                sessionid: "${profile.sessionid}",
+                profile: "${JSON.stringify(profile)}",
+            ) {
+                sessionid
+                fid
+                hasAuth
+                createdAt
+            }
+        }`
+    })
+
+    /* Request new session. */
+    const response = await fetch('https://miniapps.party/graphql', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body,
+    }).catch(err => console.error(err))
+
+    /* Request JSON. */
+    const json = await response.json()
+console.log('JSON (sync)', json)
 }
 
 const setSession = async (_session) => {
