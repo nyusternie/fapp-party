@@ -224,9 +224,7 @@ console.log('PROFILE (store)', profile)
                 sessionid: "${profile.sessionid}",
                 profile: "${sanitized}",
             ) {
-                sessionid
                 fid
-                hasAuth
                 createdAt
             }
         }`
