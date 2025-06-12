@@ -205,6 +205,18 @@ console.log('JSON (register)', json)
         /* Parse session. */
         session = json.data?.manageSession
 
+        /* Validate JSON. */
+        if (typeof session !== 'undefined' && session !== null) {
+            console.error('Session COULD NOT be authenticated. Please reset!')
+
+            /* Delete session. */
+            await deleteSession()
+
+            /* Re-initialize. */
+            setTimeout(init, 100)
+            return null
+        }
+
         /* Set session. */
         await setSession(session)
     }
@@ -280,6 +292,9 @@ const setSession = async (_session) => {
 const deleteSession = async () => {
     /* Retrieve (existing) profile. */
     const profile = $Profile.get()
+
+    /* Delete auth token. */
+    delete profile.authToken
 
     /* Delete session. */
     delete profile.session
