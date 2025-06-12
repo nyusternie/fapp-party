@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
         <div v-if="App && App.length > 0">
             <ClientOnly>
                 <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
@@ -36,7 +36,7 @@
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
+                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -64,7 +64,7 @@
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
+                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -72,7 +72,7 @@
                         </h3>
                     </div>
 
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
+                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="flex-0 h-16 border border-slate-700 rounded-md" />
                 </button>
             </ClientOnly>
 <!-- END ABOVE THE FOLD -->
@@ -110,7 +110,7 @@
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
+                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -174,6 +174,9 @@ const props = defineProps({
 })
 
 const App = useStore($App)
+
+const HERO_HOSTNAME_MAX_LEN = 20
+const NOHERO_HOSTNAME_MAX_LEN = 30
 
 const spotlight = ref()
 const sponsored = ref()
