@@ -1,7 +1,7 @@
 {
   "name": "miniapps-party",
   "description": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
-  "version": "25.6.14",
+  "version": "25.6.15",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -13,6 +13,7 @@
     "@astrojs/cloudflare": "12.5.3",
     "@astrojs/vue": "5.0.7",
     "@farcaster/frame-sdk": "0.0.63",
+    "@headlessui/vue": "1.7.23",
     "@heroicons/vue": "2.2.0",
     "@nanostores/persistent": "1.0.0",
     "@nanostores/vue": "1.0.0",

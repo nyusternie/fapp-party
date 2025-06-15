@@ -18,7 +18,7 @@
         </p>
 
         <dl class="px-3 w-full grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <a v-for="item in stats" :key="item.id" href="javascript:alert('Reward Pools are coming VERY soon!\n\nThanks for your patience...');"class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
+            <button v-for="item in stats" :key="item.id" class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
                     <div class="absolute rounded-md bg-fuchsia-700 p-3">
                         <component :is="item.icon" class="size-7 text-fuchsia-100" aria-hidden="true" />
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </dd>
-            </a>
+            </button>
         </dl>
 
         <h2 class="text-amber-300 font-medium text-2xl tracking-wider">

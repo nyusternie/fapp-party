@@ -29,7 +29,7 @@ const props = defineProps({
 const System = useStore($System)
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    // console.log('SYSTEM', $System.get())
 }
 
 onMounted(() => {

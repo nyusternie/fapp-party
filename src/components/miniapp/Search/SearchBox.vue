@@ -1,21 +1,22 @@
 <template>
-    <main class="w-full h-fulbl px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
 		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			Search
+			Blank
 		</h1>
 
-		<p class="text-slate-300 font-medium text-lg">
-			These are community SPONSORED Mini Apps that fund the Party Treasury—the primary funding source for ALL <a href="/rewards" class="text-lg font-bold text-blue-500 hover:text-blue-400 hover:underline">Reward Pools</a> and community events.
-		</p>
-	</main>
+        <p class="text-slate-300 font-medium text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sed consectetur tempora ipsam laborum, explicabo perspiciatis, blanditiis facere iste voluptatem vel? Quisquam perferendis deserunt maxime, nihil iure ratione qui consectetur.
+        </p>
+    </main>
 </template>
 
 <script setup lang="ts">
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+// import { sdk } from '@farcaster/frame-sdk'
 
-import $System from '../../stores/system'
+import $System from '../../../stores/system'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -28,7 +29,7 @@ const props = defineProps({
 const System = useStore($System)
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    // console.log('SYSTEM', $System.get())
 }
 
 onMounted(() => {

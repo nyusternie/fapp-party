@@ -17,6 +17,9 @@ importers:
       '@farcaster/frame-sdk':
         specifier: 0.0.63
         version: 0.0.63(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.48)
+      '@headlessui/vue':
+        specifier: 1.7.23
+        version: 1.7.23(vue@3.5.13(typescript@5.8.3))
       '@heroicons/vue':
         specifier: 2.2.0
         version: 2.2.0(vue@3.5.13(typescript@5.8.3))
@@ -768,6 +771,12 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
+  '@headlessui/vue@1.7.23':
+    resolution: {integrity: sha512-JzdCNqurrtuu0YW6QaDtR2PIYCKPUWq28csDyMvN4zmGccmE7lz40Is6hc3LA4HFeCI7sekZ/PQMTNmn9I/4Wg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+
   '@heroicons/vue@2.2.0':
     resolution: {integrity: sha512-G3dbSxoeEKqbi/DFalhRxJU4mTXJn7GwZ7ae8NuEQzd1bqdd0jAbdaBZlHPcvPD2xI1iGzNVB4k20Un2AguYPw==}
     peerDependencies:
@@ -1284,6 +1293,14 @@ packages:
     resolution: {integrity: sha512-+SAq44yLzYlzyrb7QTcFCdU8Xa7FOA0jp+Xby7fPMUie+MY9HhJysM7Vp+vL8qIp8ceQJfLD+FjgJuJ4lL6nyg==}
     peerDependencies:
       vite: ^5.2.0 || ^6
+
+  '@tanstack/virtual-core@3.13.10':
+    resolution: {integrity: sha512-sPEDhXREou5HyZYqSWIqdU580rsF6FGeN7vpzijmP3KTiOGjOMZASz4Y6+QKjiFQwhWrR58OP8izYaNGVxvViA==}
+
+  '@tanstack/vue-virtual@3.13.10':
+    resolution: {integrity: sha512-1UZmUiMNyKxQ1JFPtO3rfRmK7IuLYwfj/foPC7FVWj6yHand4ry5joFh8LQ1Ckm7Dfe/08cv6LKZNc4WYj7hxQ==}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
 
   '@types/connect@3.4.38':
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
@@ -3675,6 +3692,11 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
+  '@headlessui/vue@1.7.23(vue@3.5.13(typescript@5.8.3))':
+    dependencies:
+      '@tanstack/vue-virtual': 3.13.10(vue@3.5.13(typescript@5.8.3))
+      vue: 3.5.13(typescript@5.8.3)
+
   '@heroicons/vue@2.2.0(vue@3.5.13(typescript@5.8.3))':
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
@@ -4080,6 +4102,13 @@ snapshots:
       lightningcss: 1.29.1
       tailwindcss: 4.0.8
       vite: 6.3.5(@types/node@22.15.29)(jiti@2.4.2)(lightningcss@1.29.1)
+
+  '@tanstack/virtual-core@3.13.10': {}
+
+  '@tanstack/vue-virtual@3.13.10(vue@3.5.13(typescript@5.8.3))':
+    dependencies:
+      '@tanstack/virtual-core': 3.13.10
+      vue: 3.5.13(typescript@5.8.3)
 
   '@types/connect@3.4.38':
     dependencies:
