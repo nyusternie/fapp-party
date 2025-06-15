@@ -1,82 +1,98 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			Reward Pools
-		</h1>
+		<Breadcrumb :pageid="pageid" />
 
-		<section class="text-white">
-			<a href="/rewards/guests">
-				Guests
-			</a>
-			|
-			<a href="/rewards/builders">
-				Builders
-			</a>
-			|
-			<a href="/rewards/sponsors">
-				Sponsors
-			</a>
-		</section>
+        <p class="text-slate-300 font-medium text-lg">
+            Ready to boost your crypto earnings?
+            Our Reward Pools are designed to help you maximize your USDC earnings—while enjoying time on Farcaster.
+            Here's a quick overview of how it works:
+        </p>
 
-		<div class="bg-white py-6">
-			<div class="w-full px-6">
-				<div class="mt-8 grid w-full grid-cols-1 gap-x-8 gap-y-20">
-                    <article v-for="project of projects" :key="project.id" class="flex flex-col items-start justify-between">
-                        <div class="relative w-full">
-                            <img
-                                :src="project.imgUrl"
-                                alt=""
-                                class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                            />
-                            <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+        <h2 class="text-amber-300 font-medium text-2xl tracking-wider">
+            What is a Rewards Pool?
+        </h2>
+
+        <p class="text-slate-300 font-medium text-lg">
+            Each Rewards Pool is a dynamic, community-driven feature that allows users to support one another.
+            By participating, you're not only increasing your own earning but also contributing to the growth of the Mini Apps ecosystem.
+        </p>
+
+        <dl class="px-3 w-full grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div v-for="item in stats" :key="item.id" class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
+                <dt>
+                    <div class="absolute rounded-md bg-fuchsia-700 p-3">
+                        <component :is="item.icon" class="size-7 text-fuchsia-100" aria-hidden="true" />
+                    </div>
+
+                    <p class="ml-16 truncate text-2xl font-bold text-stone-500">
+                        {{ item.name }}
+                    </p>
+                </dt>
+
+                <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
+                    <p class="text-2xl font-semibold text-gray-900">
+                        {{ item.stat }}
+                    </p>
+
+                    <p :class="[item.changeType === 'increase' ? 'text-green-600' : 'text-red-600', 'ml-2 flex items-baseline text-sm font-semibold']">
+                        <ArrowUpIcon v-if="item.changeType === 'increase'" class="size-5 shrink-0 self-center text-green-500" aria-hidden="true" />
+                        <ArrowDownIcon v-else class="size-5 shrink-0 self-center text-red-500" aria-hidden="true" />
+                        <span class="sr-only"> {{ item.changeType === 'increase' ? 'Increased' : 'Decreased' }} by </span>
+                        {{ item.change }}
+                    </p>
+
+                    <div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
+                        <div class="text-sm">
+                            <a href="javascript:;" class="font-medium text-sky-600 hover:text-sky-500">
+                                View all<span class="sr-only"> {{ item.name }} stats</span>
+                            </a>
                         </div>
+                    </div>
+                </dd>
+            </div>
+        </dl>
 
-                        <div class="max-w-xl">
-                            <div class="mt-8 flex items-center gap-x-4 text-xs">
-                                <time datetime="2020-03-16" class="text-gray-500">
-                                    {{project.class}}
-                                </time>
+        <h2 class="text-amber-300 font-medium text-2xl tracking-wider">
+            How Does It Work?
+        </h2>
 
-                                <a href="#" class="relative z-1b0 rounded-full bg-gray-50 px-2 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-                                    {{project.category}}
-                                </a>
-                            </div>
+        <ol class="text-slate-300 font-medium text-lg">
+            <li>
+                Join the Pool: Simply opt into the Rewards Pool from the settings menu in the app.
+            </li>
 
-                            <div class="group relative">
-                                <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-                                    <a href="#">
-                                        <span class="absolute inset-0"></span>
-                                        {{project.title}}
-                                    </a>
-                                </h3>
+            <li>
+                Earn Rewards: As the pool earns crypto from successful Sponsorships, those rewards are distributed proportionally among all pool participants.
+            </li>
 
-                                <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
-                                    {{project.desc}}
-                                </p>
-                            </div>
+            <li>
+                Withdraw Your Earnings: You can withdraw your earned crypto directly to your Warplet at anytime.
+            </li>
+        </ol>
 
-                            <div class="relative mt-8 flex items-center gap-x-4">
-                                <img :src="project.ownerImgUrl" alt="" class="size-10 rounded-full bg-gray-100" />
+        <a href="/rewards/leadership" class="block m-5 text-stone-700">
+            Go to Leadership Pool
+        </a>
 
-                                <div class="text-sm/6">
-                                    <p class="font-semibold text-gray-900">
-                                        <a href={project.ownerUrl}>
-                                            <span class="absolute inset-0"></span>
-                                            {{project.owner}}
-                                        </a>
-                                    </p>
+        <h2 class="text-amber-300 font-medium text-2xl tracking-wider">
+            Why Participate?
+        </h2>
 
-                                    <p class="text-gray-600">
-                                        {{project.builder}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-				</div>
-			</div>
-		</div>
-	</main>
+        <ol class="text-slate-300 font-medium text-lg">
+            <li>
+                Increased Earnings: TBD
+            </li>
+
+            <li>
+                Community Support: TBD
+            </li>
+
+            <li>
+                Ease of Use: TBD
+            </li>
+        </ol>
+
+    </main>
 </template>
 
 <script setup lang="ts">
@@ -85,135 +101,41 @@ import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
 import $System from '../../stores/system'
+import Breadcrumb from '../Breadcrumb.vue'
+
+import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/vue/20/solid'
+import { CursorArrowRaysIcon, EnvelopeOpenIcon, WrenchScrewdriverIcon } from '@heroicons/vue/24/outline'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
-    data: {
-        type: [Object],
+    pageid: String,
+})
+
+const stats = [
+    {
+        id: 'builders',
+        name: `Builder's Pool`,
+        stat: '71,897',
+        icon: WrenchScrewdriverIcon,
+        change: '122',
+        changeType: 'increase',
     },
-})
-
-const System = useStore($System)
-
-const projects = ref()
-
-const init = async () => {
-    console.log('SYSTEM', $System.get())
-
-    projects.value = []
-
-    projects.value.push({
-        id: '1',
-        title: 'Frameception',
-        desc: `Build your frame in a frame.`,
-        category: 'Infrastructure',
-        builder: 'Farcaster Builder',
-        class: 'New Project/Build',
-        owner: 'hellno the optimist',
-        ownerUrl: 'https://warpcast.com/hellno.eth',
-        ownerImgUrl: 'https://i.imgur.com/qoHFjQD.gif',
-        imgUrl: 'https://i.ibb.co/0j8XKZcd/frameception.png',
-    })
-
-    projects.value.push({
-        id: '2',
-        title: 'Frameify',
-        desc: `Wrap (almost) ANY website into a Farcaster v2 frame in just a few clicks.`,
-        category: 'Utility',
-        builder: 'Farcaster Master Builder',
-        class: 'New Project/Build',
-        owner: 'Shomari',
-        ownerUrl: 'https://warpcast.com/shomari.eth',
-        ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/57f8600f-2e51-4549-8cc4-f80e4c681800/rectcrop3',
-        imgUrl: 'https://i.ibb.co/zVBWtkRW/frameify.png',
-    })
-
-    projects.value.push({
-        id: '3',
-        title: 'FrameHub',
-        desc: `Generate a frame with a single cast, that is backed by beautiful, editable code, following best practices all the way, with no vendor lock-in.`,
-        category: 'Infrastructure',
-        builder: 'Farcaster Builder',
-        class: 'New Project/Build',
-        owner: 'Breck Yunits',
-        ownerUrl: 'https://warpcast.com/breck',
-        ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bebf2f70-37fa-4114-9720-3bdc32f72a00/original',
-        imgUrl: 'https://i.ibb.co/m5z7M0rL/frame-hub.png',
-    })
-
-    // projects.value.push({
-    // 	id: '4',
-    // 	title: 'TITLE',
-    // 	desc: `Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.`,
-    // 	category: 'Infrastructure',
-    // 	builder: 'Farcaster Builder',
-    // 	class: 'New Project/Build',
-    // 	owner: 'mide (aka fraye)',
-    // 	ownerUrl: '',
-    // 	ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bebf2f70-37fa-4114-9720-3bdc32f72a00/original',
-    // 	imgUrl: 'https://i.ibb.co/m5z7M0rL/frame-hub.png',
-    // })
-
-    projects.value.push({
-        id: '5',
-        title: 'Frames V2 Demo',
-        desc: `Explore, Learn, Reuse and Contribute with new components, tutorials, and guides helping to grow this hub of community resources. Or just test your knowledge with a little quiz.`,
-        category: 'Education',
-        builder: 'Farcaster Builder',
-        class: 'New Project/Build',
-        owner: 'J. Valeska 🦊🎩🫂',
-        ownerUrl: 'https://warpcast.com/jvaleska.eth',
-        ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/f82ddc2b-1c48-4e8f-61b3-e40eb4d59700/original',
-        imgUrl: 'https://i.ibb.co/5XGx5Hjy/frames-v2-demo.png',
-    })
-
-    projects.value.push({
-        id: '6',
-        title: 'First v2 Frame',
-        desc: `Create Your First v2 Frame Today!`,
-        category: 'Infrastructure',
-        builder: 'Farcaster Builder',
-        class: 'New Project/Build',
-        owner: 'cashlessman 🎩',
-        ownerUrl: 'https://warpcast.com/cashlessman.eth',
-        ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/a74b030e-2d92-405c-c2d0-1696f5d51d00/original',
-        imgUrl: 'https://i.ibb.co/fdLpf0NH/first-v2-frame.png',
-    })
-
-    // projects.value.push({
-    // 	id: '7',
-    // 	title: 'TITLE',
-    // 	desc: `Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.`,
-    // 	category: 'Infrastructure',
-    // 	builder: 'Farcaster Builder',
-    // 	class: 'New Project/Build',
-    // 	owner: 'kt',
-    // 	ownerUrl: '',
-    // 	ownerImgUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bebf2f70-37fa-4114-9720-3bdc32f72a00/original',
-    // 	imgUrl: 'https://i.ibb.co/m5z7M0rL/frame-hub.png',
-    // })
-
-    projects.value.push({
-        id: '8',
-        title: 'DBee Builder',
-        desc: `A development example and template for Framer Builder created with Svelte, featuring integrations such as: 1) val.town for managing React libraries.`,
-        category: 'Library',
-        builder: 'Farcaster Builder',
-        class: 'New Project/Build',
-        owner: 'Lord Dalresin🐝',
-        ownerUrl: 'https://warpcast.com/dalresin',
-        ownerImgUrl: 'https://i.imgur.com/Gtrkty9.jpg',
-        imgUrl: 'https://i.ibb.co/PGSCHS1Y/dbee-builder.png',
-    })
-}
-
-onMounted(() => {
-    init()
-})
-
-// onBeforeUnmount(() => {
-//     console.log('Before Unmount!')
-//     // Now is the time to perform all cleanup operations.
-// })
+    {
+        id: 'leadership',
+        name: `Leadership Pool`,
+        stat: '58.16%',
+        icon: EnvelopeOpenIcon,
+        change: '5.4%',
+        changeType: 'increase',
+    },
+    {
+        id: 'guests',
+        name: `Guest's Pool`,
+        stat: '24.57%',
+        icon: CursorArrowRaysIcon,
+        change: '3.2%',
+        changeType: 'decrease',
+    },
+]
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <nav class="-ml-3 -mr-3 flex border-b border-stone-600 bg-stone-700" aria-label="Breadcrumb">
+    <nav class="flex border-b border-stone-600 bg-stone-700" aria-label="Breadcrumb">
         <ol role="list" class="flex w-full max-w-screen-xl space-x-4 px-4">
             <li class="flex">
                 <div class="flex items-center">
@@ -52,6 +52,28 @@ type Page = {
 const pages: Page[] = []
 
 switch(props.pageid) {
+// REWARDS
+case 'rewards':
+    pages.push({
+        name: 'Reward Pools',
+        href: 'javascript:;',
+        current: true,
+    })
+    break
+// REWARDS: Leadership
+case 'rewards/leadership':
+    pages.push({
+        name: 'Reward Pools',
+        href: '/rewards',
+        current: false,
+    })
+    pages.push({
+        name: 'Leadership',
+        href: 'javascript:;',
+        current: true,
+    })
+    break
+// ROADMAP
 case 'roadmap':
     pages.push({
         name: 'Help Desk',
@@ -64,6 +86,7 @@ case 'roadmap':
         current: true,
     })
     break
+// TRANSPARENCY
 case 'transparency':
     pages.push({
         name: 'Help Desk',
