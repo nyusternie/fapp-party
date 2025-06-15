@@ -4,7 +4,7 @@
             <li class="flex">
                 <div class="flex items-center">
                     <a href="/help" class="text-stone-400 hover:text-sky-500">
-                        <QuestionMarkCircleIcon class="size-7 shrink-0" aria-hidden="true" />
+                        <InformationCircleIcon class="size-7 shrink-0" aria-hidden="true" />
                         <span class="sr-only">Home</span>
                     </a>
                 </div>
@@ -28,6 +28,7 @@
 <script setup lang="ts">
 import {
     HomeIcon,
+    InformationCircleIcon,
     QuestionMarkCircleIcon,
 } from '@heroicons/vue/20/solid'
 
