@@ -31,11 +31,11 @@
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="pr-[120px] w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
                             {{app.tagline || app.hostname}}
                         </h3>
 
@@ -59,11 +59,11 @@
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="pr-[120px] w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
                             {{app.tagline || app.hostname}}
                         </h3>
 
@@ -86,7 +86,7 @@
                             {{sponsored.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter">
                             {{sponsored.tagline || sponsored.hostname}}
                         </h3>
 
@@ -105,11 +105,11 @@
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
                     <div class="pr-[120px] w-full flex flex-col items-start flex-1">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
+                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
+                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
                             {{app.tagline || app.hostname}}
                         </h3>
 
