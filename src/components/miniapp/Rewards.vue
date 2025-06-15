@@ -18,7 +18,7 @@
         </p>
 
         <dl class="px-3 w-full grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <div v-for="item in stats" :key="item.id" class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
+            <a v-for="item in stats" :key="item.id" href="javascript:alert('Reward Pools are coming VERY soon!\n\nThanks for your patience...');"class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
                     <div class="absolute rounded-md bg-fuchsia-700 p-3">
                         <component :is="item.icon" class="size-7 text-fuchsia-100" aria-hidden="true" />
@@ -43,13 +43,13 @@
 
                     <div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
                         <div class="text-sm">
-                            <a href="javascript:;" class="font-medium text-sky-600 hover:text-sky-500">
-                                View all<span class="sr-only"> {{ item.name }} stats</span>
-                            </a>
+                            <span class="text-sm font-medium text-stone-500 uppercase">
+                                Enter Pool<span class="sr-only"> {{ item.name }} stats</span>
+                            </span>
                         </div>
                     </div>
                 </dd>
-            </div>
+            </a>
         </dl>
 
         <h2 class="text-amber-300 font-medium text-2xl tracking-wider">
@@ -70,8 +70,8 @@
             </li>
         </ol>
 
-        <a href="/rewards/leadership" class="block m-5 text-stone-700">
-            Go to Leadership Pool
+        <a href="/rewards/leadership" class="block text-stone-700 text-center">
+            PREVIEW Leadership Pool
         </a>
 
         <h2 class="text-amber-300 font-medium text-2xl tracking-wider">
