@@ -1,7 +1,7 @@
 {
   "name": "miniapps-party",
   "description": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
-  "version": "25.6.10",
+  "version": "25.6.14",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -12,12 +12,14 @@
   "dependencies": {
     "@astrojs/cloudflare": "12.5.3",
     "@astrojs/vue": "5.0.7",
-    "@farcaster/frame-sdk": "0.0.61",
+    "@farcaster/frame-sdk": "0.0.63",
+    "@heroicons/vue": "2.2.0",
     "@nanostores/persistent": "1.0.0",
     "@nanostores/vue": "1.0.0",
     "@tailwindcss/vite": "4.0.8",
     "astro": "5.8.0",
     "canvas-confetti": "1.9.3",
+    "heroicons-astro": "1.0.4",
     "moment": "2.30.1",
     "nanostores": "1.0.1",
     "numeral": "2.0.6",

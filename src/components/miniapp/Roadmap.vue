@@ -1,5 +1,7 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+		<Breadcrumb :pageid="pageid" />
+
 		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
             Roadmap
         </h1>
@@ -39,13 +41,12 @@ import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 
 import $System from '../../stores/system'
+import Breadcrumb from '../Breadcrumb.vue'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
-    data: {
-        type: [Object],
-    },
+    pageid: String,
 })
 
 const System = useStore($System)
@@ -60,6 +61,7 @@ const goals = ref([
 
 const init = async () => {
     console.log('SYSTEM', $System.get())
+    console.log('PAGE ID', props.pageid)
 }
 
 onMounted(() => {
