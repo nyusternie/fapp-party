@@ -1,12 +1,11 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			Blank
-		</h1>
-
-        <p class="text-slate-300 font-medium text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sed consectetur tempora ipsam laborum, explicabo perspiciatis, blanditiis facere iste voluptatem vel? Quisquam perferendis deserunt maxime, nihil iure ratione qui consectetur.
-        </p>
+    <main class="w-full grid grid-cols-1">
+        <input
+            type="text"
+            class="col-start-1 row-start-1 block w-full rounded-md bg-white py-2 pl-12 pr-3 text-xl tracking-wider text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+            placeholder="Search"
+        />
+        <MagnifyingGlassIcon class="pointer-events-none col-start-1 row-start-1 ml-3 size-7 self-center text-gray-400" aria-hidden="true" />
     </main>
 </template>
 
@@ -14,7 +13,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
-// import { sdk } from '@farcaster/frame-sdk'
+import { MagnifyingGlassIcon } from '@heroicons/vue/16/solid'
 
 import $System from '../../../stores/system'
 

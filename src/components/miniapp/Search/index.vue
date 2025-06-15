@@ -1,17 +1,28 @@
 <template>
-    <main class="w-full h-fulbl px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
+    <main class="cursor-default w-full h-full px-2 pb-7 flex flex-col gap-4 overflow-y-scroll">
+		<h1 class="mt-5 text-pretty text-3xl font-semibold tracking-wider text-sky-100 uppercase">
 			Search
 		</h1>
 
-		<p class="text-slate-300 font-medium text-lg">
-			These are community SPONSORED Mini Apps that fund the Party Treasury—the primary funding source for ALL <a href="/rewards" class="text-lg font-bold text-blue-500 hover:text-blue-400 hover:underline">Reward Pools</a> and community events.
+		<p class="-mt-3 text-amber-100 font-medium text-base/6 tracking-wider">
+			Discover the MOST talked about mini apps with EASE!
+			Save apps to your Favorites to further explore later...
 		</p>
 
 		<section class="flex flex-col gap-2 items-end">
 			<SelectCategory />
 			<SelectFeature />
 			<SearchBox />
+		</section>
+
+		<div class="w-full my-5 px-10 border-t border-sky-200" />
+
+		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200 p-12 text-center">
+			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300" />
+
+			<span class="mt-2 block text-lg font-semibold text-sky-200">
+				Start a new search
+			</span>
 		</section>
 	</main>
 </template>
@@ -20,6 +31,7 @@
 /* Import modules. */
 import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
+import { MagnifyingGlassPlusIcon } from '@heroicons/vue/24/outline'
 
 import $System from '../../../stores/system'
 import SelectCategory from './SelectCategory.vue'

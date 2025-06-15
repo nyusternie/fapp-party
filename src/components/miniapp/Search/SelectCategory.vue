@@ -1,13 +1,13 @@
 <template>
     <main class="inline-flex rounded-md shadow-sm">
-        <button type="button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+        <button type="button" class="cursor-not-allowed w-[300px] relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-lg font-semibold text-slate-700 uppercase ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
             {{displayName}}
         </button>
 
         <Menu as="div" class="relative -ml-px block">
-            <MenuButton class="relative inline-flex items-center rounded-r-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+            <MenuButton class="cursor-pointer relative inline-flex items-center rounded-r-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
                 <span class="sr-only">Open options</span>
-                <ChevronDownIcon class="size-5" aria-hidden="true" />
+                <ChevronDownIcon class="size-7" aria-hidden="true" />
             </MenuButton>
 
             <transition
@@ -23,7 +23,7 @@
                         <MenuItem v-for="category in categories" :key="category.name" v-slot="{ active }">
                             <button
                                 @click="displayName = category.name"
-                                :class="[active ? 'bg-gray-100 text-gray-900 outline-none' : 'text-gray-700', 'block px-4 py-2 text-sm']"
+                                :class="[active ? 'bg-gray-100 text-slate-700 outline-none' : 'text-gray-700', 'w-full block px-4 py-2 text-xl text-left']"
                             >
                                 {{ category.name }}
                             </button>
