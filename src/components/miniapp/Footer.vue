@@ -1,22 +1,22 @@
 <template>
     <footer class="w-full h-[45px] grid grid-cols-4 gap-0.5 justify-between bg-slate-900 border border-t-stone-700 overflow-hidden">
         <a href="/apps" @click="addHaptic()" class="group w-full flex flex-col justify-center items-center bg-stone-700 hover:bg-stone-200">
-            <Squares2X2Icon class="size-5.5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
+            <Squares2X2Icon class="size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
             <span class="uppercase text-xs font-bold text-fuchsia-300 tracking-wider group-hover:text-fuchsia-900">apps</span>
         </a>
 
         <a href="/search" @click="addHaptic()" class="group w-full flex flex-col justify-center items-center bg-stone-700 hover:bg-stone-200">
-            <MagnifyingGlassCircleIcon class="size-5.5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
+            <MagnifyingGlassCircleIcon class="size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
             <span class="uppercase text-xs font-bold text-fuchsia-300 tracking-wider group-hover:text-fuchsia-900">search</span>
         </a>
 
         <a href="/rewards" @click="addHaptic()" class="group w-full flex flex-col justify-center items-center bg-stone-700 hover:bg-stone-200">
-            <TrophyIcon class="size-5.5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
+            <TrophyIcon class="size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
             <span class="uppercase text-xs font-bold text-fuchsia-300 tracking-wider group-hover:text-fuchsia-900">rewards</span>
         </a>
 
         <a href="/help" @click="addHaptic()" class="group w-full flex flex-col justify-center items-center bg-stone-700 hover:bg-stone-200">
-            <InformationCircleIcon class="size-5.5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
+            <InformationCircleIcon class="size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
             <span class="uppercase text-xs font-bold text-fuchsia-300 tracking-wider group-hover:text-fuchsia-900">help</span>
         </a>
     </footer>
