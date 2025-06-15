@@ -128,7 +128,7 @@ export const init = async () => {
         // NOTE: Update profile LOCALLY!
         profile = await setSession(session)
     }
-console.log('SESSION', session)
+// console.log('SESSION', session)
 
     /* Validate mini app. */
     if (isMiniApp && profile.session) {
@@ -138,7 +138,7 @@ console.log('SESSION', session)
         if (!profile.session.hasAuth) {
             /* Attempt to register the profile. */
             const registration = await register()
-console.log('REGISTRATION', registration)
+// console.log('REGISTRATION', registration)
         }
     }
 
@@ -198,7 +198,7 @@ const register = async () => {
 
     /* Request JSON. */
     const json = await response.json()
-console.log('JSON (register)', json)
+// console.log('JSON (register)', json)
 
     /* Validate JSON. */
     if (typeof json !== 'undefined' && json !== null) {
@@ -235,7 +235,7 @@ export const sync = async () => {
 
     /* Retrieve (existing) profile. */
     const profile = $Profile.get()
-console.log('PROFILE (store)', profile)
+// console.log('PROFILE (store)', profile)
 
     /* Sanitize profile. */
     // const sanitized = JSON.stringify(profile).replace(/"/g, '\"')
@@ -262,7 +262,7 @@ console.log('PROFILE (store)', profile)
 
     /* Request JSON. */
     const json = await response.json()
-console.log('JSON (sync)', json)
+// console.log('JSON (sync)', json)
 
     return json?.data?.manageProfile || null
 }
