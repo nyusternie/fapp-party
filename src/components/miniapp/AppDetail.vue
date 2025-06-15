@@ -72,9 +72,9 @@
 
         </section>
 
-        <a :href="'/banger/' + appDetails.hostname" class="group cursor-pointer w-full mt-2 px-5 py-3 flex flex-col justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-200 border-amber-900 rounded-xl">
+        <a v-if="appDetails.hostname" :href="'/fans/' + appDetails.hostname" class="group cursor-pointer w-full mt-2 px-5 py-3 flex flex-col justify-center items-center bg-fuchsia-800 border-2 hover:bg-fuchsia-200 border-amber-900 rounded-xl">
             <span class="inline-flex items-center gap-2 font-bold text-2xl text-center uppercase text-amber-300 group-hover:text-fuchsia-800">
-                Add a BANGER!
+                Become a FAN!
             </span>
         </a>
 
