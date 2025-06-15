@@ -4,7 +4,7 @@
 			Help Desk
 		</h1>
 
-		<p class="text-slate-300 font-medium text-lg/9">
+		<p class="text-slate-300 font-medium text-lg/9 text-center">
 			Need immediate assistance?
 			<br />Reach out directly to BDFL
 			<button @click="viewShomari" class="cursor-pointer px-2 py-0 mx-1 inline-flex text-sky-800 bg-sky-300 border border-sky-500 rounded-xl hover:bg-sky-900 hover:text-sky-100">
