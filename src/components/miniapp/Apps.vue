@@ -27,16 +27,16 @@
 
 <!-- BEGIN FEATURED -->
             <ClientOnly>
-                <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="w-full flex flex-col items-start flex-1">
+                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
+                            {{app.tagline || app.hostname}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -44,7 +44,7 @@
                         </h3>
                     </div>
 
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
+                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 h-16 border border-slate-700 rounded-md" />
                 </button>
             </ClientOnly>
 <!-- END FEATURED -->
@@ -55,16 +55,16 @@
 
 <!-- BEGIN ABOVE THE FOLD -->
             <ClientOnly>
-                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="w-full flex flex-col items-start flex-1">
+                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
+                            {{app.tagline || app.hostname}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -72,7 +72,7 @@
                         </h3>
                     </div>
 
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="flex-0 h-16 border border-slate-700 rounded-md" />
+                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 flex-0 h-16 border border-slate-700 rounded-md" />
                 </button>
             </ClientOnly>
 <!-- END ABOVE THE FOLD -->
@@ -101,16 +101,16 @@
 
 <!-- BEGIN BELOW THE FOLD -->
             <ClientOnly>
-                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
+                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="w-full flex flex-col items-start flex-1">
+                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-tighter text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
 
                         <h3 class="text-sky-400 font-bold text-sm tracking-wider text-left line-clamp-1">
-                            {{app.tagline || app.heroImageUrl ? app.hostname.slice(0, HERO_HOSTNAME_MAX_LEN) : app.hostname.slice(0, NOHERO_HOSTNAME_MAX_LEN)}}
+                            {{app.tagline || app.hostname}}
                         </h3>
 
                         <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
@@ -118,7 +118,7 @@
                         </h3>
                     </div>
 
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
+                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 h-16 border border-slate-700 rounded-md" />
                 </button>
             </ClientOnly>
 <!-- END BELOW THE FOLD -->
@@ -175,8 +175,8 @@ const props = defineProps({
 
 const App = useStore($App)
 
-const HERO_HOSTNAME_MAX_LEN = 20
-const NOHERO_HOSTNAME_MAX_LEN = 30
+// const HERO_HOSTNAME_MAX_LEN = 20
+// const NOHERO_HOSTNAME_MAX_LEN = 30
 
 const spotlight = ref()
 const sponsored = ref()
