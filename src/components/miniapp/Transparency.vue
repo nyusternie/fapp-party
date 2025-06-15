@@ -5,19 +5,13 @@
         <div class="py-6">
             <div class="mx-auto max-w-2xl px-4">
                 <div class="grid grid-cols-1 items-center gap-x-16 gap-y-10">
-                    <div>
-                        <h2 class="text-4xl font-bold tracking-tight text-amber-200 uppercase">
-							100% Transparency
-						</h2>
-
-						<p class="mt-4 text-stone-300 font-medium text-lg/8">
-							At the beggining of this journey, I set out to create an OPEN community for BUILDERS!
-							So as much as possible, transparency is thought of FIRST and FOREMOST when designing the systems that power this nascent community.
-							<span @click="viewShomari" class="mt-1 pr-5 cursor-pointer block text-right text-rose-300 font-medium italic tracking-wider hover:text-rose-200">
-								— 0xShomari
-							</span>
-                        </p>
-                    </div>
+					<p class="text-stone-300 font-medium text-lg/8">
+						At the beggining of this journey, I set out to create an OPEN community for BUILDERS!
+						So as much as possible, transparency is thought of FIRST and FOREMOST when designing the systems that power this nascent community.
+						<span @click="viewShomari" class="mt-1 pr-5 cursor-pointer block text-right text-rose-300 font-medium italic tracking-wider hover:text-rose-200">
+							— 0xShomari
+						</span>
+					</p>
 
 					<img
 						src="https://images.unsplash.com/photo-1512099053734-e6767b535838?q=80"

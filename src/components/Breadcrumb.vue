@@ -1,12 +1,12 @@
 <template>
-    <nav class="flex border-b border-stone-200 bg-white" aria-label="Breadcrumb">
+    <nav class="-ml-3 -mr-3 flex border-b border-stone-600 bg-stone-700" aria-label="Breadcrumb">
         <ol role="list" class="flex w-full max-w-screen-xl space-x-4 px-4">
             <li class="flex">
                 <div class="flex items-center">
-                    <a href="/help" class="text-stone-400 hover:text-sky-500">
-                        <InformationCircleIcon class="size-7 shrink-0" aria-hidden="true" />
-                        <span class="sr-only">Home</span>
-                    </a>
+                    <button class="text-stone-400 hover:text-amber-300">
+                        <img src="/icon.svg" class="size-6 shrink-0" aria-hidden="true" />
+                        <span class="sr-only">Mini Apps</span>
+                    </button>
                 </div>
             </li>
 
@@ -16,7 +16,10 @@
                         <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                     </svg>
 
-                    <a :href="page.href" class="ml-4 text-lg font-medium text-stone-500 tracking-wider hover:text-sky-500" :aria-current="page.current ? 'page' : undefined">
+                    <span v-if="page.current" class="ml-4 text-lg font-medium text-stone-100 tracking-wider cursor-default" :aria-current="page.current ? 'page' : undefined">
+                        {{ page.name }}
+                    </span>
+                    <a v-else :href="page.href" class="ml-4 text-lg font-medium text-stone-100 tracking-wider hover:text-amber-300" :aria-current="page.current ? 'page' : undefined">
                         {{ page.name }}
                     </a>
                 </div>
@@ -30,6 +33,7 @@ import {
     HomeIcon,
     InformationCircleIcon,
     QuestionMarkCircleIcon,
+    Squares2X2Icon,
 } from '@heroicons/vue/20/solid'
 
 /* Define properties. */
@@ -50,14 +54,24 @@ const pages: Page[] = []
 switch(props.pageid) {
 case 'roadmap':
     pages.push({
-        name: 'Roadmap',
+        name: 'Help Desk',
+        href: '/help',
+        current: false,
+    })
+    pages.push({
+        name: 'Our Roadmap',
         href: 'javascript:;',
         current: true,
     })
     break
 case 'transparency':
     pages.push({
-        name: 'Transparency',
+        name: 'Help Desk',
+        href: '/help',
+        current: false,
+    })
+    pages.push({
+        name: '100% Transparency',
         href: 'javascript:;',
         current: true,
     })
@@ -66,7 +80,7 @@ default:
     pages.push({
         name: 'Unknown Parent',
         href: 'javascript:;',
-        current: true,
+        current: false,
     })
     pages.push({
         name: 'Unknown Page',
