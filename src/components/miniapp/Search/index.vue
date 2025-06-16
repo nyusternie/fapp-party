@@ -1,10 +1,10 @@
 <template>
     <main class="cursor-default w-full h-full px-2 pb-7 flex flex-col gap-4 overflow-y-scroll">
-		<h1 class="mt-5 text-pretty text-3xl font-semibold tracking-wider text-sky-100 uppercase">
+		<h1 class="mt-2 text-pretty text-3xl font-semibold tracking-wider text-sky-100 uppercase">
 			Search
 		</h1>
 
-		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-widest">
+		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-normal">
 			Discover the MOST Talked About Mini Apps
 		</p>
 
