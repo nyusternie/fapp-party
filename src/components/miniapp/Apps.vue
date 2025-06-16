@@ -175,15 +175,26 @@ const props = defineProps({
 
 const App = useStore($App)
 
-// const HERO_HOSTNAME_MAX_LEN = 20
-// const NOHERO_HOSTNAME_MAX_LEN = 30
-
 const spotlight = ref()
 const sponsored = ref()
 
-const featured = computed(() => $App.get().slice(0, 3))
-const aboveTheFold = computed(() => $App.get().slice(3, 16))
-const belowTheFold = computed(() => $App.get().slice(16, 18))
+/* Initialize (compute) handlers. */
+let featured
+let aboveTheFold
+let belowTheFold
+
+featured = computed(() => $App.get().slice(0, 3))
+aboveTheFold = computed(() => $App.get().slice(3, 16))
+belowTheFold = computed(() => $App.get().slice(16, 18))
+
+const unbindListener = $App.subscribe((value, oldValue) => {
+    // console.log(`$APP value changed from ${oldValue ? JSON.stringify(oldValue[0]) : 'n/a'} to ${value ? JSON.stringify(value[0]) : 'no value'}`)
+
+    /* Update app lists to latest. */
+    featured = computed(() => $App.get().slice(0, 3))
+    aboveTheFold = computed(() => $App.get().slice(3, 16))
+    belowTheFold = computed(() => $App.get().slice(16, 18))
+})
 
 const init = async () => {
     console.log('APPS', $App.get())
