@@ -6,7 +6,7 @@
         </a>
 
         <a href="/search" @click="addHaptic()" class="group w-full flex flex-col justify-center items-center bg-stone-700 hover:bg-stone-200">
-            <MagnifyingGlassCircleIcon class="mt-0.5 size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
+            <MagnifyingGlassIcon class="mt-0.5 size-5 text-fuchsia-100 font-bold text-lg tracking-wider uppercase group-hover:text-fuchsia-900" />
             <span class="uppercase text-xs font-medium text-fuchsia-300 tracking-wider group-hover:text-fuchsia-900">search</span>
         </a>
 
@@ -28,7 +28,7 @@ import { ref } from 'vue'
 import { sdk } from '@farcaster/frame-sdk'
 import {
     InformationCircleIcon,
-    MagnifyingGlassCircleIcon,
+    MagnifyingGlassIcon,
     Squares2X2Icon,
     TrophyIcon,
 } from '@heroicons/vue/20/solid'
