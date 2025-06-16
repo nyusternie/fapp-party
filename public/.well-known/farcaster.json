@@ -6,7 +6,7 @@
   },
   "frame": {
     "version": "1",
-    "name": "Fapp Party",
+    "name": "FappParty",
     "iconUrl": "https://miniapps.party/logo.png",
     "splashImageUrl": "https://miniapps.party/splash.gif",
     "splashBackgroundColor": "#21223e",
@@ -29,7 +29,7 @@
     ],
     "heroImageUrl": "https://miniapps.party/poster.webp",
     "tagline": "New and Noteworthy Mini Apps",
-    "ogTitle": "Fapp Party",
+    "ogTitle": "FappParty",
     "ogDescription": "Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.",
     "ogImageUrl": "https://miniapps.party/poster.webp"
   }
