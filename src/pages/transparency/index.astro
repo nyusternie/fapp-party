@@ -25,12 +25,6 @@ let isMiniApp = true//false
 if (hostname === 'app.miniapps.party') {
 	isMiniApp = true
 }
-
-/* Retrieve current path. */
-const currentPath = Astro.url.pathname
-
-/* Parse page ID. */
-const pageid = currentPath.slice(1)
 ---
 
 <Layout>
@@ -38,7 +32,7 @@ const pageid = currentPath.slice(1)
 	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
 
-		<MiniAppTransparency client:load class="flex-1" pageid={pageid} />
+		<MiniAppTransparency client:load class="flex-1" />
 
 		<MiniAppFooter />
 	</div>}

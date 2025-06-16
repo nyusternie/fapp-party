@@ -1,6 +1,6 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
-		<Breadcrumb :pageid="pageid" />
+		<Breadcrumb pageid="roadmap" />
 
         <h2 class="-mt-3 text-amber-300 font-medium text-2xl">
             Let's #BUIDL As ONE Community
@@ -38,12 +38,6 @@ import { useStore } from '@nanostores/vue'
 
 import $System from '../../stores/system'
 import Breadcrumb from '../Breadcrumb.vue'
-
-/* Define properties. */
-// https://vuejs.org/guide/components/props.html#props-declaration
-const props = defineProps({
-    pageid: String,
-})
 
 const System = useStore($System)
 

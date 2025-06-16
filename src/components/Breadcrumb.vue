@@ -29,13 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import {
-    HomeIcon,
-    InformationCircleIcon,
-    QuestionMarkCircleIcon,
-    Squares2X2Icon,
-} from '@heroicons/vue/20/solid'
-
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
@@ -81,7 +74,7 @@ case 'roadmap':
         current: false,
     })
     pages.push({
-        name: 'Our Roadmap',
+        name: 'Roadmap',
         href: 'javascript:;',
         current: true,
     })
@@ -94,7 +87,7 @@ case 'transparency':
         current: false,
     })
     pages.push({
-        name: '100% Transparency',
+        name: 'Transparency',
         href: 'javascript:;',
         current: true,
     })
