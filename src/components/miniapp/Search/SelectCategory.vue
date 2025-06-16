@@ -23,7 +23,7 @@
                         <MenuItem v-for="category in categories" :key="category.name" v-slot="{ active }">
                             <button
                                 @click="displayName = category.name"
-                                :class="[active ? 'bg-gray-100 text-slate-700 outline-none' : 'text-gray-700', 'w-full block px-4 py-2 text-xl text-left']"
+                                :class="[active ? 'bg-gray-100 text-slate-700 outline-none' : 'text-gray-700', 'w-full block px-4 py-2 text-lg text-left']"
                             >
                                 {{ category.name }}
                             </button>

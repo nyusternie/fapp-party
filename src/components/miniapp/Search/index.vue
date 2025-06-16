@@ -4,7 +4,7 @@
 			Search
 		</h1>
 
-		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-wide">
+		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-wider">
 			Discover the MOST Talked About Mini Apps
 		</p>
 
@@ -19,7 +19,7 @@
 		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
 			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300/30" />
 
-			<span class="mt-2 block text-lg font-semibold text-sky-200/70">
+			<span class="mt-2 block text-lg font-light text-sky-200/70">
 				Start a new search
 			</span>
 		</section>
