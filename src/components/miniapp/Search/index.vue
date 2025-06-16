@@ -4,9 +4,8 @@
 			Search
 		</h1>
 
-		<p class="-mt-3 text-amber-100 font-medium text-base/6 tracking-wider">
-			Discover the MOST talked about mini apps with EASE!
-			Save apps to your Favorites to further explore later...
+		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-widest">
+			Discover the MOST Talked About Mini Apps
 		</p>
 
 		<section class="flex flex-col gap-2 items-end">
