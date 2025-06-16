@@ -1,23 +1,23 @@
 <template>
-    <figure v-if="testimonial" class="rounded-2xl bg-stone-100 p-3 shadow-lg ring-1 ring-gray-900/5">
-        <blockquote class="text-gray-900">
+    <figure v-if="testimonial" class="rounded-2xl bg-stone-100 p-3 shadow-lg ring-1 ring-stone-900/5">
+        <blockquote class="text-stone-900" :class="[ props.isFeatured ? 'text-lg/6' : 'text-xs/4']">
             <p>{{ `“${testimonial.body}”` }}</p>
         </blockquote>
 
-        <figcaption class="mt-6 flex items-center gap-x-4">
+        <figcaption class="mt-3 flex items-center gap-x-4">
             <img
-                class="size-10 rounded-full bg-gray-50"
-                :src="testimonial.author.imageUrl"
+                class="size-10 rounded-full bg-stone-50"
+                :src="testimonial.fan.pfpUrl"
                 alt=""
             />
 
             <div>
                 <div class="font-semibold">
-                    {{ testimonial.author.name }}
+                    {{ testimonial.fan.displayName }}
                 </div>
 
-                <div class="text-gray-600">
-                    {{ `@${testimonial.author.handle}` }}
+                <div class="text-stone-600">
+                    {{ `@${testimonial.fan.username}` }}
                 </div>
             </div>
         </figcaption>
@@ -35,9 +35,8 @@ import $System from '../../../stores/system'
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
-    data: {
-        type: [Object],
-    },
+    fid: Number,
+    isFeatured: Boolean,
 })
 
 const System = useStore($System)
@@ -46,11 +45,11 @@ const testimonial = ref()
 
 const init = async () => {
     testimonial.value = {
-        body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
-        author: {
-            name: 'Leslie Alexander',
-            handle: 'lesliealexander',
-            imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        body: `Mini Apps Party by @shomari.eth is a great way to find new mini apps to try out! 👀✨`,
+        fan: {
+            displayName: `Hikari`,
+            username: 'hikalipikali',
+            pfpUrl: 'https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9a81b43a-0a35-462f-926c-d11aef805d00/rectcrop3',
         },
     }
 }

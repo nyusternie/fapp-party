@@ -1,6 +1,6 @@
 <template>
     <main class="cursor-default w-full h-full px-2 pb-7 flex flex-col gap-4 overflow-y-scroll">
-		<Breadcrumb :pageid="pageid" />
+		<Breadcrumb pageid="fanclub" />
 
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
@@ -46,7 +46,7 @@
                         :key="columnIdx"
                         :class="[(columnGroupIdx === 0 && columnIdx === 0) || (columnGroupIdx === testimonials.length - 1 && columnIdx === columnGroup.length - 1) ? 'xl:row-span-2' : 'xl:row-start-1', 'space-y-8']"
                     >
-                        <figure v-for="testimonial in column" :key="testimonial.author.handle" class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                        <figure v-for="testimonial in column" :key="testimonial.author.handle" @click="loadProfile(782184)" class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
                             <blockquote class="text-gray-900">
                                 <p>{{ `“${testimonial.body}”` }}</p>
                             </blockquote>
@@ -73,11 +73,23 @@
 </template>
 
 <script setup lang="ts">
+/* Import modules. */
+import { onMounted, ref } from 'vue'
+import { useStore } from '@nanostores/vue'
+import { sdk } from '@farcaster/frame-sdk'
+
+import Breadcrumb from '../Breadcrumb.vue'
+
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
     pageid: String,
 })
+
+const loadProfile = async (_fid) => {
+	/* Open profile. */
+	await sdk.actions.viewProfile({ _fid })
+}
 
 const featuredTestimonial = {
     body:

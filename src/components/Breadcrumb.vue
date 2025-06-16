@@ -45,6 +45,19 @@ type Page = {
 const pages: Page[] = []
 
 switch(props.pageid) {
+// FANS
+case 'fanclub':
+    pages.push({
+        name: 'Fans',
+        href: 'javascript:;',
+        current: true,
+    })
+    pages.push({
+        name: 'Fanclub',
+        href: 'javascript:;',
+        current: true,
+    })
+    break
 // REWARDS
 case 'rewards':
     pages.push({

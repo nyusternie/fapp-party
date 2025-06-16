@@ -1,7 +1,7 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
 		<h1 class="mt-5 text-pretty text-5xl font-semibold tracking-tight text-amber-200 uppercase">
-			Fans
+			Fan Club
 		</h1>
 
         <p class="text-slate-300 font-medium text-lg">
