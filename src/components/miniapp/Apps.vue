@@ -33,7 +33,7 @@
                 <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
+                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
@@ -61,7 +61,7 @@
                 <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
+                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
@@ -110,7 +110,7 @@
                 <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
                     <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
 
-                    <div class="pr-[120px] w-full flex flex-col items-start flex-1">
+                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
                         <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
                             {{app.appName}}
                         </h2>
