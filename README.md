@@ -1,4 +1,4 @@
-# Farcaster Mini Apps Party
+# FappParty
 
 ### https://miniapps.party
 

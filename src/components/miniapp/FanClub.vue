@@ -1,71 +1,69 @@
 <template>
     <main class="cursor-default w-full h-full px-2 pb-7 flex flex-col gap-4 overflow-y-scroll">
-		<Breadcrumb pageid="fanclub" />
+		<Breadcrumb pageid="fanclub" :appName="appName" />
 
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="mx-auto max-w-2xl text-center">
-                <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900">
-                    We have worked with thousands of amazing people
-                </p>
-            </div>
+        <div class="mx-auto w-full text-center">
+            <p class="mt-2 text-balance text-5xl font-semibold tracking-widest text-rose-300">
+                Fan Club
+            </p>
+        </div>
 
-            <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-9008">
-                <figure class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                    <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900">
-                        <p>{{ `“${featuredTestimonial.body}”` }}</p>
-                    </blockquote>
+        <div class="mx-auto mt-3 grid w-full grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-9008">
+            <figure class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900">
+                    <p>{{ `“${featuredTestimonial.body}”` }}</p>
+                </blockquote>
 
-                    <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4">
-                        <img
-                            class="size-10 flex-none rounded-full bg-gray-50"
-                            :src="featuredTestimonial.author.imageUrl"
-                            alt=""
-                        />
+                <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4">
+                    <img
+                        class="size-10 flex-none rounded-full bg-gray-50"
+                        :src="featuredTestimonial.author.imageUrl"
+                        alt=""
+                    />
 
-                        <div class="flex-auto">
-                            <div class="font-semibold">
-                                {{ featuredTestimonial.author.name }}
-                            </div>
-
-                            <div class="text-gray-600">
-                                {{ `@${featuredTestimonial.author.handle}` }}
-                            </div>
+                    <div class="flex-auto">
+                        <div class="font-semibold">
+                            {{ featuredTestimonial.author.name }}
                         </div>
 
-                        <img
-                            class="h-10 w-auto flex-none"
-                            :src="featuredTestimonial.author.logoUrl"
-                            alt=""
-                        />
-                    </figcaption>
-                </figure>
-
-                <div v-for="(columnGroup, columnGroupIdx) in testimonials" :key="columnGroupIdx" class="space-y-8 xl:contents xl:space-y-0">
-                    <div
-                        v-for="(column, columnIdx) in columnGroup"
-                        :key="columnIdx"
-                        :class="[(columnGroupIdx === 0 && columnIdx === 0) || (columnGroupIdx === testimonials.length - 1 && columnIdx === columnGroup.length - 1) ? 'xl:row-span-2' : 'xl:row-start-1', 'space-y-8']"
-                    >
-                        <figure v-for="testimonial in column" :key="testimonial.author.handle" @click="loadProfile(782184)" class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
-                            <blockquote class="text-gray-900">
-                                <p>{{ `“${testimonial.body}”` }}</p>
-                            </blockquote>
-
-                            <figcaption class="mt-6 flex items-center gap-x-4">
-                                <img class="size-10 rounded-full bg-gray-50" :src="testimonial.author.imageUrl" alt="" />
-
-                                <div>
-                                    <div class="font-semibold">
-                                        {{ testimonial.author.name }}
-                                    </div>
-
-                                    <div class="text-gray-600">
-                                        {{ `@${testimonial.author.handle}` }}
-                                    </div>
-                                </div>
-                            </figcaption>
-                        </figure>
+                        <div class="text-gray-600">
+                            {{ `@${featuredTestimonial.author.handle}` }}
+                        </div>
                     </div>
+
+                    <img
+                        class="h-10 w-auto flex-none"
+                        :src="featuredTestimonial.author.logoUrl"
+                        alt=""
+                    />
+                </figcaption>
+            </figure>
+
+            <div v-for="(columnGroup, columnGroupIdx) in testimonials" :key="columnGroupIdx" class="space-y-8 xl:contents xl:space-y-0">
+                <div
+                    v-for="(column, columnIdx) in columnGroup"
+                    :key="columnIdx"
+                    :class="[(columnGroupIdx === 0 && columnIdx === 0) || (columnGroupIdx === testimonials.length - 1 && columnIdx === columnGroup.length - 1) ? 'xl:row-span-2' : 'xl:row-start-1', 'space-y-8']"
+                >
+                    <figure v-for="testimonial in column" :key="testimonial.author.handle" @click="loadProfile(782184)" class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                        <blockquote class="text-gray-900">
+                            <p>{{ `“${testimonial.body}”` }}</p>
+                        </blockquote>
+
+                        <figcaption class="mt-6 flex items-center gap-x-4">
+                            <img class="size-10 rounded-full bg-gray-50" :src="testimonial.author.imageUrl" alt="" />
+
+                            <div>
+                                <div class="font-semibold">
+                                    {{ testimonial.author.name }}
+                                </div>
+
+                                <div class="text-gray-600">
+                                    {{ `@${testimonial.author.handle}` }}
+                                </div>
+                            </div>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -83,7 +81,7 @@ import Breadcrumb from '../Breadcrumb.vue'
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
-    pageid: String,
+    appName: String,
 })
 
 const loadProfile = async (_fid) => {

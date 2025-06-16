@@ -11,7 +11,7 @@
         </h3>
 
         <p class="text-slate-300 font-medium text-lg">
-            Mini Apps Party aims to be a community-driven platform with the OPEN sharing of ideas being the primary driving force behind its direction.
+            FappParty aims to be a community-driven platform with the OPEN sharing of ideas being the primary driving force behind its direction.
         </p>
 
         <p class="text-slate-300 font-medium text-lg">

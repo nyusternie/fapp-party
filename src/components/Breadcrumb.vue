@@ -32,6 +32,7 @@
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
 const props = defineProps({
+    appName: String,
     pageid: String,
 })
 
@@ -48,12 +49,12 @@ switch(props.pageid) {
 // FANS
 case 'fanclub':
     pages.push({
-        name: 'Fans',
+        name: 'Fan Club',
         href: 'javascript:;',
         current: true,
     })
     pages.push({
-        name: 'Fanclub',
+        name: props.appName,
         href: 'javascript:;',
         current: true,
     })

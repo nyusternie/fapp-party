@@ -6,12 +6,12 @@ import Layout from '../../layouts/Layout.astro'
 /* Initialize Mini Apps */
 import MiniAppHeader from '../../components/miniapp/Header.vue'
 import MiniAppFooter from '../../components/miniapp/Footer.vue'
-import MiniAppApps from '../../components/miniapp/FanClub.vue'
+import MiniAppFanClub from '../../components/miniapp/FanClub.vue'
 
 /* Initialize Web Apps */
 import WebAppHeader from '../../components/webapp/Header.vue'
 import WebAppFooter from '../../components/webapp/Footer.vue'
-import WebAppApps from '../../components/webapp/FanClub.vue'
+import WebAppFanClub from '../../components/webapp/FanClub.vue'
 
 export const prerender = false
 
@@ -27,7 +27,11 @@ if (hostname === 'app.miniapps.party') {
 }
 
 /* Parse app ID (from params). */
-const { cursor } = Astro.params
+const { appid } = Astro.params
+
+// FIXME LOOKUP APP ID FOR APP NAME
+
+const appName = 'My Awesome App'
 ---
 
 <Layout>
@@ -35,7 +39,7 @@ const { cursor } = Astro.params
 	{isMiniApp && <div class="flex flex-col h-screen justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
 
-		<MiniAppApps client:load class="flex-1" cursor={cursor || undefined} />
+		<MiniAppFanClub client:load class="flex-1" appName={appName} />
 
 		<MiniAppFooter />
 	</div>}
@@ -44,7 +48,7 @@ const { cursor } = Astro.params
 	<!-- Begin Web App Main -->
 	{!isMiniApp && <WebAppHeader client:load />
 
-	<WebAppApps client:load />
+	<WebAppFanClub client:load />
 
 	<WebAppFooter />}
 </Layout>
