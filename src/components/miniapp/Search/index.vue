@@ -4,7 +4,7 @@
 			Search
 		</h1>
 
-		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-normal">
+		<p class="-mt-4 text-amber-100 font-medium text-base/6 tracking-wide">
 			Discover the MOST Talked About Mini Apps
 		</p>
 
@@ -14,12 +14,12 @@
 			<SearchBox />
 		</section>
 
-		<div class="w-full my-5 px-10 border-t border-sky-200" />
+		<div class="w-full my-2 border-t border-sky-200/30" />
 
-		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200 p-12 text-center">
-			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300" />
+		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
+			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300/30" />
 
-			<span class="mt-2 block text-lg font-semibold text-sky-200">
+			<span class="mt-2 block text-lg font-semibold text-sky-200/70">
 				Start a new search
 			</span>
 		</section>
