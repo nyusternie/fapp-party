@@ -47,6 +47,7 @@ const goals = ref([
     { desc: `Enable automatic LIVE notifications`, isCompleted: false },
     { desc: `Enable automatic DAILY notifications`, isCompleted: false },
     { desc: `Enable automatic WEEKLY notifications`, isCompleted: false },
+    { desc: `Search multiple categories at once`, isCompleted: false },
 ])
 
 const init = async () => {

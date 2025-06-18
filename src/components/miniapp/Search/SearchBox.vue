@@ -4,6 +4,8 @@
             type="text"
             class="col-start-1 row-start-1 block w-full rounded-md bg-white py-2 pl-12 pr-3 text-xl tracking-wider text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
             placeholder="Search"
+            v-model="query"
+            @keydown.enter="search"
         />
         <MagnifyingGlassIcon class="pointer-events-none col-start-1 row-start-1 ml-3 size-7 self-center text-gray-400" aria-hidden="true" />
     </main>
@@ -15,6 +17,7 @@ import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { MagnifyingGlassIcon } from '@heroicons/vue/16/solid'
 
+import $App, { searchFor } from '../../../stores/app'
 import $System from '../../../stores/system'
 
 /* Define properties. */
@@ -27,8 +30,17 @@ const props = defineProps({
 
 const System = useStore($System)
 
+const query = ref()
+
 const init = async () => {
     // console.log('SYSTEM', $System.get())
+}
+
+const search = async () => {
+    console.log('SEARCH FOR', query.value)
+
+    const results = await searchFor(query.value)
+console.log('SEARCH RESULTS', results)
 }
 
 onMounted(() => {

@@ -112,6 +112,96 @@ export const getDetailsFor = async (_appid) => {
 }
 
 /**
+ * Search For Apps
+ *
+ * Search for apps based on several criteria:
+ *   1. App Name
+ *   2. Subtitle
+ *   3. Description
+ *   4. Tags
+ */
+export const searchFor = async (_query) => {
+    /* Initialize locals. */
+    let apps
+    let json
+
+    /* Set method. */
+    const method = 'POST'
+
+    /* Set headers. */
+    const headers = { 'content-type': 'application/json' }
+
+    /* Set body. */
+    const body = JSON.stringify({
+        query: `query SearchApps {
+            app(query: "${_query}") {
+                totalCount
+                edges {
+                node {
+                    hostname
+                    fid
+                    account
+                    version
+                    appName
+                    iconUrl
+                    splashImageUrl
+                    splashBackgroundColor
+                    homeUrl
+                    webhookUrl
+                    subtitle
+                    description
+                    screenshotUrl1
+                    screenshotUrl2
+                    screenshotUrl3
+                    primaryCategory
+                    tags
+                    heroImageUrl
+                    tagline
+                    ogTitle
+                    ogDescription
+                    ogImageUrl
+                    noindex
+                    requiredChains
+                    requiredCapabilities
+                    isPublic
+                    numMentions
+                    createdAt
+                    updatedAt
+                }
+                cursor
+                }
+            }
+        }`
+    })
+
+    /* Request remote data. */
+    const response = await fetch('https://miniapps.party/graphql',
+        { method, headers, body }
+    ).catch(err => console.error(err))
+
+    /* Validate response. */
+    if (typeof response !== 'undefined' && response !== null) {
+        /* Decode JSON. */
+        json = await response.json()
+    }
+
+    /* Validate JSON. */
+    if (typeof json !== 'undefined' && json !== null) {
+        /* Parse app. */
+        const app = json.data.app
+
+        /* Set app count. */
+// TODO Use this to manage payload size.
+        const numApps = app.totalCount
+
+        /* Parse apps. */
+        apps = app.edges.map(_edge => _edge.node)
+    }
+
+    console.log('SEARCH APPS', apps.length, apps)
+}
+
+/**
  * Initialize App Store
  *
  * Request ALL mini apps from the Party database.
