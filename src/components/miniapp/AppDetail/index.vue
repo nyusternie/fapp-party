@@ -72,20 +72,22 @@
 
         </section>
 
-        <!-- <section v-if="appDetails.hostname" class="flex flex-col gap-2">
+        <section v-if="appDetails.hostname" class="flex flex-col gap-2">
             <h2 class="pl-4 text-sky-200 font-medium text-lg uppercase tracking-wider">
                 {{appDetails.appName}} Fan Club
             </h2>
 
             <a :href="'/fanclub/' + appDetails.hostname" class="flex flex-col gap-3">
+
                 <Fans :isFeatured="true" />
+                <FansSkeleton :isFeatured="true" />
 
                 <div class="grid grid-cols-2 gap-3">
                     <Fans />
                     <Fans />
                 </div>
             </a>
-        </section> -->
+        </section>
 
         <!-- <a v-if="appDetails.hostname" :href="'/fanclub/' + appDetails.hostname" class="group cursor-pointer w-full mt-2 px-5 py-3 flex flex-col justify-center items-center bg-sky-800 border-2 hover:bg-sky-200 border-sky-900 rounded-xl">
             <span class="inline-flex items-center gap-2 font-bold text-2xl text-center uppercase text-sky-300 group-hover:text-sky-800">
@@ -201,6 +203,7 @@ import moment from 'moment'
 
 import $App, { getDetailsFor } from '../../../stores/app'
 import Fans from './Fans.vue'
+import FansSkeleton from './FansSkeleton.vue'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration

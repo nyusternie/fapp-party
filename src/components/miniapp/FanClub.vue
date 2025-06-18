@@ -39,6 +39,8 @@
                 </figcaption>
             </figure>
 
+            <FansSkeleton />
+
             <div v-for="(columnGroup, columnGroupIdx) in testimonials" :key="columnGroupIdx" class="space-y-8 xl:contents xl:space-y-0">
                 <div
                     v-for="(column, columnIdx) in columnGroup"
@@ -77,6 +79,7 @@ import { useStore } from '@nanostores/vue'
 import { sdk } from '@farcaster/frame-sdk'
 
 import Breadcrumb from '../Breadcrumb.vue'
+import FansSkeleton from './AppDetail/FansSkeleton.vue'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
