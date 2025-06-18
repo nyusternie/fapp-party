@@ -203,7 +203,7 @@ import moment from 'moment'
 
 import $App, { getDetailsFor } from '../../../stores/app'
 import Fans from './Fans.vue'
-import FansSkeleton from './FansSkeleton.vue'
+import FansSkeleton from '../FanClub/Skeleton.vue'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
