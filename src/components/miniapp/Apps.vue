@@ -1,133 +1,28 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
         <div v-if="App && App.length > 0">
-            <ClientOnly>
-                <button v-if="spotlight" @click="viewDetail(spotlight.hostname)" class="cursor-pointer w-full mt-2 px-3 py-3 flex gap-3 bg-gradient-to-r from-lime-100 to-lime-50 border-2 border-lime-300 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="spotlight.iconUrl" class="size-32 border-2 border-lime-300 rounded-md" />
-
-                    <div class="w-full flex flex-col items-center flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
-                            {{spotlight.appName}}
-                        </h2>
-
-                        <h3 class="text-sky-400 font-bold text-lg tracking-wider">
-                            {{spotlight.tagline || spotlight.hostname}}
-                        </h3>
-
-                        <section class="mt-3 isolate flex -space-x-2 overflow-hidden">
-                            <img class="relative z-30 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-20 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-10 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-0 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                        </section>
-                    </div>
-                </button>
-            </ClientOnly>
+            <!-- SPOTLIGHT MINI APPS-->
+            <SpotlightCard :spotlight="spotlight" />
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
                 <span class="text-rose-300 font-extrabold text-xl">TOP3 <a href="/bangers">Bangers!</a></span> Since Yesterday<span class="text-3xl">↴</span>
             </h3>
 
-<!-- BEGIN FEATURED -->
-            <ClientOnly>
-                <button v-for="app of featured" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
-
-                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
-                            {{app.appName}}
-                        </h2>
-
-                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
-                        </h3>
-
-                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
-                            added {{moment.unix(app.createdAt).fromNow()}}
-                        </h3>
-                    </div>
-
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 h-16 border border-slate-700 rounded-md" />
-                </button>
-            </ClientOnly>
-<!-- END FEATURED -->
+            <!-- FEATURED MINI APPS-->
+            <AppCard v-for="app of featured" :key="app.hostname" :app="app" />
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
                 New &amp; Noteworthy <span class="text-rose-300 font-extrabold text-xl">LIVE! Feed<span class="text-3xl">↴</span></span>
             </h3>
 
-<!-- BEGIN ABOVE THE FOLD -->
-            <ClientOnly>
-                <button v-for="app of aboveTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
+            <!-- ABOVE THE FOLD MINI APPS -->
+            <AppCard v-for="app of aboveTheFold" :key="app.hostname" :app="app" />
 
-                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
-                            {{app.appName}}
-                        </h2>
+            <!-- SPONSORED MINI APPS-->
+            <SponsoredCard :sponsored="sponsored" />
 
-                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
-                        </h3>
-
-                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
-                            added {{moment.unix(app.createdAt).fromNow()}}
-                        </h3>
-                    </div>
-
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 flex-0 h-16 border border-slate-700 rounded-md" />
-                </button>
-            </ClientOnly>
-<!-- END ABOVE THE FOLD -->
-
-            <ClientOnly>
-                <button v-if="sponsored" @click="viewDetail(sponsored.hostname)" class="cursor-pointer w-full my-8 px-3 py-3 flex gap-3 bg-gradient-to-r from-stone-200 to-stone-50 border-4 border-stone-300 rounded-md hover:from-stone-800 hover:to-stone-600">
-                    <img :src="sponsored.iconUrl" class="size-32 border-2 border-stone-500 rounded-md" />
-
-                    <div class="w-full flex flex-col items-center flex-1">
-                        <h2 class="text-sky-800 font-bold text-3xl tracking-wider">
-                            {{sponsored.appName}}
-                        </h2>
-
-                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter">
-                            {{sponsored.tagline || sponsored.hostname}}
-                        </h3>
-
-                        <section class="mt-3 isolate flex -space-x-2 overflow-hidden">
-                            <img class="relative z-30 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-20 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-10 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
-                            <img class="relative z-0 inline-block size-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                        </section>
-                    </div>
-
-                    <img v-if="sponsored.heroImageUrl" :src="sponsored.heroImageUrl" class="h-16 border border-slate-700 rounded-md" />
-                </button>
-            </ClientOnly>
-
-<!-- BEGIN BELOW THE FOLD -->
-            <ClientOnly>
-                <button v-for="app of belowTheFold" :key="app.hostname" @click=viewDetail(app.hostname) class="relative cursor-pointer w-full mt-5 px-2 py-2 flex items-center gap-3 bg-gradient-to-r from-sky-100 to-sky-50 border-2 border-slate-700 rounded-md hover:from-amber-100 hover:to-amber-50">
-                    <img :src="app.iconUrl" class="size-16 bg-slate-900 border border-slate-700 rounded-md" />
-
-                    <div class="w-full flex flex-col items-start flex-1" :class="[ app.heroImageUrl ? 'pr-[120px]' : '' ]">
-                        <h2 class="text-sky-800 font-bold text-2xl tracking-wide text-left line-clamp-1">
-                            {{app.appName}}
-                        </h2>
-
-                        <h3 class="text-sky-400 font-bold text-sm tracking-tighter text-left line-clamp-1">
-                            {{app.tagline || app.hostname}}
-                        </h3>
-
-                        <h3 class="text-sky-600 font-bold text-xs tracking-tighter italic">
-                            added {{moment.unix(app.createdAt).fromNow()}}
-                        </h3>
-                    </div>
-
-                    <img v-if="app.heroImageUrl" :src="app.heroImageUrl" class="absolute right-2 h-16 border border-slate-700 rounded-md" />
-                </button>
-            </ClientOnly>
-<!-- END BELOW THE FOLD -->
+            <!-- BELOW THE FOLD MINI APPS -->
+            <AppCard v-for="app of belowTheFold" :key="app.hostname" :app="app" />
 
             <section class="my-5 w-full px-10 grid grid-cols-2 gap-0.5">
                 <a href="#" class="opacity-30 cursor-not-allowed group px-5 py-2 flex justify-center items-center bg-amber-100 rounded-lg rounded-r-none">
@@ -151,7 +46,7 @@
                 </a>
             </section>
         </div>
-        <div v-else>
+        <div v-else class="p-10">
             <h2 class="text-slate-200 font-bold text-2xl tracking-widest">
                 now loading mini apps...
             </h2>
@@ -168,6 +63,9 @@ import { sdk } from '@farcaster/frame-sdk'
 import moment from 'moment'
 
 import $App from '../../stores/app'
+import AppCard from './AppCard.vue'
+import SpotlightCard from './SpotlightCard.vue'
+import SponsoredCard from './SponsoredCard.vue'
 
 /* Request Mini App flag. */
 // TODO Maybe we set a SESSION flag??
