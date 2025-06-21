@@ -1,6 +1,6 @@
 # FappParty
 
-### https://miniapps.party
+### https://fapp.party
 
 Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.
 

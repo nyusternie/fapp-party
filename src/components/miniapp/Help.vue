@@ -29,7 +29,7 @@
 			</li>
 
 			<li>
-				<a href="https://docs.miniapps.party" target="_blank" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
+				<a href="https://docs.fapp.party" target="_blank" class="text-2xl font-medium text-amber-200 tracking-wider hover:text-amber-100 hover:underline">
 					↳ ReadTheDocs
 				</a>
 			</li>

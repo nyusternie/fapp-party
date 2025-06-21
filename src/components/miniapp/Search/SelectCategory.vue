@@ -44,30 +44,24 @@ import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
 import $Search, { searchBy } from '../../../stores/search'
 
-/* Define properties. */
-// https://vuejs.org/guide/components/props.html#props-declaration
-const props = defineProps({
-    data: {
-        type: [Object],
-    },
-})
-
 /* Initialize stores. */
 const Search = useStore($Search)
 
 /* Initialize handlers. */
 const displayName = ref()
 
+/* Initialization */
 const init = async () => {
-    // console.log('SYSTEM', $Search.get())
-
     /* Initialize display name. */
     displayName.value = 'All Categories'
 }
 
-const pickCat = (_cat) => {
+/* Pick a Category */
+const pickCat = (_cat: string) => {
+    /* Set display name. */
     displayName.value = _cat
 
+    /* Request an (async) search. */
     searchBy(_cat)
 }
 
@@ -91,9 +85,4 @@ const categories = [
 onMounted(() => {
     init()
 })
-
-// onBeforeUnmount(() => {
-//     console.log('Before Unmount!')
-//     // Now is the time to perform all cleanup operations.
-// })
 </script>
