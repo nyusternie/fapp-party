@@ -66,7 +66,7 @@ export const init = async () => {
     /* Validate an EXISTING session. */
     if (profile.sessionid) {
         /* Manage EXISTING session. */
-        response = await fetch('https://miniapps.party/graphql', {
+        response = await fetch('https://fapp.party/graphql', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({
@@ -101,7 +101,7 @@ export const init = async () => {
     }
 
     /* Request NEW session. */
-    response = await fetch('https://miniapps.party/graphql', {
+    response = await fetch('https://fapp.party/graphql', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({
@@ -190,7 +190,7 @@ const register = async () => {
     })
 
     /* Request new session. */
-    const response = await fetch('https://miniapps.party/graphql', {
+    const response = await fetch('https://fapp.party/graphql', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body,
@@ -254,7 +254,7 @@ export const sync = async () => {
     })
 
     /* Request new session. */
-    const response = await fetch('https://miniapps.party/graphql', {
+    const response = await fetch('https://fapp.party/graphql', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body,

@@ -105,7 +105,7 @@ export const getDetailsFor = async (_appid) => {
     })
 
     /* Request remote data. */
-    const response = await fetch('https://miniapps.party/graphql',
+    const response = await fetch('https://fapp.party/graphql',
         { method, headers, body }
     ).catch(err => console.error(err))
 
@@ -189,7 +189,7 @@ export const getDetailsFor = async (_appid) => {
     })
 
     /* Request remote data. */
-    const response = await fetch('https://miniapps.party/graphql',
+    const response = await fetch('https://fapp.party/graphql',
         { method, headers, body }
     ).catch(err => console.error(err))
 
