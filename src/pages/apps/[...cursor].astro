@@ -34,8 +34,8 @@ const { cursor } = Astro.params
 	<!-- Begin Mini App Main -->
 	{isMiniApp && <div class="w-screen h-screen flex flex-col justify-between bg-[#21223e]">
 		<MiniAppHeader client:load />
-		<div class="bg-rose-300 w-full h-2" />
-		<MiniAppApps client:load class="w-screen bg-lime-200 flex-1" cursor={cursor || undefined} />
+
+		<MiniAppApps client:load class="w-screen flex-1" cursor={cursor || undefined} />
 
 		<MiniAppFooter />
 	</div>}
