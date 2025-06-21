@@ -1,7 +1,8 @@
 <template>
     <main class="w-screen h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
-        <div class="bg-rose-300 w-full h-2" />
-        <div v-if="App && App.length > 0">
+        <div v-if="App && App.length > 0" class="w-screen">
+            <div class="bg-green-300 w-full h-2" />
+            <div class="bg-green-300 w-screen h-4" />
             <!-- SPOTLIGHT MINI APPS-->
             <SpotlightCard :spotlight="spotlight" />
 
