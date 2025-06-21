@@ -15,6 +15,10 @@
 		</section>
 
 		<div class="w-full my-2 border-t border-sky-200/30" />
+<!-- <pre>searchResults:{{searchResults}}</pre> -->
+		<div v-if="typeof searchResults !== 'undefined'">
+			<AppCard v-for="app of searchResults" :key="app?.hostname" :app="app" />
+		</div>
 
 		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
 			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300/30" />
@@ -28,14 +32,15 @@
 
 <script setup lang="ts">
 /* Import modules. */
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { MagnifyingGlassPlusIcon } from '@heroicons/vue/24/outline'
 
-import $System from '../../../stores/system'
+import $Search, { initApplist } from '../../../stores/search'
 import SelectCategory from './SelectCategory.vue'
 import SelectFeature from './SelectFeature.vue'
 import SearchBox from './SearchBox.vue'
+import AppCard from '../AppCard.vue'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -45,10 +50,32 @@ const props = defineProps({
     },
 })
 
-const System = useStore($System)
+const Search = useStore($Search)
+
+const MAX_APPS_PER_PAGE = 20
+
+/* Initialize (compute) handlers. */
+let searchResults = ref(null)
+
+// searchResults.value = computed(() => $Search.get().slice(0, MAX_APPS_PER_PAGE))
+
+const unbindListener = $Search.subscribe((value, oldValue) => {
+console.log('APP LIST CHANGED', value)
+	/* Validate app list. */
+	if (typeof value === 'undefined' || value === null) {
+		return
+	}
+
+    /* Update app lists to latest. */
+    // searchResults.value = computed(() => value.slice(0, MAX_APPS_PER_PAGE))
+    searchResults.value = value.slice(0, MAX_APPS_PER_PAGE)
+})
 
 const init = async () => {
-    console.log('SYSTEM', $System.get())
+    console.log('APP (existing)', $Search.get())
+    // initApplist()
+
+
 }
 
 onMounted(() => {

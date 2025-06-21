@@ -17,7 +17,7 @@ import { onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { MagnifyingGlassIcon } from '@heroicons/vue/16/solid'
 
-import $App, { searchFor } from '../../../stores/app'
+import { searchFor, setApps } from '../../../stores/search'
 import $System from '../../../stores/system'
 
 /* Define properties. */
@@ -41,6 +41,9 @@ const search = async () => {
 
     const results = await searchFor(query.value)
 console.log('SEARCH RESULTS', results)
+
+    /* Set app results. */
+    setApps(results)
 }
 
 onMounted(() => {

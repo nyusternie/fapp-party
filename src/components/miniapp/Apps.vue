@@ -84,21 +84,32 @@ const spotlight = ref()
 const sponsored = ref()
 
 /* Initialize (compute) handlers. */
-let featured
-let aboveTheFold
-let belowTheFold
+// let featured
+// let aboveTheFold
+// let belowTheFold
 
-featured = computed(() => $App.get().slice(0, 3))
-aboveTheFold = computed(() => $App.get().slice(3, 16))
-belowTheFold = computed(() => $App.get().slice(16, 18))
+// featured = computed(() => $App.get().slice(0, 3))
+// aboveTheFold = computed(() => $App.get().slice(3, 16))
+// belowTheFold = computed(() => $App.get().slice(16, 18))
+
+const featured = ref()
+const aboveTheFold = ref()
+const belowTheFold = ref()
 
 const unbindListener = $App.subscribe((value, oldValue) => {
-    // console.log(`$APP value changed from ${oldValue ? JSON.stringify(oldValue[0]) : 'n/a'} to ${value ? JSON.stringify(value[0]) : 'no value'}`)
+// console.log(`$APP value changed from ${oldValue ? JSON.stringify(oldValue[0]) : 'n/a'} to ${value ? JSON.stringify(value[0]) : 'no value'}`)
+    /* Validate app list. */
+	if (typeof value === 'undefined' || value === null) {
+		return
+	}
 
     /* Update app lists to latest. */
-    featured = computed(() => $App.get().slice(0, 3))
-    aboveTheFold = computed(() => $App.get().slice(3, 16))
-    belowTheFold = computed(() => $App.get().slice(16, 18))
+    // featured = computed(() => $App.get().slice(0, 3))
+    featured.value = value.slice(0, 3)
+    // aboveTheFold = computed(() => $App.get().slice(3, 16))
+    aboveTheFold.value = value.slice(3, 16)
+    // belowTheFold = computed(() => $App.get().slice(16, 18))
+    belowTheFold.value = value.slice(16, 18)
 })
 
 const init = async () => {

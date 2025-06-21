@@ -7,7 +7,7 @@ const MAX_APPS_PER_PAGE = 20
 
 /* Initialize (store) state. */
 // NOTE: Added support for BigInt data types.
-const $App = persistentAtom('app', INITIAL_STATE, {
+const $Search = persistentAtom('search', INITIAL_STATE, {
     encode: (_plaintext) => JSON.stringify(_plaintext, (key, value) =>
         typeof value === 'bigint' ? value.toString() + 'n' : value
     ),
@@ -18,7 +18,7 @@ const $App = persistentAtom('app', INITIAL_STATE, {
         return value
     }),
 })
-export default $App
+export default $Search
 
 /**
  * Initialize App Listing
@@ -26,7 +26,7 @@ export default $App
  * Initialize a new application list.
  */
 export const initApplist = () => {
-    $App.set([])
+    $Search.set([])
 }
 
 /**
@@ -35,7 +35,7 @@ export const initApplist = () => {
  * Add a NEW application to the existing state of the store.
  */
 export const addApp = (_app) => {
-    $App.set([...$App.get(), _app])
+    $Search.set([...$Search.get(), _app])
 }
 
 /**
@@ -44,97 +44,19 @@ export const addApp = (_app) => {
  * Set the applications available in the app list.
  */
 export const setApps = (_apps) => {
-    $App.set(_apps)
+    $Search.set(_apps)
 }
 
 /**
- * Initialize App Store
+ * Search For Apps
  *
- * Request ALL mini apps from the Party database.
+ * Search for apps based on several criteria:
+ *   1. App Name
+ *   2. Subtitle
+ *   3. Description
+ *   4. Tags
  */
-export const getDetailsFor = async (_appid) => {
-    /* Initialize locals. */
-    let details
-    let json
-
-    /* Set method. */
-    const method = 'POST'
-
-    /* Set headers. */
-    const headers = { 'content-type': 'application/json' }
-
-    /* Set body. */
-    const body = JSON.stringify({
-        query: `query GetAppDetails {
-            app(appid: "${_appid}") {
-                edges {
-                node {
-                    hostname
-                    fid
-                    account
-                    version
-                    appName
-                    iconUrl
-                    splashImageUrl
-                    splashBackgroundColor
-                    homeUrl
-                    webhookUrl
-                    subtitle
-                    description
-                    screenshotUrl1
-                    screenshotUrl2
-                    screenshotUrl3
-                    primaryCategory
-                    tags
-                    heroImageUrl
-                    tagline
-                    ogTitle
-                    ogDescription
-                    ogImageUrl
-                    noindex
-                    requiredChains
-                    requiredCapabilities
-                    isPublic
-                    numMentions
-                    createdAt
-                    updatedAt
-                }
-                }
-            }
-        }`
-    })
-
-    /* Request remote data. */
-    const response = await fetch('https://miniapps.party/graphql',
-        { method, headers, body }
-    ).catch(err => console.error(err))
-
-    /* Validate response. */
-    if (typeof response !== 'undefined' && response !== null) {
-        /* Decode JSON. */
-        json = await response.json()
-    }
-// console.log('JSON', json)
-
-    /* Validate JSON. */
-    if (typeof json !== 'undefined' && json !== null) {
-        /* Parse app. */
-        const app = json.data.app
-
-        /* Parse (app) details. */
-        details = app.edges[0].node
-    }
-
-    /* Return (app) details. */
-    return details
-}
-
-/**
- * Initialize App Store
- *
- * Request ALL mini apps from the Party database.
- */
-;(async () => {
+export const searchFor = async (_query) => {
     /* Initialize locals. */
     let apps
     let json
@@ -147,8 +69,8 @@ export const getDetailsFor = async (_appid) => {
 
     /* Set body. */
     const body = JSON.stringify({
-        query: `query ListApps {
-            app {
+        query: `query SearchApps {
+            app(query: "${_query}") {
                 totalCount
                 edges {
                 node {
@@ -212,9 +134,11 @@ export const getDetailsFor = async (_appid) => {
         apps = app.edges.map(_edge => _edge.node)
     }
 
+    console.log('SEARCH APPS', apps.length, apps)
+
     /* Validate apps. */
     if (typeof apps !== 'undefined' && apps !== null) {
         /* Update apps. */
-        $App.set(apps.slice(0, MAX_APPS_PER_PAGE))
+        $Search.set(apps.slice(0, MAX_APPS_PER_PAGE))
     }
-})()
+}
