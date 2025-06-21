@@ -21,12 +21,12 @@ const $App = persistentAtom('app', INITIAL_STATE, {
 export default $App
 
 /**
- * Initialize App Listing
+ * Clear
  *
- * Initialize a new application list.
+ * Reset the application list.
  */
-export const initApplist = () => {
-    $App.set([])
+export const clear = () => {
+    $App.set(INITIAL_STATE)
 }
 
 /**

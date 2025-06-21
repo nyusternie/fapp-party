@@ -16,7 +16,7 @@
 
 		<div class="w-full my-2 border-t border-sky-200/30" />
 
-		<section v-if="typeof searchResults !== 'undefined'">
+		<section v-if="typeof searchResults !== 'undefined' && searchResults.length > 0">
 			<AppCard v-for="app of searchResults" :key="app?.hostname" :app="app" />
 		</section>
 		<section v-else class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
@@ -35,7 +35,7 @@ import { computed, onMounted, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { MagnifyingGlassPlusIcon } from '@heroicons/vue/24/outline'
 
-import $Search, { initApplist } from '../../../stores/search'
+import $Search, { clear } from '../../../stores/search'
 import SelectCategory from './SelectCategory.vue'
 import SelectFeature from './SelectFeature.vue'
 import SearchBox from './SearchBox.vue'
@@ -54,7 +54,7 @@ const Search = useStore($Search)
 const MAX_APPS_PER_PAGE = 20
 
 /* Initialize (compute) handlers. */
-let searchResults = ref(null)
+let searchResults = ref()
 
 // searchResults.value = computed(() => $Search.get().slice(0, MAX_APPS_PER_PAGE))
 
@@ -72,9 +72,7 @@ console.log('APP LIST CHANGED', value)
 
 const init = async () => {
     console.log('APP (existing)', $Search.get())
-    // initApplist()
-
-
+    // clear()
 }
 
 onMounted(() => {

@@ -21,12 +21,12 @@ const $Search = persistentAtom('search', INITIAL_STATE, {
 export default $Search
 
 /**
- * Initialize App Listing
+ * Clear
  *
- * Initialize a new application list.
+ * Reset the application list.
  */
-export const initApplist = () => {
-    $Search.set([])
+export const clear = () => {
+    $Search.set(INITIAL_STATE)
 }
 
 /**
