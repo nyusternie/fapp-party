@@ -1,9 +1,8 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
         <div v-if="App && App.length > 0">
-            <div class="bg-rose-300 w-full h-2" />
             <!-- SPOTLIGHT MINI APPS-->
-            <SpotlightCard :spotlight="spotlight" class="w-full" />
+            <SpotlightCard :spotlight="spotlight" />
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
                 <span class="text-rose-300 font-extrabold text-xl">TOP3 <a href="/bangers">Bangers!</a></span> Since Yesterday<span class="text-3xl">↴</span>
