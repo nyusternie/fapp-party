@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
 		<h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-fuchsia-700 sm:text-7xl">
 			Search
 		</h1>

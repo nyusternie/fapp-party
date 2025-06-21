@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
 		<Breadcrumb pageid="roadmap" />
 
         <h2 class="-mt-3 text-amber-300 font-medium text-2xl">

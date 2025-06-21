@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
 		<Breadcrumb pageid="transparency" />
 
         <div class="py-6">

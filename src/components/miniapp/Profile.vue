@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll">
+    <main class="w-full h-full px-2 pb-7 flex flex-col gap-6 overflow-y-scroll overflow-x-hidden">
         <div v-if="Profile.user?.pfpUrl" class="mt-5 flex justify-center">
             <img :src="Profile.user.pfpUrl" class="size-32 rounded-full border-2 border-amber-300" />
         </div>
