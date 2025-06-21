@@ -1,9 +1,7 @@
 <template>
-    <main class="w-screen h-full px-2 pb-7 flex flex-col overflow-y-scroll overflow-x-hidden">
-        <div class="bg-sky-300 w-screen h-4" />
-        <div v-if="App && App.length > 0" class="w-screen">
-            <div class="bg-green-300 w-full h-2" />
-
+    <main class="w-full h-full px-2 pb-7 flex flex-col overflow-y-scroll overflow-x-hidden">
+        TEST UI
+        <div v-if="App && App.length > 0">
             <!-- SPOTLIGHT MINI APPS-->
             <SpotlightCard :spotlight="spotlight" />
 
