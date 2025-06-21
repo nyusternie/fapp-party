@@ -22,7 +22,7 @@
                     <div class="py-1">
                         <MenuItem v-for="category in categories" :key="category.name" v-slot="{ active }">
                             <button
-                                @click="displayName = category.name"
+                                @click="pickCat(category.name)"
                                 :class="[active ? 'bg-gray-100 text-slate-700 outline-none' : 'text-gray-700', 'w-full block px-4 py-2 text-lg text-left']"
                             >
                                 {{ category.name }}
@@ -42,7 +42,7 @@ import { useStore } from '@nanostores/vue'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
-import $System from '../../../stores/system'
+import $Search, { searchBy } from '../../../stores/search'
 
 /* Define properties. */
 // https://vuejs.org/guide/components/props.html#props-declaration
@@ -53,24 +53,30 @@ const props = defineProps({
 })
 
 /* Initialize stores. */
-const System = useStore($System)
+const Search = useStore($Search)
 
 /* Initialize handlers. */
 const displayName = ref()
 
 const init = async () => {
-    // console.log('SYSTEM', $System.get())
+    // console.log('SYSTEM', $Search.get())
 
     /* Initialize display name. */
     displayName.value = 'All Categories'
+}
+
+const pickCat = (_cat) => {
+    displayName.value = _cat
+
+    searchBy(_cat)
 }
 
 /* Initialize categories. */
 const categories = [
     { name: 'Art & Creativity', id: 'art-creativity' },
     { name: 'Developer Tools', id: 'developer-tools' },
-    { name: 'Education', id: 'entertainment' },
-    { name: 'Entertainment', id: 'education' },
+    { name: 'Education', id: 'education' },
+    { name: 'Entertainment', id: 'entertainment' },
     { name: 'Finance', id: 'finance' },
     { name: 'Games', id: 'games' },
     { name: 'Health & Fitness', id: 'health-fitness' },

@@ -15,12 +15,11 @@
 		</section>
 
 		<div class="w-full my-2 border-t border-sky-200/30" />
-<!-- <pre>searchResults:{{searchResults}}</pre> -->
-		<div v-if="typeof searchResults !== 'undefined'">
-			<AppCard v-for="app of searchResults" :key="app?.hostname" :app="app" />
-		</div>
 
-		<section class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
+		<section v-if="typeof searchResults !== 'undefined'">
+			<AppCard v-for="app of searchResults" :key="app?.hostname" :app="app" />
+		</section>
+		<section v-else class="relative block w-full rounded-lg border-2 border-dashed border-sky-200/30 p-12 text-center">
 			<MagnifyingGlassPlusIcon class="mx-auto size-12 text-sky-300/30" />
 
 			<span class="mt-2 block text-lg font-light text-sky-200/70">
