@@ -1,6 +1,6 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex flex-col overflow-y-scroll overflow-x-hidden">
-        TEST UI
+    <main class="w-full h-full px-2 pb-7 flex-1 flex-col overflow-y-scroll overflow-x-hidden">
+        TEST UI-2
         <div v-if="App && App.length > 0">
             <!-- SPOTLIGHT MINI APPS-->
             <SpotlightCard :spotlight="spotlight" />
