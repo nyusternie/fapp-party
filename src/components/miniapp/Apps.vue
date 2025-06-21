@@ -1,11 +1,8 @@
 <template>
-    <main class="w-full h-full px-2 pb-7 flex-1 flex-col overflow-y-scroll overflow-x-hidden">
-        TEST UI-3
+    <main class="w-full h-full px-2 pb-7 flex flex-col overflow-y-scroll overflow-x-hidden">
         <div v-if="App && App.length > 0">
-            BEFORE CARD
             <!-- SPOTLIGHT MINI APPS-->
             <SpotlightCard :spotlight="spotlight" />
-            AFTER CARD
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
                 <span class="text-rose-300 font-extrabold text-xl">TOP3 <a href="/bangers">Bangers!</a></span> Since Yesterday<span class="text-3xl">↴</span>
@@ -49,12 +46,13 @@
                 </a>
             </section>
         </div>
-        <div v-else class="p-10">
-            <h2 class="text-slate-200 font-bold text-2xl tracking-widest">
-                now loading mini apps...
-            </h2>
+        <div v-else>
+            <section class="p-10">
+                <h2 class="text-slate-200 font-bold text-2xl tracking-widest">
+                    now loading mini apps...
+                </h2>
+            </section>
         </div>
-
     </main>
 </template>
 
