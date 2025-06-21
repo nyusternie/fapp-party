@@ -1,9 +1,11 @@
 <template>
     <main class="w-full h-full px-2 pb-7 flex-1 flex-col overflow-y-scroll overflow-x-hidden">
-        TEST UI-2
+        TEST UI-3
         <div v-if="App && App.length > 0">
+            BEFORE CARD
             <!-- SPOTLIGHT MINI APPS-->
             <SpotlightCard :spotlight="spotlight" />
+            AFTER CARD
 
             <h3 class="text-center my-5 text-rose-200 font-bold text-lg tracking-wider">
                 <span class="text-rose-300 font-extrabold text-xl">TOP3 <a href="/bangers">Bangers!</a></span> Since Yesterday<span class="text-3xl">↴</span>
