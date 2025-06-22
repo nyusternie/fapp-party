@@ -39,19 +39,19 @@ data.hostname = hostname
     data.frame.version = '1'
 
     /* Set name. */
-    data.frame.name = 'FappParty!'
+    data.frame.name = 'FappParty'
 
     /* Set icon URL. */
-    data.frame.iconUrl = 'https://miniapps.party/logo.png'
+    data.frame.iconUrl = 'https://fapp.party/logo.png'
 
     /* Set splash image URL. */
-    data.frame.splashImageUrl = 'https://miniapps.party/splash.gif'
+    data.frame.splashImageUrl = 'https://fapp.party/splash.gif'
 
     /* Set splash background color. */
     data.frame.splashBackgroundColor = '#21223e'
 
     /* Set home URL. */
-    data.frame.homeUrl = 'https://app.miniapps.party'
+    data.frame.homeUrl = 'https://app.fapp.party'
 
     /* Set webhook URL. */
     data.frame.webhookUrl = 'https://webhook.fapp.party/farcaster'
@@ -64,9 +64,9 @@ data.hostname = hostname
 
     /* Set screenshot URLs. */
     data.frame.screenshotUrls = [
-        'https://miniapps.party/screenshot1.webp',
-        'https://miniapps.party/screenshot2.webp',
-        'https://miniapps.party/screenshot3.webp',
+        'https://fapp.party/screenshot1.webp',
+        'https://fapp.party/screenshot2.webp',
+        'https://fapp.party/screenshot3.webp',
     ]
 
     /* Set primary category. */
@@ -82,7 +82,7 @@ data.hostname = hostname
     ]
 
     /* Set hero image URL. */
-    data.frame.heroImageUrl = 'https://miniapps.party/poster.webp'
+    data.frame.heroImageUrl = 'https://fapp.party/poster.webp'
 
     /* Set tagline. */
     data.frame.tagline = 'New and Noteworthy Mini Apps'
@@ -94,7 +94,7 @@ data.hostname = hostname
     data.frame.ogDescription = `Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.`
 
     /* Set open-graph image URL. */
-    data.frame.ogImageUrl = 'https://miniapps.party/poster.webp'
+    data.frame.ogImageUrl = 'https://fapp.party/poster.webp'
 
     /* Return response. */
     return new Response(JSON.stringify(data), { headers })
