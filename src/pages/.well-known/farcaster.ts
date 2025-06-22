@@ -1,0 +1,95 @@
+/* Import modules. */
+import type { APIRoute } from 'astro'
+
+/* Create API endpoint. */
+export const GET: APIRoute = ({ request }) => {
+    /* Initialize locals. */
+    let data
+
+    /* Set headers. */
+    const headers = {
+        'content-type': 'application/json',
+    }
+
+    /* Initialize data. */
+    data = {}
+
+    /* Initialize account association. */
+    data.accountAssociation = {}
+
+    /* Set header. */
+    data.accountAssociation.header = 'eyJmaWQiOjg3MDU5NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEM4MDEzQThDMDk3NzRlYjJhMDA4RmRDYmVEQjVmNjQwZDFkYmVjMDAifQ'
+
+    /* Set payload. */
+    data.accountAssociation.payload = 'eyJkb21haW4iOiJhcHAubWluaWFwcHMucGFydHkifQ'
+
+    /* Set signature. */
+    data.accountAssociation.signature = 'MHhmMDZiNjAwYjk2NTkzYzc4MDBmZTcxYTJkOWFlNDY5NGQ5MGQ5ZTFhOTk1NDE4NzQwNzhjZGFlMjRkNTg4NmUzMzMwZTNkOGVmMGM2YTY4YjQ2MThjNzk4MGQ3NTRhNmI1ZGU4NGI5OGY3YWI5MzYyYzM0MGI2MTVmOTY5YzM2ZjFi'
+
+    /* Initialize frame. */
+    data.frame = {}
+
+    /* Set version. */
+    data.frame.version = '1'
+
+    /* Set name. */
+    data.frame.name = 'FappParty!'
+
+    /* Set icon URL. */
+    data.frame.iconUrl = 'https://miniapps.party/logo.png'
+
+    /* Set splash image URL. */
+    data.frame.splashImageUrl = 'https://miniapps.party/splash.gif'
+
+    /* Set splash background color. */
+    data.frame.splashBackgroundColor = '#21223e'
+
+    /* Set home URL. */
+    data.frame.homeUrl = 'https://app.miniapps.party'
+
+    /* Set webhook URL. */
+    data.frame.webhookUrl = 'https://webhook.fapp.party/farcaster'
+
+    /* Set subtitle. */
+    data.frame.subtitle = 'New and Noteworthy Mini Apps'
+
+    /* Set description. */
+    data.frame.description = `Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.`
+
+    /* Set screenshot URLs. */
+    data.frame.screenshotUrls = [
+        'https://miniapps.party/screenshot1.webp',
+        'https://miniapps.party/screenshot2.webp',
+        'https://miniapps.party/screenshot3.webp',
+    ]
+
+    /* Set primary category. */
+    data.frame.primaryCategory = 'social'
+
+    /* Set tags. */
+    data.frame.tags = [
+        'party',
+        'banger',
+        'rewards',
+        'festival',
+        'build',
+    ]
+
+    /* Set hero image URL. */
+    data.frame.heroImageUrl = 'https://miniapps.party/poster.webp'
+
+    /* Set tagline. */
+    data.frame.tagline = 'New and Noteworthy Mini Apps'
+
+    /* Set open-graph title. */
+    data.frame.ogTitle = 'FappParty'
+
+    /* Set open-graph description. */
+    data.frame.ogDescription = `Daily alerts, weekly summaries on the newest and most talked-about Mini Apps you won't want to miss.`
+
+    /* Set open-graph image URL. */
+    data.frame.ogImageUrl = 'https://miniapps.party/poster.webp'
+
+    /* Return response. */
+    return new Response(JSON.stringify(data), { headers })
+}
