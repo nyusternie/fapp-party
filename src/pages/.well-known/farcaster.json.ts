@@ -15,11 +15,12 @@ export const GET: APIRoute = ({ request }) => {
     const url = new URL(request.url)
 
     /* Set hostname. */
-    const hostname = url.hostname
+    const hostname = url.hostname === 'localhost' ? 'miniapps.party' : url.hostname
 
     /* Initialize data. */
     data = {}
-data.hostname = hostname
+// FIXME FOR DEBUGGING PURPOSES ONLY
+data.hostname = url.hostname
     /* Initialize account association. */
     data.accountAssociation = {}
 
@@ -51,7 +52,8 @@ data.hostname = hostname
     data.frame.splashBackgroundColor = '#21223e'
 
     /* Set home URL. */
-    data.frame.homeUrl = 'https://app.fapp.party'
+    // NOTE: This MUST match the manifest (payload) domain.
+    data.frame.homeUrl = `https://app.${hostname}`
 
     /* Set webhook URL. */
     data.frame.webhookUrl = 'https://webhook.fapp.party/farcaster'
