@@ -11,9 +11,15 @@ export const GET: APIRoute = ({ request }) => {
         'content-type': 'application/json',
     }
 
+    /* Parse (request) URL. */
+    const url = new URL(request.url)
+
+    /* Set hostname. */
+    const hostname = url.hostname
+
     /* Initialize data. */
     data = {}
-
+data.hostname = hostname
     /* Initialize account association. */
     data.accountAssociation = {}
 
