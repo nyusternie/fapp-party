@@ -15,12 +15,16 @@ export const GET: APIRoute = ({ request }) => {
     const url = new URL(request.url)
 
     /* Set hostname. */
-    const hostname = url.hostname === 'localhost' ? 'miniapps.party' : url.hostname
+    // const hostname = url.hostname === 'localhost' ? 'miniapps.party' : url.hostname
+    const hostname = request.headers.get('host')
 
     /* Initialize data. */
     data = {}
 // FIXME FOR DEBUGGING PURPOSES ONLY
-data.hostname = url.hostname
+data.hostname = hostname
+data.getHost = request.headers.get('host')
+data.urlHostname = url.hostname
+data.debug = 'rev1'
     /* Initialize account association. */
     data.accountAssociation = {}
 
